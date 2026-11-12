@@ -6,8 +6,9 @@
 <title>Cueue · Invoices</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/cueue.css">
+<script src="/proto.js" defer></script>
 <link rel="icon" href="/favicon.svg">
-<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}@view-transition{navigation:auto}.side{view-transition-name:side}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}.proto-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(38,40,43,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);view-transition-name:protobar}.proto-bar a{font:500 12px/16px var(--sans);color:rgba(247,248,248,.7);text-decoration:none;padding:7px 14px;border-radius:999px}.proto-bar a.on{background:rgba(247,248,248,.14);color:#F7F8F8}.proto-bar a:hover{color:#F7F8F8}.proto-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F7F8F8;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg)}.proto-toast.in{opacity:1;transform:translate(-50%,0)}.toggle{cursor:pointer}body::after{content:"";display:block;height:72px}</style>
 </head>
 <body>
 
@@ -34,7 +35,7 @@
 </main>
 </div>
 
-<a class="home-link" href="/">All screens</a>
+<nav class="proto-bar" aria-label="Prototype"><a href="/" class="on">Studio app</a><a href="/CSignIn">Client app</a><a href="/screens">All screens</a></nav>
 </body>
 </html>
 

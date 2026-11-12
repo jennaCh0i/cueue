@@ -6,8 +6,9 @@
 <title>Cueue · Line work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/cueue.css">
+<script src="/proto.js" defer></script>
 <link rel="icon" href="/favicon.svg">
-<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}@view-transition{navigation:auto}.side{view-transition-name:side}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}.proto-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(38,40,43,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);view-transition-name:protobar}.proto-bar a{font:500 12px/16px var(--sans);color:rgba(247,248,248,.7);text-decoration:none;padding:7px 14px;border-radius:999px}.proto-bar a.on{background:rgba(247,248,248,.14);color:#F7F8F8}.proto-bar a:hover{color:#F7F8F8}.proto-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F7F8F8;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg)}.proto-toast.in{opacity:1;transform:translate(-50%,0)}.toggle{cursor:pointer}body::after{content:"";display:block;height:72px}</style>
 </head>
 <body>
 
@@ -30,7 +31,7 @@
     <section class="card g16" style="padding: 28px">
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="The cue: five outlined circles in a C, the middle left one filled with a soft lime gradient">
         <defs><radialGradient id="l1" cx="0.35" cy="0.35" r="0.75"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.9"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></radialGradient></defs>
-        <g fill="none" stroke="#2A2927" stroke-width="1">
+        <g fill="none" stroke="#26282B" stroke-width="1">
           <circle cx="122.75" cy="39.25" r="27"></circle><circle cx="191.75" cy="39.25" r="27"></circle><circle cx="88.25" cy="100.75" r="27" fill="url(#l1)"></circle><circle cx="122.75" cy="160.75" r="27"></circle><circle cx="191.75" cy="160.75" r="27"></circle>
           <path d="M219 39 C250 39 250 161 219 161" stroke-dasharray="4 4" stroke-linecap="round"></path>
         </g>
@@ -41,7 +42,7 @@
     <section class="card g16" style="padding: 28px">
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="The queue: one full circle followed by four half circles getting closer together">
         <defs><linearGradient id="l2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.85"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
-        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round">
+        <g fill="none" stroke="#26282B" stroke-width="1" stroke-linecap="round">
           <circle cx="76" cy="100" r="52" fill="url(#l2)"></circle>
           <path d="M128 48 A52 52 0 0 1 128 152"></path><path d="M168 48 A52 52 0 0 1 168 152"></path><path d="M198 48 A52 52 0 0 1 198 152"></path><path d="M220 48 A52 52 0 0 1 220 152"></path>
           <path d="M16 170 H264" stroke-dasharray="4 4"></path>
@@ -53,7 +54,7 @@
     <section class="card g16" style="padding: 28px">
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Rounds: six ellipses stacked on one baseline, one filled with a soft gradient, and a vertical axis">
         <defs><linearGradient id="l3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0.8"></stop></linearGradient><linearGradient id="l3b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="1"></stop></linearGradient></defs>
-        <g fill="none" stroke="#2A2927" stroke-width="1">
+        <g fill="none" stroke="#26282B" stroke-width="1">
           <ellipse cx="140" cy="160" rx="90" ry="10"></ellipse><ellipse cx="140" cy="148" rx="90" ry="22"></ellipse><ellipse cx="140" cy="136" rx="90" ry="34" fill="url(#l3)"></ellipse><ellipse cx="140" cy="124" rx="90" ry="46"></ellipse><ellipse cx="140" cy="112" rx="90" ry="58"></ellipse><ellipse cx="140" cy="100" rx="90" ry="70"></ellipse>
           <path d="M24 170 H256" stroke-dasharray="4 4" stroke-linecap="round"></path>
         </g>
@@ -66,7 +67,7 @@
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Common ground: two outlined circles overlapping, the overlap filled with a soft blue gradient">
         <defs><clipPath id="c4"><circle cx="112" cy="100" r="62"></circle></clipPath><linearGradient id="l4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AACC6" stop-opacity="0.55"></stop><stop offset="1" stop-color="#9AACC6" stop-opacity="0"></stop></linearGradient></defs>
         <circle cx="168" cy="100" r="62" fill="url(#l4)" clip-path="url(#c4)"></circle>
-        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round"><circle cx="112" cy="100" r="62"></circle><circle cx="168" cy="100" r="62"></circle><path d="M140 20 V180" stroke-dasharray="4 4"></path></g>
+        <g fill="none" stroke="#26282B" stroke-width="1" stroke-linecap="round"><circle cx="112" cy="100" r="62"></circle><circle cx="168" cy="100" r="62"></circle><path d="M140 20 V180" stroke-dasharray="4 4"></path></g>
       </svg>
       <div class="stack g4"><span class="sub">Common ground</span><span class="body muted">Studio and client. The overlap is what both have agreed: an approval, a signed contract.</span></div>
       <span class="cap muted">Approvals, contract signed, invite</span>
@@ -74,7 +75,7 @@
     <section class="card g16" style="padding: 28px">
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Milestones: a dashed axis with seven vertical lines, four solid, one gradient bar, two dashed">
         <defs><linearGradient id="l5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="1"></stop></linearGradient></defs>
-        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round">
+        <g fill="none" stroke="#26282B" stroke-width="1" stroke-linecap="round">
           <path d="M16 160 H264" stroke-dasharray="4 4"></path>
           <path d="M40 160 V120"></path><circle cx="40" cy="116" r="4"></circle>
           <path d="M76 160 V104"></path><circle cx="76" cy="100" r="4"></circle>
@@ -84,14 +85,14 @@
           <path d="M256 160 V30" stroke-dasharray="4 4"></path>
         </g>
         <rect x="182" y="40" width="4" height="120" rx="2" fill="url(#l5)"></rect>
-        <circle cx="184" cy="36" r="5" fill="none" stroke="#2A2927"></circle>
+        <circle cx="184" cy="36" r="5" fill="none" stroke="#26282B"></circle>
       </svg>
       <div class="stack g4"><span class="sub">Milestones</span><span class="body muted">Approved work is solid, the current milestone glows, the future is dashed.</span></div>
       <span class="cap muted">Project timeline, roadmap, client project</span>
     </section>
     <section class="card g16" style="padding: 28px">
       <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Rhythm field: rows of thin vertical lines that fade out toward the bottom">
-        <defs><linearGradient id="l6" x1="0" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2A2927" stop-opacity="0.7"></stop><stop offset="1" stop-color="#2A2927" stop-opacity="0"></stop></linearGradient><linearGradient id="l6b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.7"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
+        <defs><linearGradient id="l6" x1="0" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#26282B" stop-opacity="0.7"></stop><stop offset="1" stop-color="#26282B" stop-opacity="0"></stop></linearGradient><linearGradient id="l6b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.7"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
         <rect x="0" y="0" width="280" height="120" fill="url(#l6b)"></rect>
         <g stroke="url(#l6)" stroke-width="1" stroke-linecap="round">
           <path d="M12 0 V60M28 0 V110M44 0 V40M60 0 V150M76 0 V80M92 0 V130M108 0 V50M124 0 V170M140 0 V90M156 0 V140M172 0 V60M188 0 V120M204 0 V40M220 0 V160M236 0 V70M252 0 V110M268 0 V50"></path>
@@ -128,7 +129,7 @@
   </div>
 </div>
 
-<a class="home-link" href="/">All screens</a>
+<nav class="proto-bar" aria-label="Prototype"><a href="/">Studio app</a><a href="/CSignIn">Client app</a><a href="/screens" class="on">All screens</a></nav>
 </body>
 </html>
 
