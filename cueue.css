@@ -26,7 +26,7 @@
   --shadow-lg:0 2px 4px rgba(42,41,39,.05),0 24px 48px -24px rgba(42,41,39,.22);
   --r-card:22px; --r-panel:28px; --r-field:12px;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","SF Pro",system-ui,"Helvetica Neue",Arial,sans-serif;
-  --serif:"Mate","Newsreader",Georgia,"Times New Roman",serif;
+  --serif:"Zilla Slab","Rockwell",Georgia,"Times New Roman",serif;
   --font:var(--sans);
 }
 *{box-sizing:border-box}
@@ -35,9 +35,9 @@ a{color:var(--ink)}
 h1,h2,h3,h4,p{margin:0}
 
 /* type: SF Pro is the typeface. The serif appears only in page headers (h1.title) and .display, the big moments. */
-.display{font-family:var(--serif);font-weight:400;font-size:64px;line-height:68px;letter-spacing:-.015em;font-variant-numeric:lining-nums}
+.display{font-family:var(--serif);font-weight:300;font-size:64px;line-height:68px;letter-spacing:-.02em;font-variant-numeric:lining-nums}
 .title{font-weight:500;font-size:38px;line-height:44px;letter-spacing:-.03em}
-h1.title{font-family:var(--serif);font-weight:400;font-size:44px;line-height:50px;letter-spacing:-.01em}
+h1.title{font-family:var(--serif);font-weight:400;font-size:44px;line-height:50px;letter-spacing:-.015em}
 .heading{font-weight:500;font-size:24px;line-height:30px;letter-spacing:-.02em}
 .sub{font-weight:500;font-size:17px;line-height:24px;letter-spacing:-.01em}
 .body{font-weight:400;font-size:15px;line-height:22px}
