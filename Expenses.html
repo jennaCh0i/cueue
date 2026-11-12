@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Expenses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav on" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <div class="hstack between wrap g16"><div class="stack g4"><h1 class="title">Finances</h1><p class="body muted">Expenses · October 2026</p></div><a class="btn btn-p" href="/Expenses">Add expense</a></div>
+  <div class="tabs"><a class="tab" href="/Finances">Overview</a><a class="tab" href="/Plan">Plan</a><a class="tab" href="/Invoices">Invoices</a><a class="tab on" href="/Expenses">Expenses</a></div>
+  <div class="grid4">
+    <div class="card navy"><span class="cap" style="opacity: .8">Spent in October</span><span class="title">$1,240</span><span class="cap" style="opacity: .8">$1,120 billed back to Fernhill · $120 is your cost</span></div>
+    <div class="card"><span class="cap muted">Print and production</span><span class="title">$640</span></div>
+    <div class="card"><span class="cap muted">Stock and fonts</span><span class="title">$540</span></div>
+    <div class="card"><span class="cap muted">Software</span><span class="title">$60</span></div>
+  </div>
+  <div class="hstack between wrap g12"><div class="seg"><span class="on">All</span><span>Billable</span><span>Not billable</span><span>Recurring</span></div><span class="cap muted">Year to date $9,830</span></div>
+  <section class="card flat">
+    <div class="row"><div class="stack g4 grow"><span class="label">Store poster proofs</span><span class="cap muted">Fernhill Outdoor · Fall drop · Oct 18</span></div><span class="label" style="width: 90px">$640</span><span style="width: 150px"><span class="chip">Billed to Fernhill</span></span></div>
+    <div class="row"><div class="stack g4 grow"><span class="label">Stock footage</span><span class="cap muted">Fernhill Outdoor · Fall drop · Oct 12</span></div><span class="label" style="width: 90px">$480</span><span style="width: 150px"><span class="chip">Billed to Fernhill</span></span></div>
+    <div class="row"><div class="stack g4 grow"><span class="label">Font licence</span><span class="cap muted">Halcyon Coffee · Brand refresh · Oct 6</span></div><span class="label" style="width: 90px">$60</span><span style="width: 150px"><span class="chip c-done">Your cost</span></span></div>
+    <div class="row"><div class="stack g4 grow"><span class="label">Adobe Creative Cloud</span><span class="cap muted">Studio · every month · Oct 1</span></div><span class="label" style="width: 90px">$60</span><span style="width: 150px"><span class="chip c-done">Your cost</span></span></div>
+  </section>
+  <p class="cap muted">Project expenses come off that project’s profit, so the project page shows the real margin.</p>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

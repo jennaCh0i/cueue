@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <div class="stack g4"><h1 class="title">Settings</h1><p class="body muted">Mina Park · Studio Park · Pro</p></div>
+  <div class="split">
+    <nav class="narrow stack g4" style="flex: 1 1 220px; max-width: 260px" aria-label="Settings">
+      <a class="nav on" href="/Settings">Account</a><a class="nav" href="/Settings">Notifications</a><a class="nav" href="/Settings">Studio defaults</a><a class="nav" href="/Billing">Plan and billing</a><a class="nav" href="/SignIn">Log out</a>
+    </nav>
+    <section class="wide card g24">
+      <h2 class="heading">Account</h2>
+      <div class="grid2"><label class="field"><span>Name</span><input class="input" value="Mina Park"></label><label class="field"><span>Studio name</span><input class="input" value="Studio Park"></label></div>
+      <label class="field"><span>Email</span><input class="input" value="mina@studiopark.co"></label>
+      <div class="divider"></div>
+      <h3 class="sub">Password</h3>
+      <div class="grid2"><label class="field"><span>Current password</span><input class="input" type="password" value="password12"></label><label class="field"><span>New password</span><input class="input" type="password" value="password1234"><span class="cap muted">Strong enough</span></label></div>
+      <div class="hstack g12" style="justify-content: flex-end"><a class="btn btn-s" href="/Main">Cancel</a><a class="btn btn-p" href="/Settings">Save changes</a></div>
+    </section>
+  </div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

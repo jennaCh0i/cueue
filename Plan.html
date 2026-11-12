@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Month plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav on" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <div class="hstack between wrap g16"><div class="stack g4"><h1 class="title">Finances</h1><p class="body muted">October 2026 · 10 days left</p></div><div class="seg"><span>Week</span><span class="on">Month</span><span>Quarter</span><span>Year</span></div></div>
+  <div class="tabs"><a class="tab" href="/Finances">Overview</a><a class="tab on" href="/Plan">Plan</a><a class="tab" href="/Invoices">Invoices</a><a class="tab" href="/Expenses">Expenses</a></div>
+  <div class="split">
+    <section class="wide card g16">
+      <div class="hstack between"><span class="cap muted">Booked this month</span><a class="label muted" href="/Goal">Edit goal</a></div>
+      <span class="display">$15,500</span>
+      <div class="bar" style="height: 10px; border-radius: 5px"><i style="width: 78%"></i></div>
+      <p class="body muted">of your $20,000 October goal · $4,500 to go</p>
+    </section>
+    <section class="narrow card g12">
+      <h2 class="sub">Where it came from</h2>
+      <div class="hstack between"><span class="body">Fernhill campaign</span><span class="label">$8,200</span></div>
+      <div class="hstack between"><span class="body">Fernhill retainer</span><span class="label">$3,500</span></div>
+      <div class="hstack between"><span class="body">Northline Bikes</span><span class="label">$2,200</span></div>
+      <div class="hstack between"><span class="body">Halcyon Coffee</span><span class="label">$1,600</span></div>
+    </section>
+  </div>
+  <section class="card g16">
+    <div class="hstack between wrap g8"><h2 class="sub">Suggested project mix</h2><span class="cap muted"><span class="ai">✦</span> AI suggests</span></div>
+    <p class="cap muted">Ranked by priority: money ready to release first, then new work that fits your capacity.</p>
+    <div class="pick" style="flex-wrap: wrap"><span class="chip c-you">1</span><div class="stack g4 grow"><span class="label">Fernhill Outdoor · Fall drop</span><span class="cap muted">Release $12,000 on approval · due Oct 30</span></div><a class="btn btn-s" href="/Plan">Dismiss</a><a class="btn btn-p" href="/Plan">Accept</a></div>
+    <div class="pick" style="flex-wrap: wrap"><span class="chip">2</span><div class="stack g4 grow"><span class="label">Halcyon Coffee · Brand guide</span><span class="cap muted">Release $1,600 once Priya approves</span></div><a class="btn btn-s" href="/Plan">Dismiss</a><a class="btn btn-p" href="/Plan">Accept</a></div>
+    <div class="pick" style="flex-wrap: wrap"><span class="chip">3</span><div class="stack g4 grow"><span class="label">Fernhill Outdoor · Holiday gift guide</span><span class="cap muted">New work · about $6,000 · Rosa asked for it in the last review</span></div><a class="btn btn-s" href="/Plan">Dismiss</a><a class="btn btn-p" href="/Plan">Accept</a></div>
+    <p class="cap muted">Dismissed: Juniper Dental retainer (Oct 12). Dismissals are remembered.</p>
+  </section>
+  <div class="grid2">
+    <section class="card flat">
+      <div style="padding: 20px 24px"><h2 class="sub">Unpaid and waiting</h2></div>
+      <a class="row" href="/Invoice"><div class="stack g4 grow"><span class="label">Summer drop · $11,400</span><span class="cap muted">Invoice 0047 to Omar · 12 days late</span></div><span class="btn btn-s">Send reminder</span></a>
+      <a class="row" href="/Review"><div class="stack g4 grow"><span class="label">Fall drop, round 2</span><span class="cap muted">Review sent Oct 17 to Rosa and Jae</span></div><span class="chip c-client">4 days waiting</span></a>
+    </section>
+    <section class="card flat">
+      <div style="padding: 20px 24px"><h2 class="sub">Retainers</h2></div>
+      <div class="row"><div class="stack g4 grow"><span class="label">Fernhill · Social content</span><span class="cap muted">$3,500 a month · renews Dec 31</span></div><span class="chip">Active</span></div>
+    </section>
+  </div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Color and aura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div style="width: 1440px; min-height: 1240px; background: var(--paper); padding: 80px; display: flex; flex-direction: column; gap: 48px">
+  <div class="stack g16" style="max-width: 900px">
+    <span class="eyebrow">Brand · color</span>
+    <h1 class="display">Monochrome, with one soft aura.</h1>
+    <p class="body muted" style="font-size: 17px; line-height: 26px">Working screens stay warm grey and charcoal. A single pale gradient, sage to sky to lavender to blush, marks what matters now: your move, progress, the current step and anything Cueue’s AI suggests. It always sits behind ink text and never carries meaning on its own.</p>
+  </div>
+
+  <div class="split" style="gap: 24px">
+    <section class="wide card g16" style="padding: 28px">
+      <h2 class="sub">Neutrals</h2>
+      <div class="grid5" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #EEECE7; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Paper</span><span class="cap muted">#EEECE7 · page</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #E6E3DD"></div><span class="label">Cream</span><span class="cap muted">#E6E3DD · panel</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #F7F6F2; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Card</span><span class="cap muted">#F7F6F2 · never pure white</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #D8D5CE"></div><span class="label">Stone</span><span class="cap muted">#D8D5CE · emphasis</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #2A2927"></div><span class="label">Ink</span><span class="cap muted">#2A2927 · text, primary</span></div>
+      </div>
+    </section>
+    <section class="narrow card g16" style="padding: 28px">
+      <h2 class="sub">Status tints</h2>
+      <div class="stack g12">
+        <span class="chip c-you" style="align-self: flex-start">Your move · sage</span>
+        <span class="chip c-client" style="align-self: flex-start">Waiting on client · slate</span>
+        <span class="chip c-late" style="align-self: flex-start">Late · clay</span>
+        <span class="chip c-done" style="align-self: flex-start">Done · grey</span>
+      </div>
+      <p class="cap muted">Status stays flat so it reads at a glance. The aura is never a status.</p>
+    </section>
+  </div>
+
+  <div class="grid3" style="gap: 24px">
+    <section class="card g16" style="padding: 28px">
+      <div style="height: 180px; border-radius: 16px; background: var(--aura)"></div>
+      <div class="stack g4"><span class="sub">Aura</span><span class="body muted">The mesh. Sage #D3DAA4, sky #BCD2F0, lavender #CEC4EE, blush #F2CFD8 on #EEEDE6.</span></div>
+      <span class="cap muted">Your-move card, sign in, empty states</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <div style="height: 180px; border-radius: 16px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line); display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 24px">
+        <div class="bar" style="height: 8px; border-radius: 4px"><i style="width: 78%; border-radius: 4px"></i></div>
+        <div class="bar"><i style="width: 46%"></i></div>
+        <div class="steps"><span class="step done" style="height: 36px">Done</span><span class="step now" style="height: 36px">Now</span><span class="step" style="height: 36px">Next</span></div>
+      </div>
+      <div class="stack g4"><span class="sub">Aura line</span><span class="body muted">#B4BE6E → #9DB6E2 → #B3A2E2. Progress fills and the soft fill on the current step.</span></div>
+      <span class="cap muted">Progress, goal bars, paid bars, current step</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <div style="height: 180px; border-radius: 16px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line); display: grid; place-items: center; position: relative; overflow: hidden">
+        <div class="orb" style="width: 120px; height: 120px; filter: blur(4px)"></div>
+      </div>
+      <div class="stack g4"><span class="sub">Orb</span><span class="body muted">A blurred aura sphere. The one place it can feel alive, like Cueue thinking.</span></div>
+      <span class="cap muted">Sign in, AI working, onboarding</span>
+    </section>
+  </div>
+
+  <div class="split" style="gap: 24px">
+    <section class="wide stack g16">
+      <h2 class="sub">In use</h2>
+      <div class="grid2">
+        <div class="card lime g8">
+          <span class="chip c-you" style="align-self: flex-start; background: rgba(247,246,242,.7)">Your move</span>
+          <span class="sub">Upload round 3 by Oct 24</span>
+          <span class="cap">Fall drop · hero film and retail</span>
+        </div>
+        <div class="card g12">
+          <span class="cap muted"><span class="ai">✦</span> AI suggests</span>
+          <span class="sub">Fernhill · Holiday gift guide</span>
+          <div class="hstack g8"><a class="btn btn-g" href="#">Draft the proposal</a><a class="btn btn-s" href="#">Dismiss</a></div>
+        </div>
+        <div class="card g12">
+          <div class="hstack between"><span class="cap muted">Booked this month</span><span class="cap muted">78%</span></div>
+          <span class="display" style="font-size: 44px; line-height: 48px">$15,500</span>
+          <div class="bar" style="height: 8px; border-radius: 4px"><i style="width: 78%; border-radius: 4px"></i></div>
+        </div>
+        <div class="card ink g8" style="min-height: 180px; justify-content: flex-end">
+          <span class="heading" style="font-family: var(--serif); font-weight: 400">The next move is clear.</span>
+          <span class="cap" style="opacity: .7">On charcoal the aura glows from below.</span>
+        </div>
+      </div>
+    </section>
+    <section class="narrow card g12" style="padding: 28px">
+      <h2 class="heading">Use it</h2>
+      <p class="body">For the one thing that needs you now, and for progress.</p>
+      <p class="body">For anything the AI made: the <span class="ai">✦</span> mark, suggestions, the soft button.</p>
+      <p class="body">One aura surface per screen. Bars and steps don’t count.</p>
+      <div class="divider"></div>
+      <h2 class="heading">Don’t</h2>
+      <p class="body">Put text in the gradient, or use it as a status color.</p>
+      <p class="body">Use it behind tables, charts axes or forms.</p>
+      <p class="body">Saturate it. If it reads as a color, it’s too strong.</p>
+    </section>
+  </div>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

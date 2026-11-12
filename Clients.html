@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Clients</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav on" href="/Clients">Clients</a><a class="nav" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <div class="hstack between wrap g16">
+    <div class="stack g4"><h1 class="title">Clients</h1><p class="body muted">5 clients · 4 with active work · $13,000 owed to you</p></div>
+    <div class="hstack g12"><label class="field" style="width: 240px"><span class="cap muted">Search</span><input class="input" placeholder="Search clients"></label><a class="btn btn-p" href="/Invite" style="align-self: flex-end">Add client</a></div>
+  </div>
+  <div class="grid4">
+    <div class="card"><span class="cap muted">Billed in 2026</span><span class="title">$186,500</span><span class="cap muted">$172,100 paid</span></div>
+    <div class="card"><span class="cap muted">Owed to you</span><span class="title">$13,000</span><span class="cap muted">Fernhill is 12 days late</span></div>
+    <div class="card"><span class="cap muted">Top client</span><span class="title">38%</span><span class="cap muted">of billing is Fernhill</span></div>
+    <div class="card"><span class="cap muted">Average rate</span><span class="title">$81/hr</span><span class="cap muted">Fernhill lowest at $79/hr</span></div>
+  </div>
+  <div class="tabs"><span class="tab on">All · 5</span><span class="tab">Active · 4</span><span class="tab">Owes you · 2</span><span class="tab">Past · 1</span></div>
+  <section class="card flat">
+    <div class="hstack" style="padding: 0"><span class="th grow">All clients</span><span class="th" style="width: 160px">Billed this year</span><span class="th" style="width: 180px">Status</span></div>
+    <a class="row" href="/Client"><div class="photo" style="width: 48px; min-height: 48px; border-radius: 10px; flex: none; padding: 0"><img src="/img/fernhill2.jpg" alt="Fernhill Outdoor"></div><div class="stack g4 grow"><span class="label">Fernhill Outdoor Co.</span><span class="cap muted">Rosa Lindqvist · approver · 2 projects + retainer · $11,400 owed</span></div><span class="label" style="width: 160px">$71,500</span><span style="width: 180px"><span class="chip c-late">12 days late</span></span></a>
+    <a class="row" href="/Client"><div class="photo" style="width: 48px; min-height: 48px; border-radius: 10px; flex: none; padding: 0"><img src="/img/halcyon.jpg" alt="Halcyon Coffee"></div><div class="stack g4 grow"><span class="label">Halcyon Coffee</span><span class="cap muted">Priya Shah · approver · 1 active · $1,600 owed</span></div><span class="label" style="width: 160px">$6,400</span><span style="width: 180px"><span class="chip c-you">Your move</span></span></a>
+    <a class="row" href="/Client"><div class="photo" style="width: 48px; min-height: 48px; border-radius: 10px; flex: none; padding: 0"><img src="/img/northline.jpg" alt="Northline Bikes"></div><div class="stack g4 grow"><span class="label">Northline Bikes</span><span class="cap muted">Dana Ruiz · approver · 1 active · nothing owed</span></div><span class="label" style="width: 160px">$9,800</span><span style="width: 180px"><span class="chip">On track</span></span></a>
+    <a class="row" href="/Client"><div class="photo" style="width: 48px; min-height: 48px; border-radius: 10px; flex: none; padding: 0"><img src="/img/juniper.jpg" alt="Juniper Dental"></div><div class="stack g4 grow"><span class="label">Juniper Dental</span><span class="cap muted">Leo Park · approver · contract out</span></div><span class="label" style="width: 160px">$1,800</span><span style="width: 180px"><span class="chip c-client">Waiting on Leo</span></span></a>
+    <a class="row" href="/Client"><div class="photo" style="width: 48px; min-height: 48px; border-radius: 10px; flex: none; padding: 0"><img src="/img/caferosa.jpg" alt="Café Rosa"></div><div class="stack g4 grow"><span class="label">Café Rosa</span><span class="cap muted">Ana Ruiz · past client · paid</span></div><span class="label" style="width: 160px">$900</span><span style="width: 180px"><span class="chip c-done">Complete</span></span></a>
+  </section>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

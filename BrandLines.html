@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Line work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div style="width: 1440px; min-height: 1820px; background: var(--paper); padding: 80px; display: flex; flex-direction: column; gap: 48px">
+  <div class="stack g16" style="max-width: 900px">
+    <span class="eyebrow">Brand · line work</span>
+    <h1 class="display">Thin lines, one soft gradient.</h1>
+    <p class="body muted" style="font-size: 17px; line-height: 26px">Every motif comes from the cue mark: five circles, a queue, rounds of work, the overlap between a studio and its client. Lines are drawn, never filled. One shape per motif carries a gradient, and that shape is the point: the current round, the cue, the agreement.</p>
+  </div>
+
+  <div class="grid4" style="grid-template-columns: repeat(5, minmax(0, 1fr))">
+    <div class="card"><span class="cap muted">Stroke</span><span class="sub">1px</span><span class="cap muted">1.5px when the motif is under 64px</span></div>
+    <div class="card"><span class="cap muted">Dash</span><span class="sub">4 · 4</span><span class="cap muted">Axes, proposed work, anything not started</span></div>
+    <div class="card"><span class="cap muted">Gradient</span><span class="sub">One per motif</span><span class="cap muted">Sage 70% → 0, or slate 40% → 0. White 70% on charcoal.</span></div>
+    <div class="card"><span class="cap muted">Ends</span><span class="sub">Round caps</span><span class="cap muted">Round joins. No arrowheads.</span></div>
+    <div class="card"><span class="cap muted">Grid</span><span class="sub">8px</span><span class="cap muted">Circles share one radius inside a motif</span></div>
+  </div>
+
+  <div class="grid3" style="gap: 24px">
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="The cue: five outlined circles in a C, the middle left one filled with a soft lime gradient">
+        <defs><radialGradient id="l1" cx="0.35" cy="0.35" r="0.75"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.9"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></radialGradient></defs>
+        <g fill="none" stroke="#2A2927" stroke-width="1">
+          <circle cx="122.75" cy="39.25" r="27"></circle><circle cx="191.75" cy="39.25" r="27"></circle><circle cx="88.25" cy="100.75" r="27" fill="url(#l1)"></circle><circle cx="122.75" cy="160.75" r="27"></circle><circle cx="191.75" cy="160.75" r="27"></circle>
+          <path d="M219 39 C250 39 250 161 219 161" stroke-dasharray="4 4" stroke-linecap="round"></path>
+        </g>
+      </svg>
+      <div class="stack g4"><span class="sub">The cue</span><span class="body muted">The mark, drawn open. The filled dot is whoever moves next.</span></div>
+      <span class="cap muted">Sign in, invite, empty projects</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="The queue: one full circle followed by four half circles getting closer together">
+        <defs><linearGradient id="l2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.85"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
+        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round">
+          <circle cx="76" cy="100" r="52" fill="url(#l2)"></circle>
+          <path d="M128 48 A52 52 0 0 1 128 152"></path><path d="M168 48 A52 52 0 0 1 168 152"></path><path d="M198 48 A52 52 0 0 1 198 152"></path><path d="M220 48 A52 52 0 0 1 220 152"></path>
+          <path d="M16 170 H264" stroke-dasharray="4 4"></path>
+        </g>
+      </svg>
+      <div class="stack g4"><span class="sub">The queue</span><span class="body muted">Work lined up. The full circle is what’s in hand now, the rest is coming.</span></div>
+      <span class="cap muted">Projects home, month plan</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Rounds: six ellipses stacked on one baseline, one filled with a soft gradient, and a vertical axis">
+        <defs><linearGradient id="l3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0.8"></stop></linearGradient><linearGradient id="l3b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="1"></stop></linearGradient></defs>
+        <g fill="none" stroke="#2A2927" stroke-width="1">
+          <ellipse cx="140" cy="160" rx="90" ry="10"></ellipse><ellipse cx="140" cy="148" rx="90" ry="22"></ellipse><ellipse cx="140" cy="136" rx="90" ry="34" fill="url(#l3)"></ellipse><ellipse cx="140" cy="124" rx="90" ry="46"></ellipse><ellipse cx="140" cy="112" rx="90" ry="58"></ellipse><ellipse cx="140" cy="100" rx="90" ry="70"></ellipse>
+          <path d="M24 170 H256" stroke-dasharray="4 4" stroke-linecap="round"></path>
+        </g>
+        <rect x="138" y="16" width="4" height="164" rx="2" fill="url(#l3b)"></rect>
+      </svg>
+      <div class="stack g4"><span class="sub">Rounds</span><span class="body muted">Each review round stacks on the last. The tinted one is the round in review.</span></div>
+      <span class="cap muted">Milestone review, compare rounds</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Common ground: two outlined circles overlapping, the overlap filled with a soft blue gradient">
+        <defs><clipPath id="c4"><circle cx="112" cy="100" r="62"></circle></clipPath><linearGradient id="l4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AACC6" stop-opacity="0.55"></stop><stop offset="1" stop-color="#9AACC6" stop-opacity="0"></stop></linearGradient></defs>
+        <circle cx="168" cy="100" r="62" fill="url(#l4)" clip-path="url(#c4)"></circle>
+        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round"><circle cx="112" cy="100" r="62"></circle><circle cx="168" cy="100" r="62"></circle><path d="M140 20 V180" stroke-dasharray="4 4"></path></g>
+      </svg>
+      <div class="stack g4"><span class="sub">Common ground</span><span class="body muted">Studio and client. The overlap is what both have agreed: an approval, a signed contract.</span></div>
+      <span class="cap muted">Approvals, contract signed, invite</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Milestones: a dashed axis with seven vertical lines, four solid, one gradient bar, two dashed">
+        <defs><linearGradient id="l5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="1"></stop></linearGradient></defs>
+        <g fill="none" stroke="#2A2927" stroke-width="1" stroke-linecap="round">
+          <path d="M16 160 H264" stroke-dasharray="4 4"></path>
+          <path d="M40 160 V120"></path><circle cx="40" cy="116" r="4"></circle>
+          <path d="M76 160 V104"></path><circle cx="76" cy="100" r="4"></circle>
+          <path d="M112 160 V88"></path><circle cx="112" cy="84" r="4"></circle>
+          <path d="M148 160 V72"></path><circle cx="148" cy="68" r="4"></circle>
+          <path d="M220 160 V44" stroke-dasharray="4 4"></path>
+          <path d="M256 160 V30" stroke-dasharray="4 4"></path>
+        </g>
+        <rect x="182" y="40" width="4" height="120" rx="2" fill="url(#l5)"></rect>
+        <circle cx="184" cy="36" r="5" fill="none" stroke="#2A2927"></circle>
+      </svg>
+      <div class="stack g4"><span class="sub">Milestones</span><span class="body muted">Approved work is solid, the current milestone glows, the future is dashed.</span></div>
+      <span class="cap muted">Project timeline, roadmap, client project</span>
+    </section>
+    <section class="card g16" style="padding: 28px">
+      <svg class="art" viewBox="0 0 280 200" width="100%" role="img" aria-label="Rhythm field: rows of thin vertical lines that fade out toward the bottom">
+        <defs><linearGradient id="l6" x1="0" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2A2927" stop-opacity="0.7"></stop><stop offset="1" stop-color="#2A2927" stop-opacity="0"></stop></linearGradient><linearGradient id="l6b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.7"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
+        <rect x="0" y="0" width="280" height="120" fill="url(#l6b)"></rect>
+        <g stroke="url(#l6)" stroke-width="1" stroke-linecap="round">
+          <path d="M12 0 V60M28 0 V110M44 0 V40M60 0 V150M76 0 V80M92 0 V130M108 0 V50M124 0 V170M140 0 V90M156 0 V140M172 0 V60M188 0 V120M204 0 V40M220 0 V160M236 0 V70M252 0 V110M268 0 V50"></path>
+          <path d="M20 70 V120M52 50 V100M84 92 V150M116 60 V96M148 100 V160M180 72 V130M212 52 V90M244 80 V140"></path>
+        </g>
+      </svg>
+      <div class="stack g4"><span class="sub">Rhythm field</span><span class="body muted">A field of lines that fades out. Background only, behind a headline, never behind data.</span></div>
+      <span class="cap muted">Sign in, marketing, dark hero cards</span>
+    </section>
+  </div>
+
+  <div class="split" style="gap: 24px; align-items: stretch">
+    <section class="wide card ink g16" style="padding: 40px; min-height: 360px">
+      <span class="eyebrow" style="color: rgba(255,255,255,.7)">On dark · charcoal</span>
+      <div class="hstack g32 wrap" style="align-items: center">
+        <svg class="art" viewBox="0 0 280 200" width="320" role="img" aria-label="Common ground drawn in white lines on navy, overlap in lime">
+          <defs><clipPath id="c7"><circle cx="112" cy="100" r="62"></circle></clipPath><linearGradient id="l7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2C78A" stop-opacity="0.75"></stop><stop offset="1" stop-color="#C2C78A" stop-opacity="0"></stop></linearGradient></defs>
+          <circle cx="168" cy="100" r="62" fill="url(#l7)" clip-path="url(#c7)"></circle>
+          <g fill="none" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1" stroke-linecap="round"><circle cx="112" cy="100" r="62"></circle><circle cx="168" cy="100" r="62"></circle><path d="M140 20 V180" stroke-dasharray="4 4"></path></g>
+        </svg>
+        <div class="stack g8" style="max-width: 360px"><span class="title">Round 2 approved.</span><span class="body" style="color: rgba(255,255,255,.75)">On charcoal, lines go white at 70% and the gradient stays sage. The rhythm field sits behind at 8%.</span></div>
+      </div>
+    </section>
+    <section class="narrow card g12" style="padding: 32px">
+      <h2 class="heading">Use it</h2>
+      <p class="body">For brand moments: sign in, invites, empty states, onboarding, marketing.</p>
+      <p class="body">One motif per view, sized to sit beside a headline, not under data.</p>
+      <div class="divider"></div>
+      <h2 class="heading">Don’t</h2>
+      <p class="body muted">Fill a shape solid, or use two gradient colors in one motif.</p>
+      <p class="body muted">Thicken lines past 1.5px, or add shadows to them.</p>
+      <p class="body muted">Put line work on tables, charts or forms. Working screens stay quiet.</p>
+    </section>
+  </div>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

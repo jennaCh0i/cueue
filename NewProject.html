@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · New project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav on" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/Projects">Projects</a><span class="muted">›</span><span>New project</span></nav>
+  <div class="hstack between wrap g16"><h1 class="title">New project</h1><span class="cap muted">Saved automatically · just now</span></div>
+  <ol class="hstack g8 wrap" style="list-style: none; padding: 0; margin: 0">
+    <li class="chip c-you">1 · Project and client</li><li class="chip">2 · Milestones</li><li class="chip">3 · Payment</li><li class="chip">4 · Invite client</li>
+  </ol>
+  <div class="split">
+    <section class="wide card g24">
+      <div class="hstack between"><h2 class="heading">Project and client</h2><span class="cap muted">Draft · only you</span></div>
+      <div class="grid2">
+        <label class="field"><span>Project name</span><input class="input" value="Trail Season 2027 campaign"></label>
+        <label class="field"><span>Client · company</span><input class="input" value="Fernhill Outdoor Co. ▾"></label>
+      </div>
+      <p class="cap muted">Pick an existing client or type a new company. You invite their contact in step 4.</p>
+      <div class="stack g12">
+        <span class="label">Cover photo</span>
+        <div class="grid3">
+          <div class="photo" style="border-radius: 12px; box-shadow: inset 0 0 0 2px var(--navy)"><img src="/img/cover2027.jpg" alt="From Fernhill’s shared folder, selected"></div>
+          <div class="photo" style="border-radius: 12px"><img src="/img/lake.jpg" alt="From Fernhill’s shared folder"></div>
+          <a class="photo" href="/NewProject" style="border-radius: 12px; background: transparent; box-shadow: inset 0 0 0 1px var(--n12); text-decoration: none">+ Upload</a>
+        </div>
+        <p class="cap muted">Clients see this cover on their invite, every review and the project card.</p>
+      </div>
+      <div class="stack g12">
+        <span class="label">Template</span>
+        <div class="grid3">
+          <span class="pick on">Campaign · 7 milestones</span><span class="pick">Retainer · monthly</span><span class="pick">Brand · 4 milestones</span><span class="pick">Web · 5 milestones</span><span class="pick">Blank</span>
+        </div>
+        <p class="cap muted">A template fills in suggested milestones, dates and prices in step 2. You can change any of them.</p>
+      </div>
+      <div class="hstack g12" style="justify-content: flex-end"><a class="btn btn-s" href="/Projects">Cancel</a><a class="btn btn-p" href="/Milestones">Continue</a></div>
+    </section>
+    <aside class="narrow stack g12">
+      <span class="cap muted">Preview</span>
+      <div class="card flat">
+        <div class="photo" style="height: 160px"><img src="/img/cover2027.jpg" alt="Trail Season 2027 cover"></div>
+        <div class="stack g12" style="padding: 20px">
+          <div class="stack g4"><span class="sub">Fernhill Outdoor</span><span class="cap muted">Trail Season 2027 campaign</span></div>
+          <span class="label">Next · Milestones (step 2)</span>
+          <div class="stack g8"><span><span class="heading">0</span><span class="body muted">/7 milestones drafted</span></span><div class="bar"><i style="width: 0%"></i></div></div>
+        </div>
+      </div>
+      <p class="cap muted">Fernhill sees nothing until you invite them in step 4.</p>
+    </aside>
+  </div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

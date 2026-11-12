@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Payment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav on" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/NewProject">New project</a><span class="muted">›</span><span>Payment</span></nav>
+  <div class="hstack between wrap g16"><div class="stack g4"><h1 class="title">Payment</h1><p class="body muted">Trail Season 2027 campaign · Fernhill Outdoor</p></div><span class="cap muted">Saved automatically · just now</span></div>
+  <ol class="hstack g8 wrap" style="list-style: none; padding: 0; margin: 0">
+    <li class="chip c-done">✓ Project and client</li><li class="chip c-done">✓ Milestones</li><li class="chip c-you">3 · Payment</li><li class="chip">4 · Invite client</li>
+  </ol>
+  <div class="split">
+    <section class="wide card g24">
+      <h2 class="heading">Payment rules</h2>
+      <div class="stack g12"><span class="label">Deposit</span><div class="hstack g8 wrap"><span class="pick">None</span><span class="pick on">20%</span><span class="pick">25%</span><span class="pick">Custom amount</span></div><p class="cap muted">$14,400 due when Fernhill signs the contract</p></div>
+      <div class="stack g12"><span class="label">Payment terms</span><div class="hstack g8 wrap"><span class="pick">Due on receipt</span><span class="pick">14 days</span><span class="pick on">30 days</span><span class="pick">45 days</span></div><p class="cap muted">Each milestone invoice is due 30 days after it is sent, to match Fernhill’s finance cycle.</p></div>
+      <div class="stack g12"><span class="label">How Fernhill can pay</span><div class="hstack g8 wrap"><span class="pick on">✓ Card</span><span class="pick on">✓ Bank transfer</span><span class="pick">Check</span></div></div>
+      <div class="divider"></div>
+      <label class="hstack g12"><span class="toggle on" aria-hidden="true"></span><span class="stack g4"><span class="label">Release invoice when a milestone is approved</span><span class="cap muted">Each approval sends that milestone’s invoice</span></span></label>
+      <label class="hstack g12"><span class="toggle on" aria-hidden="true"></span><span class="stack g4"><span class="label">Remind Omar when an invoice is late</span><span class="cap muted">Gentle wording, every 7 days</span></span></label>
+    </section>
+    <section class="narrow card flat">
+      <div style="padding: 20px 24px"><h2 class="sub">What Fernhill pays</h2></div>
+      <div class="cell"><span class="body grow">Strategy and campaign platform</span><span class="label">$8,000</span></div>
+      <div class="cell"><span class="body grow">Creative concepts, two rounds</span><span class="label">$10,000</span></div>
+      <div class="cell"><span class="body grow">Photo and film production</span><span class="label">$16,000</span></div>
+      <div class="cell"><span class="body grow">Spring drop · launch toolkit</span><span class="label">$12,000</span></div>
+      <div class="cell"><span class="body grow">Summer drop</span><span class="label">$10,000</span></div>
+      <div class="cell"><span class="body grow">Fall drop</span><span class="label">$10,000</span></div>
+      <div class="cell"><span class="body grow">Wrap report and 2028 plan</span><span class="label">$6,000</span></div>
+      <div class="cell" style="background: var(--n6)"><span class="sub grow">Total</span><span class="sub">$72,000</span></div>
+      <div class="cell"><span class="cap muted">Plus the social content retainer: $3,500 a month, billed on the 1st, Jan to Dec 2027.</span></div>
+    </section>
+  </div>
+  <div class="hstack g12" style="justify-content: flex-end"><a class="btn btn-s" href="/Milestones">Back</a><a class="btn btn-p" href="/Invite">Create project and continue</a></div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Plan and billing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/Settings">Settings</a><span class="muted">›</span><span>Plan and billing</span></nav>
+  <div class="stack g4"><h1 class="title">Plan and billing</h1><p class="body muted">Mina Park · Studio Park · Pro</p></div>
+  <div class="split">
+    <nav class="narrow stack g4" style="flex: 1 1 220px; max-width: 260px" aria-label="Settings">
+      <a class="nav" href="/Settings">Account</a><a class="nav" href="/Settings">Notifications</a><a class="nav" href="/Settings">Studio defaults</a><a class="nav on" href="/Billing">Plan and billing</a><a class="nav" href="/SignIn">Log out</a>
+    </nav>
+    <div class="wide stack g24">
+      <div class="grid2">
+        <div class="card navy"><span class="cap" style="opacity: .8">Current plan</span><span class="title">Pro · studio</span><span class="cap" style="opacity: .8">Renews Nov 1 · next charge $29 (placeholder price)</span></div>
+        <div class="card g12"><span class="cap muted">Active projects</span><span class="title">4 of 15</span><div class="bar"><i style="width: 27%"></i></div><span class="cap muted">Over 15, each extra project is shown here before it is charged</span></div>
+      </div>
+      <section class="card flat">
+        <div class="hstack" style="padding: 0"><span class="th grow">Basic and Pro</span><span class="th" style="width: 160px">Basic</span><span class="th" style="width: 160px">Pro</span></div>
+        <div class="cell"><span class="body grow">Active projects included</span><span class="label" style="width: 136px">5</span><span class="label" style="width: 136px">15</span></div>
+        <div class="cell"><span class="body grow">Team seats</span><span class="label" style="width: 136px">Solo</span><span class="label" style="width: 136px">Studio team</span></div>
+        <div class="cell"><span class="body grow">Roadmap approvals</span><span class="label" style="width: 136px">—</span><span class="label" style="width: 136px">Included</span></div>
+        <div class="cell"><span class="body grow">Integrations (Slack)</span><span class="label" style="width: 136px">—</span><span class="label" style="width: 136px">Included</span></div>
+        <div class="cell" style="justify-content: flex-end"><a class="btn btn-s" href="/Billing">Switch to Basic</a></div>
+      </section>
+      <div class="grid2">
+        <section class="card g12"><h2 class="sub">Payment method</h2><div class="hstack between"><div class="stack g4"><span class="label">Visa ending 4417</span><span class="cap muted">Expires 08/28</span></div><a class="btn btn-s" href="/Billing">Update</a></div></section>
+        <section class="card flat">
+          <div style="padding: 20px 24px"><h2 class="sub">Invoices and receipts</h2></div>
+          <a class="row" href="/Billing"><span class="body grow">Oct 1, 2026 · Cueue Pro</span><span class="label">$29</span><span class="label muted">Receipt</span></a>
+          <a class="row" href="/Billing"><span class="body grow">Sep 1, 2026 · Cueue Pro</span><span class="label">$29</span><span class="label muted">Receipt</span></a>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

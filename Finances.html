@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Finances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Main"><div class="hstack"><a class="brand" href="/Main"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="sub">Cueue</span></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main">Today</a><a class="nav" href="/Projects">Projects</a><a class="nav" href="/Clients">Clients</a><a class="nav on" href="/Finances">Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<main class="main">
+  <div class="hstack between wrap g16"><div class="stack g4"><h1 class="title">Finances</h1><p class="body muted">October 2026</p></div><div class="seg"><span class="on">October 2026</span><span>Year to date</span></div></div>
+  <div class="tabs"><a class="tab on" href="/Finances">Overview</a><a class="tab" href="/Plan">Plan</a><a class="tab" href="/Invoices">Invoices</a><a class="tab" href="/Expenses">Expenses</a></div>
+  <div class="grid4">
+    <div class="card navy"><span class="cap" style="opacity: .8">Kept in October</span><span class="title">+$6,260</span><span class="cap" style="opacity: .8">$15,900 in · $9,640 out</span></div>
+    <div class="card"><span class="cap muted">In the bank</span><span class="title">$42,380</span><span class="cap muted">Stripe and Mercury · synced 9:40 AM</span></div>
+    <a class="card" href="/Invoice" style="text-decoration: none; color: var(--navy)"><span class="cap muted">Owed to you</span><span class="title">$13,000</span><span class="chip c-late" style="align-self: flex-start">$11,400 from Fernhill, 12 days late</span></a>
+    <div class="card"><span class="cap muted">Going out next</span><span class="title">$3,950</span><span class="cap muted">Theo and Ana on Nov 1</span></div>
+  </div>
+  <div class="split">
+    <section class="wide card g16">
+      <div class="hstack between wrap g8"><h2 class="sub">Billed and paid · last six months</h2><div class="hstack g16"><span class="hstack g8 cap"><i style="width: 10px; height: 10px; border-radius: 2px; background: var(--navy)"></i>Billed</span><span class="hstack g8 cap"><i style="width: 10px; height: 10px; border-radius: 2px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%)"></i>Paid</span></div></div>
+      <div role="img" aria-label="Billed and paid by month, May to October. October has the biggest gap: $13,000 still owed." style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; align-items: end; height: 220px">
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 120px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 120px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">May</span></div>
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 150px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 150px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Jun</span></div>
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 110px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 104px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Jul</span></div>
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 160px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 150px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Aug</span></div>
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 130px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 118px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Sep</span></div>
+        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 180px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 96px; background: linear-gradient(180deg,#B3A2E2 0%,#9DB6E2 55%,#B4BE6E 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Oct</span></div>
+      </div>
+      <p class="cap muted">The gap between the bars is money still owed. October has the biggest gap.</p>
+    </section>
+    <section class="narrow card flat">
+      <div style="padding: 20px 24px"><h2 class="sub">Accounts · what each owes</h2></div>
+      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Fernhill Outdoor</span><span class="cap muted">$71,500 billed · 905 h · $79/hr</span></div><div class="stack g4" style="align-items: flex-end"><span class="label">$11,400</span><span class="chip c-late">12 days late</span></div></a>
+      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Halcyon Coffee</span><span class="cap muted">$6,400 billed · 74 h · $86/hr</span></div><div class="stack g4" style="align-items: flex-end"><span class="label">$1,600</span><span class="cap muted">Due in 3 days</span></div></a>
+      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Northline Bikes</span><span class="cap muted">$9,800 billed · 112 h · $88/hr</span></div><span class="label muted">—</span></a>
+    </section>
+  </div>
+</main>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+

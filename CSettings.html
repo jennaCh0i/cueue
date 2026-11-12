@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueue · Client settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cueue.css">
+<link rel="icon" href="/favicon.svg">
+<style>body{margin:0;background:#E3E0DA;display:flex;justify-content:center;padding:40px 0}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}.home-link{position:fixed;right:16px;bottom:16px;z-index:50;font:500 12px/16px var(--sans);background:rgba(247,246,242,.9);color:var(--ink);padding:8px 12px;border-radius:999px;text-decoration:none;box-shadow:var(--shadow)}</style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="ptop"><a class="label muted" href="/CProjects" style="text-decoration: none">‹ Projects</a><span class="avatar blue">RL</span></div>
+  <div class="pbody">
+    <h1 class="title">Settings</h1>
+    <section class="card g16">
+      <h2 class="sub">Account</h2>
+      <label class="field"><span>Name</span><input class="input" value="Rosa Lindqvist"></label>
+      <label class="field"><span>Email</span><input class="input" value="rosa@fernhilloutdoor.com"></label>
+      <label class="field"><span>Company</span><input class="input" value="Fernhill Outdoor Co."></label>
+    </section>
+    <section class="card g16">
+      <h2 class="sub">Password</h2>
+      <label class="field"><span>Current password</span><input class="input" type="password" value="password12"></label>
+      <label class="field"><span>New password</span><input class="input" type="password" value="password1234"><span class="cap muted">Strong enough</span></label>
+    </section>
+    <section class="card g16">
+      <h2 class="sub">Notifications · by email</h2>
+      <div class="hstack between g12"><span class="body">Work is ready to review</span><span class="toggle on" role="img" aria-label="On"></span></div>
+      <div class="hstack between g12"><span class="body">A payment is due</span><span class="toggle on" role="img" aria-label="On"></span></div>
+      <div class="hstack between g12"><span class="body">A feedback deadline is close</span><span class="toggle on" role="img" aria-label="On"></span></div>
+      <span class="cap muted">We never send marketing emails.</span>
+    </section>
+    <a class="btn btn-p btn-full" href="/CProjects">Save changes</a>
+    <a class="btn btn-s btn-full" href="/CSignIn">Log out</a>
+  </div>
+</div>
+
+<a class="home-link" href="/">All screens</a>
+</body>
+</html>
+
