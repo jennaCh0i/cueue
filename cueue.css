@@ -1,4 +1,4 @@
-/* Cueue · v7 · monochrome with one soft aura gradient. Warm greys, off-white cards, charcoal ink. Change a token here, every screen follows. */
+/* Cueue · v8 · cool greys and charcoal ink, with one soft gradient made only from the brand palette (lime #DAEF53, blue #579BFE, cream #F3EFE9). Change a token here, every screen follows. */
 :root{
   /* ink: soft charcoal, not navy. Named --navy so older markup keeps working. */
   --navy:#26282B; --ink:#26282B;
@@ -12,12 +12,13 @@
   --cream:#E3E6E6;           /* work panel */
   --white:#F7F8F8;           /* cards: off-white, never pure white */
   --stone:#D5D9DA;           /* the one emphasis card per screen */
-  /* gradient: one soft aura, used a little. Sage → sky → lavender → blush, always pale, always behind ink text */
-  --g-sage:#D3DAA4; --g-sky:#BCD2F0; --g-lav:#CEC4EE; --g-blush:#F2CFD8; --g-peach:#F4D3BE;
-  --aura:radial-gradient(120% 90% at 0% 0%,rgba(211,218,164,.85) 0%,rgba(211,218,164,0) 55%),radial-gradient(90% 80% at 100% 10%,rgba(188,210,240,.9) 0%,rgba(188,210,240,0) 60%),radial-gradient(90% 90% at 80% 100%,rgba(206,196,238,.9) 0%,rgba(206,196,238,0) 60%),radial-gradient(70% 70% at 10% 100%,rgba(242,207,216,.8) 0%,rgba(242,207,216,0) 60%),#ECEEEE;
-  --aura-line:linear-gradient(90deg,#B4BE6E 0%,#9DB6E2 55%,#B3A2E2 100%);
-  --aura-soft:linear-gradient(100deg,#E9E7CF 0%,#E2E8F3 50%,#ECE6F7 100%);
-  --aura-edge:linear-gradient(135deg,rgba(180,190,110,.55),rgba(157,182,226,.55),rgba(179,162,226,.55));
+  /* gradient: the aura, brand palette only. Lime → blue, washed over grey, always behind ink text, always with the line texture */
+  --g-lime:#DAEF53; --g-blue:#579BFE; --g-cream:#F3EFE9; --g-white:#FEFEFE;
+  --aura:radial-gradient(110% 95% at 0% 0%,rgba(218,239,83,.42) 0%,rgba(218,239,83,0) 58%),radial-gradient(95% 90% at 100% 100%,rgba(87,155,254,.30) 0%,rgba(87,155,254,0) 62%),radial-gradient(70% 70% at 85% 0%,rgba(254,254,254,.7) 0%,rgba(254,254,254,0) 60%),#E9ECEC;
+  --aura-line:linear-gradient(90deg,#DAEF53 0%,#9EC6A8 45%,#579BFE 100%);
+  --aura-soft:linear-gradient(100deg,rgba(218,239,83,.28) 0%,rgba(254,254,254,.6) 50%,rgba(87,155,254,.20) 100%),#F3F5F5;
+  --aura-edge:linear-gradient(135deg,rgba(218,239,83,.75),rgba(254,254,254,.5),rgba(87,155,254,.6));
+  --lines:repeating-linear-gradient(90deg,rgba(38,40,43,.06) 0 1px,transparent 1px 18px);
   --charcoal:linear-gradient(160deg,#383B3F 0%,#26282B 60%,#202225 100%);
   --navy-grad:var(--charcoal);
   /* depth: barely there */
@@ -86,15 +87,17 @@ b{font-weight:600}
 
 /* surfaces */
 .card{position:relative;background:var(--white);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column;gap:8px;min-width:0;box-shadow:var(--shadow)}
-.card.lime{background:var(--aura);box-shadow:none;border:1px solid transparent;background-origin:border-box}
+.card.lime{background:var(--aura);box-shadow:none;border:1px solid transparent;background-origin:border-box;overflow:hidden}
+.card.lime::after,.card.blue::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background-image:var(--lines);-webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 70%);mask-image:linear-gradient(200deg,#000 0%,transparent 70%)}
+.card.lime > *,.card.blue > *{position:relative;z-index:1}
 .card.lime::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:var(--aura-edge);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.card.blue{background:var(--aura-soft);box-shadow:none}
+.card.blue{background:var(--aura-soft);box-shadow:none;overflow:hidden}
 .card.navy{background:var(--stone);color:var(--ink);overflow:hidden;box-shadow:none}
-.card.navy::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(206,196,238,.75) 0%,rgba(188,210,240,.45) 40%,rgba(211,218,164,0) 70%);filter:blur(8px);pointer-events:none}
+.card.navy::before{content:"";position:absolute;width:300px;height:300px;right:-100px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(87,155,254,.42) 0%,rgba(87,155,254,.18) 40%,rgba(218,239,83,0) 70%);filter:blur(10px);pointer-events:none}
 .card.navy::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(90deg,rgba(38,40,43,.07) 0 1px,transparent 1px 18px);-webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 50%);mask-image:linear-gradient(200deg,#000 0%,transparent 50%)}
 .card.navy > *{position:relative;z-index:1}
 .card.ink{background:var(--charcoal);color:#F1F3F3;overflow:hidden;box-shadow:var(--shadow-lg)}
-.card.ink::before{content:"";position:absolute;width:420px;height:420px;left:50%;bottom:-260px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(206,196,238,.55) 0%,rgba(188,210,240,.3) 35%,rgba(211,218,164,.12) 55%,rgba(38,40,43,0) 70%);filter:blur(10px);pointer-events:none}
+.card.ink::before{content:"";position:absolute;width:440px;height:440px;left:50%;bottom:-270px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(87,155,254,.45) 0%,rgba(87,155,254,.18) 38%,rgba(218,239,83,.10) 56%,rgba(38,40,43,0) 72%);filter:blur(10px);pointer-events:none}
 .card.ink > *{position:relative;z-index:1}
 .card.flat{padding:0;gap:0;overflow:hidden}
 .card.dash{background:transparent;box-shadow:none;border:1px dashed rgba(38,40,43,.22)}
@@ -109,7 +112,7 @@ b{font-weight:600}
 .btn-p:hover{background:#383B3F}
 .btn-s{background:var(--white);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 .btn-s:hover{background:#FAFBFB}
-.btn-g{background:var(--aura-soft);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(157,182,226,.35)}
+.btn-g{background:var(--aura-soft);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(87,155,254,.28)}
 .btn-g:hover{filter:brightness(1.02)}
 .btn-x{background:var(--n6);color:var(--n40);cursor:default}
 .btn-full{width:100%}
@@ -149,7 +152,7 @@ b{font-weight:600}
 .steps{display:flex;gap:6px}
 .step{flex:1 1 0;height:44px;border-radius:var(--r-field);display:grid;place-items:center;font-weight:400;font-size:12.5px;background:transparent;color:var(--n64);border:1px dashed rgba(38,40,43,.22)}
 .step.done{background:#44474B;color:#F1F3F3;border-color:transparent}
-.step.now{background:var(--aura-soft);color:var(--ink);font-weight:500;border:1px solid rgba(157,182,226,.6)}
+.step.now{background:var(--aura-soft);color:var(--ink);font-weight:500;border:1px solid rgba(87,155,254,.45)}
 
 /* forms */
 .field{display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -185,7 +188,7 @@ textarea.input{resize:vertical;min-height:96px}
 .lines-v{background-image:repeating-linear-gradient(90deg,rgba(38,40,43,.12) 0 1px,transparent 1px 22px);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
 .lines-v.on-dark{background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.10) 0 1px,transparent 1px 22px)}
 .art{display:block;max-width:100%;height:auto}
-.orb{border-radius:50%;background:radial-gradient(60% 60% at 35% 30%,#F4D3BE 0%,rgba(244,211,190,0) 60%),radial-gradient(70% 70% at 70% 40%,#CEC4EE 0%,rgba(206,196,238,0) 65%),radial-gradient(80% 80% at 40% 80%,#BCD2F0 0%,rgba(188,210,240,0) 70%),radial-gradient(60% 60% at 20% 70%,#D3DAA4 0%,rgba(211,218,164,0) 70%),#ECEEEE;filter:saturate(1.05)}
+.orb{border-radius:50%;background:radial-gradient(60% 60% at 30% 30%,#DAEF53 0%,rgba(218,239,83,0) 62%),radial-gradient(75% 75% at 72% 70%,#579BFE 0%,rgba(87,155,254,0) 66%),radial-gradient(60% 60% at 60% 25%,#FEFEFE 0%,rgba(254,254,254,0) 60%),#F3EFE9;opacity:.85}
 .ai{background:var(--aura-line);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
 
 /* phone (client side) */
