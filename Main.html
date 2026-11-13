@@ -12,63 +12,108 @@
 </head>
 <body>
 
+<style>
+  html{scroll-behavior:smooth}
+  .today{max-width:880px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:0}
+  .first{min-height:calc(100vh - 140px);display:flex;flex-direction:column;justify-content:center;gap:40px;padding:24px 0 32px}
+  .hello{font-family:var(--serif);font-weight:300;font-size:56px;line-height:62px;letter-spacing:-.02em}
+  .hello span{display:block;color:var(--n40)}
+  .needs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .need{display:flex;align-items:center;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+  .need:hover{background:rgba(38,40,43,.025)}
+  .need .no{font-family:var(--serif);font-weight:300;font-size:28px;line-height:32px;color:var(--n40);width:40px;flex:none}
+  .need .what{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:4px}
+  .hint{display:flex;align-items:center;gap:10px;color:var(--n64);font-size:13px;line-height:18px;text-decoration:none}
+  .detail{display:flex;flex-direction:column;gap:20px;padding:56px 0 8px;scroll-margin-top:24px}
+  .detail .eyebrow{display:flex;gap:10px;align-items:center}
+  .detail h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:42px;letter-spacing:-.015em}
+  .quiet{padding:72px 0 24px;display:flex;flex-direction:column;gap:16px}
+  @supports (animation-timeline: view()){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  }
+</style>
 <div class="app">
 <nav class="side" aria-label="Main"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAEF53"></stop><stop offset="1" stop-color="#579BFE"></stop></linearGradient></defs></svg><div class="hstack"><a class="brand" href="/Main" aria-label="Cueue, home"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav on" href="/Main"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle class="acc" cx="12" cy="12" r="3"></circle></svg>Today</a><a class="nav" href="/Projects"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="acc" cx="8.5" cy="12" r="5"></circle><path d="M13.5 7a5 5 0 0 1 0 10"></path><path d="M17.5 7a5 5 0 0 1 0 10"></path></svg>Projects</a><a class="nav" href="/Clients"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="acc lens" d="M12 7.39A5.5 5.5 0 0 1 12 16.61A5.5 5.5 0 0 1 12 7.39Z"></path><circle cx="9" cy="12" r="5.5"></circle><circle cx="15" cy="12" r="5.5"></circle></svg>Clients</a><a class="nav" href="/Finances"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19.5h18" stroke-dasharray="2 2.5"></path><path d="M7 19.5v-5"></path><circle cx="7" cy="12.5" r="1.5"></circle><path d="M12 19.5v-8"></path><circle cx="12" cy="9.5" r="1.5"></circle><rect class="acc" x="16" y="4.5" width="2.6" height="15" rx="1.3"></rect></svg>Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
 <main class="main">
-  <p class="cap muted">Wednesday, Nov 4 · Week 45</p>
-  <div class="split">
-    <div class="narrow stack g8" style="flex: 1 1 340px">
-      <h1 class="title">Good morning, Mina</h1>
-      <p class="heading" style="font-weight: 400; width: 281px">Your meeting is coming up in 45 min</p>
+<div class="today">
+
+  <section class="first">
+    <p class="cap muted">Wednesday, Nov 4</p>
+    <h1 class="hello">Good morning, Mina<span>Three things need you today.</span></h1>
+    <div class="needs">
+      <a class="need" href="#call"><span class="no">01</span><span class="what"><span class="sub">Round 2 review call with Fernhill</span><span class="cap muted">11:00 · in 45 min · Rosa and Jae</span></span><span class="chip c-you">Soon</span></a>
+      <a class="need" href="#prices"><span class="no">02</span><span class="what"><span class="sub">Price 3 roadmap drafts</span><span class="cap muted">Fernhill, Halcyon and Juniper · from Theo and Ana</span></span><span class="chip c-you">Your move</span></a>
+      <a class="need" href="#invoice"><span class="no">03</span><span class="what"><span class="sub">Fernhill’s invoice is 12 days late</span><span class="cap muted">$11,400 · Summer drop · Omar opened it twice</span></span><span class="chip c-late">Late</span></a>
     </div>
-    <div class="wide card" style="flex-direction: row; flex-wrap: wrap; padding: 0; overflow: hidden; gap: 0">
-      <div class="photo" style="flex: 1 1 260px; min-height: 220px"><img src="/img/workshop.jpg" alt="Fernhill round 2 board"></div>
-      <div class="stack g16" style="flex: 1 1 260px; padding: 28px">
-        <p class="cap muted">Up next · 11:00–11:30 · in 45 min</p>
-        <h2 class="heading">Round 2 review call with Fernhill Outdoor</h2>
+    <a class="hint" href="#call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>Scroll for the details</a>
+  </section>
+
+  <section class="detail reveal" id="call">
+    <span class="eyebrow">01 · In 45 min</span>
+    <h2>Round 2 review call with Fernhill Outdoor</h2>
+    <div class="card" style="flex-direction: row; flex-wrap: wrap; padding: 0; overflow: hidden; gap: 0">
+      <div class="photo" style="flex: 1 1 280px; min-height: 240px"><img src="/img/carview.jpg" alt="Fall drop round 2, hero film still"></div>
+      <div class="stack g16" style="flex: 1 1 300px; padding: 28px">
+        <p class="cap muted">11:00–11:30 · Rosa Lindqvist and Jae Kim</p>
+        <p class="body">Rosa and Jae left 6 comments on round 2. Two are revisions, one is new paid work.</p>
+        <div class="stack g8">
+          <span class="cap muted"><span class="ai">✦</span> Worth raising on the call</span>
+          <span class="body">· Lift the hero frame for store screens</span>
+          <span class="body">· Warmer grade, closer to round 1</span>
+          <span class="body">· 9:16 story cuts are outside scope, offer a quote</span>
+        </div>
         <div class="hstack g12 wrap" style="margin-top: auto">
           <a class="btn btn-s" href="/Review">Open round 2</a>
-          <a class="btn btn-p" href="/Review">Join call</a>
+          <a class="btn btn-p" href="/Main">Join call</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="split">
-    <section class="narrow stack g16" style="flex: 1 1 340px">
-      <div class="hstack between"><h2 class="sub">Tasks today</h2><a class="label muted" href="/Plan" style="text-decoration: none">See all</a></div>
-      <a class="card blue" href="/Main" style="flex-direction: row; align-items: center; gap: 16px; text-decoration: none; color: var(--navy)"><span class="display">3</span><span class="stack"><span class="sub">Meetings</span><span class="cap">Fernhill at 11:00 · Halcyon at 2:00 · Tapline at 4:30</span></span></a>
-      <a class="card lime" href="/Approvals" style="flex-direction: row; align-items: center; gap: 16px; text-decoration: none; color: var(--navy)"><span class="display">5</span><span class="stack"><span class="sub">Approvals</span><span class="cap">3 roadmap drafts need your price · 2 rounds to sign off</span></span></a>
-      <a class="card navy" href="/Invoices" style="flex-direction: row; align-items: center; gap: 16px; text-decoration: none"><span class="display">5</span><span class="stack"><span class="sub">Invoices</span><span class="cap" style="opacity: .8">2 drafts ready · 1 is 12 days late</span></span></a>
-      <a class="card" href="/Plan" style="flex-direction: row; align-items: center; gap: 16px; text-decoration: none; color: var(--navy)"><span class="display">3</span><span class="stack"><span class="sub">Payments coming in</span><span class="cap muted">$15,500 booked this month · $4,500 to goal</span></span></a>
-    </section>
-    <section class="wide stack g16">
-      <div class="hstack between"><h2 class="sub">Your projects</h2><a class="label muted" href="/Projects" style="text-decoration: none">See all</a></div>
-      <a class="card" href="/Project" style="flex-direction: row; gap: 20px; padding: 16px; text-decoration: none; color: var(--navy)">
-        <div class="photo" style="width: 112px; min-height: 112px; border-radius: 12px; flex: none"><img src="/img/vineyard.jpg" alt="Vinea Estate"></div>
-        <div class="stack g8 grow">
-          <div class="hstack between g12"><span class="sub">Vinea Estate · Winery logo</span><span class="chip c-you">Due Fri</span></div>
-          <p class="body muted">Round 2 of 3 · the owners pick a mark by Friday</p>
-          <div class="hstack g8" style="margin-top: auto"><span class="avatar sm blue">VE</span><span class="cap muted">+1</span></div>
-        </div>
-      </a>
-      <a class="card" href="/Project" style="flex-direction: row; gap: 20px; padding: 16px; text-decoration: none; color: var(--navy)">
-        <div class="photo" style="width: 112px; min-height: 112px; border-radius: 12px; flex: none"><img src="/img/halcyon.jpg" alt="Halcyon Coffee"></div>
-        <div class="stack g8 grow">
-          <div class="hstack between g12"><span class="sub">Halcyon Coffee · Packaging</span><span class="chip c-you">Today</span></div>
-          <p class="body muted">Print proofs are back · approve 4 bag designs</p>
-          <div class="hstack g8" style="margin-top: auto"><span class="avatar sm blue">PS</span><span class="cap muted">+1</span></div>
-        </div>
-      </a>
-      <a class="card" href="/Project" style="flex-direction: row; gap: 20px; padding: 16px; text-decoration: none; color: var(--navy)">
-        <div class="photo" style="width: 112px; min-height: 112px; border-radius: 12px; flex: none"><img src="/img/tapline.jpg" alt="Tapline"></div>
-        <div class="stack g8 grow">
-          <div class="hstack between g12"><span class="sub">Tapline · Product shoot</span><span class="chip c-client">Waiting on client</span></div>
-          <p class="body muted">42 selects delivered · waiting on final picks</p>
-          <div class="hstack g8" style="margin-top: auto"><span class="avatar sm blue">TL</span><span class="cap muted">+1</span></div>
-        </div>
-      </a>
-    </section>
-  </div>
+  </section>
+
+  <section class="detail reveal" id="prices">
+    <span class="eyebrow">02 · Your move</span>
+    <h2>Three roadmap drafts are waiting for your price</h2>
+    <div class="card flat">
+      <a class="row" href="/Approvals"><div class="stack g4 grow"><span class="label">Fernhill Outdoor · 2027 campaign</span><span class="cap muted">Theo Lin · 2 days ago · his estimate $70,000–75,000</span></div><span class="chip c-you">Oldest</span></a>
+      <a class="row" href="/Approvals"><div class="stack g4 grow"><span class="label">Halcyon Coffee · Packaging</span><span class="cap muted">Theo Lin · yesterday · his estimate $4,000</span></div><span class="cap muted">Open</span></a>
+      <a class="row" href="/Approvals"><div class="stack g4 grow"><span class="label">Juniper Dental · Retainer</span><span class="cap muted">Ana Cruz · today · her estimate $900 a month</span></div><span class="cap muted">Open</span></a>
+    </div>
+    <div class="hstack g12 wrap"><a class="btn btn-p" href="/Approvals">Start with Fernhill</a><span class="cap muted">You set the price. Designers draft, they don’t quote.</span></div>
+  </section>
+
+  <section class="detail reveal" id="invoice">
+    <span class="eyebrow">03 · 12 days late</span>
+    <h2>Fernhill hasn’t paid the Summer drop</h2>
+    <div class="split">
+      <div class="wide card navy g8">
+        <span class="cap">Invoice 0047 · due Oct 10, net 7</span>
+        <span class="display" style="font-size: 52px; line-height: 56px">$11,400</span>
+        <span class="cap">Sent to Omar Haddad on Oct 3 · opened twice, last on Oct 6</span>
+      </div>
+      <div class="narrow card g12">
+        <span class="label">Reminder ready to send</span>
+        <p class="body muted">“Hi Omar, a friendly nudge on the Summer drop invoice. You can pay from the link in a minute, by card or bank transfer.”</p>
+        <div class="hstack g8 wrap"><a class="btn btn-p" href="/Main">Send reminder</a><a class="btn btn-s" href="/Invoice">Open invoice</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiet reveal">
+    <div class="hstack between"><h2 class="sub">Everything else is on track</h2><a class="label muted" href="/Projects" style="text-decoration: none">All projects</a></div>
+    <div class="card flat">
+      <a class="row" href="/Project"><div class="photo" style="width: 48px; min-height: 48px; padding: 0; border-radius: 10px; flex: none"><img src="/img/vineyard.jpg" alt="Vinea Estate"></div><div class="stack g4 grow"><span class="label">Vinea Estate · Winery logo</span><span class="cap muted">Round 2 of 3 · the owners pick a mark by Friday</span></div><span class="chip c-client">Waiting on client</span></a>
+      <a class="row" href="/Project"><div class="photo" style="width: 48px; min-height: 48px; padding: 0; border-radius: 10px; flex: none"><img src="/img/halcyon.jpg" alt="Halcyon Coffee"></div><div class="stack g4 grow"><span class="label">Halcyon Coffee · Packaging</span><span class="cap muted">Print proofs approved · bags go to print Monday</span></div><span class="chip c-done">On track</span></a>
+      <a class="row" href="/Project"><div class="photo" style="width: 48px; min-height: 48px; padding: 0; border-radius: 10px; flex: none"><img src="/img/tapline.jpg" alt="Tapline"></div><div class="stack g4 grow"><span class="label">Tapline · Product shoot</span><span class="cap muted">42 selects delivered · waiting on final picks</span></div><span class="chip c-client">Waiting on client</span></a>
+    </div>
+    <a class="card g8" href="/Plan" style="text-decoration: none; color: inherit">
+      <div class="hstack between"><span class="cap muted">Booked in November</span><span class="cap muted">$4,500 to your goal</span></div>
+      <span class="sub">$15,500 of $20,000</span>
+      <div class="bar"><i style="width: 78%"></i></div>
+    </a>
+  </section>
+
+</div>
 </main>
 </div>
 

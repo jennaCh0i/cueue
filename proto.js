@@ -55,6 +55,7 @@
   function samePage(a) {
     var h = a.getAttribute('href');
     if (!h || h === '#') return true;
+    if (h.charAt(0) === '#') return false; // in-page jump: let the browser scroll
     var u = new URL(h, location.href);
     var norm = function (p) { return p.replace(/\.html$/, '').replace(/\/$/, '') || '/'; };
     var here = norm(location.pathname) === '/' ? '/SignIn' : norm(location.pathname);
