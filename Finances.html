@@ -17,31 +17,92 @@
 <main class="main">
   <div class="hstack between wrap g16"><div class="stack g4"><h1 class="title">Finances</h1><p class="body muted">October 2026</p></div><div class="seg"><span class="on">October 2026</span><span>Year to date</span></div></div>
   <div class="tabs"><a class="tab on" href="/Finances">Overview</a><a class="tab" href="/Plan">Plan</a><a class="tab" href="/Invoices">Invoices</a><a class="tab" href="/Expenses">Expenses</a></div>
-  <div class="grid4">
-    <div class="card navy"><span class="cap" style="color: var(--ink-2)">Kept in October</span><span class="title">+$6,260</span><span class="cap" style="color: var(--ink-2)">$15,900 in · $9,640 out</span></div>
-    <div class="card"><span class="cap muted">In the bank</span><span class="title">$42,380</span><span class="cap muted">Stripe and Mercury · synced 9:40 AM</span></div>
-    <a class="card" href="/Invoice" style="text-decoration: none; color: var(--navy)"><span class="cap muted">Owed to you</span><span class="title">$13,000</span><span class="chip c-late" style="align-self: flex-start">$11,400 from Fernhill, 12 days late</span></a>
-    <div class="card"><span class="cap muted">Going out next</span><span class="title">$3,950</span><span class="cap muted">Theo and Ana on Nov 1</span></div>
-  </div>
-  <div class="split">
-    <section class="wide card g16">
-      <div class="hstack between wrap g8"><h2 class="sub">Billed and paid · last six months</h2><div class="hstack g16"><span class="hstack g8 cap"><i style="width: 10px; height: 10px; border-radius: 2px; background: var(--navy)"></i>Billed</span><span class="hstack g8 cap"><i style="width: 10px; height: 10px; border-radius: 2px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%)"></i>Paid</span></div></div>
-      <div role="img" aria-label="Billed and paid by month, May to October. October has the biggest gap: $13,000 still owed." style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; align-items: end; height: 220px">
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 120px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 120px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">May</span></div>
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 150px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 150px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Jun</span></div>
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 110px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 104px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Jul</span></div>
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 160px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 150px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Aug</span></div>
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 130px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 118px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Sep</span></div>
-        <div class="stack g8" style="align-items: center"><div class="hstack g4" style="align-items: flex-end; height: 190px"><i style="width: 18px; height: 180px; background: var(--navy); border-radius: 4px 4px 0 0"></i><i style="width: 18px; height: 96px; background: linear-gradient(180deg,#579BFE 0%,#9EC6A8 55%,#DAEF53 100%); border-radius: 4px 4px 0 0"></i></div><span class="cap muted">Oct</span></div>
+  <style>
+    .fin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .fin .wide2{grid-column:span 2}
+    @media (max-width:980px){.fin{grid-template-columns:minmax(0,1fr)}.fin .wide2{grid-column:auto}}
+    .w{background:var(--white);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;min-width:0;text-decoration:none;color:inherit}
+    .w-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .num{font-family:var(--serif);font-weight:300;font-size:44px;line-height:48px;letter-spacing:-.02em}
+    .num.s{font-size:30px;line-height:34px}
+    .flow{display:flex;gap:14px;align-items:flex-end;height:168px;padding-top:4px}
+    .flow .col{flex:1;display:flex;flex-direction:column;gap:8px;height:100%;justify-content:flex-end}
+    .flow .bar2{position:relative;border-radius:18px;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:10px}
+    .flow .bar2::after{content:"";position:absolute;inset:0;background-image:var(--lines);pointer-events:none}
+    .flow .in{height:100%;background:linear-gradient(180deg,#B9D3FF 0%,#579BFE 100%)}
+    .flow .out{height:61%;background:linear-gradient(180deg,#E6E6E3 0%,#D9D9D6 100%)}
+    .pill{position:relative;z-index:1;background:rgba(248,248,246,.85);border-radius:999px;padding:3px 10px;font:500 12.5px/16px var(--sans)}
+    .owe{display:flex;flex-direction:column;gap:8px}
+    .owe .track{position:relative;height:40px;border-radius:14px;background:rgba(40,40,42,.04);overflow:hidden}
+    .owe .track::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(40,40,42,.06) 0 1px,transparent 1px 9px)}
+    .owe .fill{position:absolute;inset:0 auto 0 0;border-radius:14px}
+    .owe .fill.late{background:linear-gradient(90deg,#EFDCD0,#E3BFAE)}
+    .owe .fill.ok{background:linear-gradient(90deg,#DCE8FC,#9CC2FF)}
+    .axis{display:flex;justify-content:space-between;padding:0 24px 0 28px;color:var(--ink-2);font-size:13px}
+  </style>
+  <div class="fin">
+    <a class="w" href="/Plan">
+      <div class="w-h"><span class="label">October goal</span><span class="chip c-you">78%</span></div>
+      <div style="position: relative; height: 140px">
+        <svg viewBox="0 0 240 128" width="100%" height="140" aria-hidden="true">
+          <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DAEF53"></stop><stop offset="1" stop-color="#579BFE"></stop></linearGradient></defs>
+          <path d="M18.0 118.0 L26.0 118.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M23.0 86.5 L30.6 89.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M37.5 58.0 L44.0 62.7" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M60.0 35.5 L64.7 42.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M88.5 21.0 L91.0 28.6" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M120.0 16.0 L120.0 24.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M151.5 21.0 L149.0 28.6" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M180.0 35.5 L175.3 42.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M202.5 58.0 L196.0 62.7" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M217.0 86.5 L209.4 89.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path><path d="M222.0 118.0 L214.0 118.0" stroke="rgba(40,40,42,.18)" stroke-linecap="round"></path>
+          <path d="M36 118 A84 84 0 0 1 204 118" fill="none" stroke="rgba(40,40,42,.08)" stroke-width="14" stroke-linecap="round"></path>
+          <path d="M36 118 A84 84 0 0 1 204 118" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="205.8 400"></path>
+        </svg>
+        <div style="position: absolute; left: 0; right: 0; bottom: 2px; text-align: center"><span class="num s">$15,500</span></div>
       </div>
-      <p class="cap muted">The gap between the bars is money still owed. October has the biggest gap.</p>
-    </section>
-    <section class="narrow card flat">
-      <div style="padding: 20px 24px"><h2 class="sub">Accounts · what each owes</h2></div>
-      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Fernhill Outdoor</span><span class="cap muted">$71,500 billed · 905 h · $79/hr</span></div><div class="stack g4" style="align-items: flex-end"><span class="label">$11,400</span><span class="chip c-late">12 days late</span></div></a>
-      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Halcyon Coffee</span><span class="cap muted">$6,400 billed · 74 h · $86/hr</span></div><div class="stack g4" style="align-items: flex-end"><span class="label">$1,600</span><span class="cap muted">Due in 3 days</span></div></a>
-      <a class="row" href="/Client"><div class="stack g4 grow"><span class="label">Northline Bikes</span><span class="cap muted">$9,800 billed · 112 h · $88/hr</span></div><span class="label muted">—</span></a>
-    </section>
+      <span class="cap muted" style="text-align: center; margin-top: auto">of $20,000 · $4,500 to go</span>
+    </a>
+
+    <div class="w">
+      <div class="w-h"><span class="label">Cash flow</span><span class="chip c-you">+$6,260 kept</span></div>
+      <div class="flow">
+        <div class="col"><div class="bar2 in"><span class="pill">$15,900</span></div></div>
+        <div class="col"><div class="bar2 out"><span class="pill">$9,640</span></div></div>
+      </div>
+      <div class="hstack" style="gap: 14px"><span class="num s" style="flex: 1">In</span><span class="num s" style="flex: 1; color: var(--ink-3)">Out</span></div>
+    </div>
+
+    <div class="w">
+      <div class="w-h"><span class="label">In the bank</span><span class="cap muted">Stripe + Mercury</span></div>
+      <span class="num">$42,380</span>
+      <svg viewBox="-6 -6 272 72" width="100%" height="72" preserveAspectRatio="none" aria-hidden="true" style="margin-top: auto">
+        <defs><linearGradient id="bk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DAEF53"></stop><stop offset="1" stop-color="#579BFE"></stop></linearGradient>
+        <linearGradient id="bka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#579BFE" stop-opacity=".18"></stop><stop offset="1" stop-color="#579BFE" stop-opacity="0"></stop></linearGradient></defs>
+        <path d="M0,55.2 L52,48.0 L104,38.4 L156,43.6 L208,35.6 L260,10.4 L260,64 L0,64 Z" fill="url(#bka)"></path>
+        <path d="M0,55.2 L52,48.0 L104,38.4 L156,43.6 L208,35.6 L260,10.4" fill="none" stroke="url(#bk)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="260" cy="10.4" r="4" fill="#579BFE"></circle>
+      </svg>
+      <div class="hstack between"><span class="cap muted">May</span><span class="cap muted">+$6,260 since Sep</span></div>
+    </div>
+
+    <div class="w wide2">
+      <div class="w-h"><span class="label">Billed vs paid</span><span class="hstack g16 cap muted"><span class="hstack g8"><i style="width: 14px; height: 2px; background: var(--ink); border-radius: 1px"></i>Billed</span><span class="hstack g8"><i style="width: 12px; height: 12px; border-radius: 3px; background: linear-gradient(180deg,#9CC2FF,#DAEF53)"></i>Paid</span><span class="hstack g8"><i style="width: 12px; height: 12px; border-radius: 3px; background: repeating-linear-gradient(135deg,rgba(40,40,42,.35) 0 1px,transparent 1px 4px)"></i>Still owed</span></span></div>
+      <svg viewBox="0 0 600 214" width="100%" height="240" aria-label="Billed and paid by month, May to October. October has the biggest gap." role="img">
+        <defs>
+          <linearGradient id="pa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#579BFE" stop-opacity=".55"></stop><stop offset="1" stop-color="#DAEF53" stop-opacity=".35"></stop></linearGradient>
+          <pattern id="owed" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V6" stroke="rgba(40,40,42,.35)" stroke-width="1"></path></pattern>
+        </defs>
+        <path d="M24 40H576" stroke="rgba(40,40,42,.08)" stroke-dasharray="3 4"></path><path d="M24 75H576" stroke="rgba(40,40,42,.08)" stroke-dasharray="3 4"></path><path d="M24 110H576" stroke="rgba(40,40,42,.08)" stroke-dasharray="3 4"></path><path d="M24 145H576" stroke="rgba(40,40,42,.08)" stroke-dasharray="3 4"></path>
+        <path d="M40,180 L40,96 L144,75 L248,107.2 L352,75 L456,97.4 L560,68.7 L560,180 Z" fill="url(#pa)"></path>
+        <path d="M40,96 L144,75 L248,107.2 L352,75 L456,97.4 L560,68.7" fill="none" stroke="#579BFE" stroke-width="2" stroke-linejoin="round"></path>
+        <path d="M40,96 L144,75 L248,103 L352,68 L456,89 L560,19.7 L560,68.7 L456,97.4 L352,75 L248,107.2 L144,75 L40,96 Z" fill="url(#owed)"></path>
+        <path d="M40,96 L144,75 L248,103 L352,68 L456,89 L560,19.7" fill="none" stroke="#28282A" stroke-width="1.5" stroke-linejoin="round"></path>
+        <circle cx="40" cy="96" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><circle cx="144" cy="75" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><circle cx="248" cy="103" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><circle cx="352" cy="68" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><circle cx="456" cy="89" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><circle cx="560" cy="19.7" r="3.5" fill="#F8F8F6" stroke="#28282A" stroke-width="1.5"></circle><text x="40" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">May</text><text x="144" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">Jun</text><text x="248" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">Jul</text><text x="352" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">Aug</text><text x="456" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">Sep</text><text x="560" y="206" text-anchor="middle" font-size="13" fill="#57575A" font-family="Inter, sans-serif">Oct</text></svg>
+    </div>
+
+    <a class="w" href="/Invoices">
+      <div class="w-h"><span class="label">Owed to you</span><span class="chip c-late">1 late</span></div>
+      <span class="num">$13,000</span>
+      <div class="owe" style="margin-top: auto">
+        <div class="hstack between"><span class="label">Fernhill</span><span class="label">$11,400</span></div>
+        <div class="track"><div class="fill late" style="width: 88%"></div></div>
+        <div class="hstack between" style="margin-top: 6px"><span class="label">Halcyon</span><span class="label">$1,600</span></div>
+        <div class="track"><div class="fill ok" style="width: 12%"></div></div>
+      </div>
+      <span class="cap muted">Next out: $3,950 to Theo and Ana on Nov 1</span>
+    </a>
   </div>
 </main>
 </div>
