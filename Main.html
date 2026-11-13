@@ -14,13 +14,13 @@
 
 <style>
   html{scroll-behavior:smooth}
-  .today{max-width:1040px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+  .today{max-width:1040px;width:100%;margin:0 auto;display:flex;flex-direction:column;justify-content:center;gap:32px;min-height:calc(100vh - 176px)}
   .hello{font-family:var(--serif);font-weight:300;font-size:44px;line-height:50px;letter-spacing:-.02em}
   .hello span{display:block;color:var(--n40)}
   .needs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
   .need{display:flex;align-items:center;gap:16px;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
   .need:hover{background:rgba(38,40,43,.025)}
-  .need .no{font-family:var(--serif);font-weight:300;font-size:22px;line-height:26px;color:var(--n40);width:32px;flex:none}
+  .no{font-family:var(--serif);font-weight:300;font-size:28px;line-height:30px;color:var(--n40)}
   .need .what{flex:1 1 0;min-width:0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
   .detail{display:flex;flex-direction:column;gap:12px;scroll-margin-top:24px;min-width:0}
   .detail .card{flex:1 1 auto}
@@ -41,45 +41,37 @@
     <h1 class="hello">Good morning, Mina<span>Three things need you today.</span></h1>
   </section>
 
-  <div class="needs">
-    <a class="need" href="#call"><span class="no">01</span><span class="what"><span class="sub">Review call with Fernhill</span><span class="cap muted">11:00 · in 45 min</span></span><span class="chip c-you">Soon</span></a>
-    <a class="need" href="#prices"><span class="no">02</span><span class="what"><span class="sub">Price 3 roadmap drafts</span><span class="cap muted">from Theo and Ana</span></span><span class="chip c-you">Your move</span></a>
-    <a class="need" href="#invoice"><span class="no">03</span><span class="what"><span class="sub">Fernhill’s invoice is 12 days late</span><span class="cap muted">$11,400</span></span><span class="chip c-late">Late</span></a>
-  </div>
-
   <div class="details">
     <section class="detail reveal" id="call">
-      <div class="card g12" style="padding: 0; overflow: hidden">
-        <div class="photo" style="min-height: 120px; padding: 0"><img src="/img/carview.jpg" alt="Fall drop round 2, hero film still"></div>
-        <div class="stack g8" style="padding: 4px 20px 20px; flex: 1">
-          <span class="cap muted">01 · 11:00–11:30 · Rosa and Jae</span>
-          <span class="sub">Round 2 review call</span>
-          <span class="cap muted"><span class="ai">✦</span> Raise: brighter hero frame, warmer grade, quote the 9:16 cuts</span>
-          <div class="hstack g8 wrap" style="margin-top: auto; padding-top: 8px"><a class="btn btn-p" href="/Main">Join call</a><a class="btn btn-s" href="/Review">Open round 2</a></div>
-        </div>
+      <div class="card g12" style="padding: 20px">
+        <div class="hstack between"><span class="no">01</span><span class="chip c-you">Soon</span></div>
+        <div class="stack g4"><span class="heading" style="font-size: 20px; line-height: 26px">Review call with Fernhill</span><span class="cap muted">11:00–11:30 · in 45 min · Rosa and Jae</span></div>
+        <div class="photo" style="min-height: 112px; padding: 0; border-radius: 12px"><img src="/img/carview.jpg" alt="Fall drop round 2, hero film still"></div>
+        <span class="cap muted"><span class="ai">✦</span> Raise: brighter hero frame, warmer grade, quote the 9:16 cuts</span>
+        <div class="hstack g8 wrap" style="margin-top: auto; padding-top: 4px"><a class="btn btn-p" href="/Main">Join call</a><a class="btn btn-s" href="/Review">Open round 2</a></div>
       </div>
     </section>
 
     <section class="detail reveal" id="prices">
       <div class="card g12" style="padding: 20px">
-        <span class="cap muted">02 · Waiting for your price</span>
+        <div class="hstack between"><span class="no">02</span><span class="chip c-you">Your move</span></div>
+        <div class="stack g4"><span class="heading" style="font-size: 20px; line-height: 26px">Price 3 roadmap drafts</span><span class="cap muted">From Theo and Ana · you set the price</span></div>
         <div class="stack" style="border-top: 1px solid var(--line)">
           <a class="hstack between" href="/Approvals" style="padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit"><span class="label">Fernhill · 2027 campaign</span><span class="cap muted">$70–75k</span></a>
           <a class="hstack between" href="/Approvals" style="padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit"><span class="label">Halcyon · Packaging</span><span class="cap muted">$4,000</span></a>
           <a class="hstack between" href="/Approvals" style="padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit"><span class="label">Juniper · Retainer</span><span class="cap muted">$900/mo</span></a>
         </div>
-        <span class="cap muted">Designers’ estimates. You set the price.</span>
-        <div class="hstack g8 wrap" style="margin-top: auto"><a class="btn btn-p" href="/Approvals">Start with Fernhill</a></div>
+        <div class="hstack g8 wrap" style="margin-top: auto; padding-top: 4px"><a class="btn btn-p" href="/Approvals">Start with Fernhill</a></div>
       </div>
     </section>
 
     <section class="detail reveal" id="invoice">
-      <div class="card navy g8" style="padding: 20px">
-        <span class="cap">03 · Invoice 0047 · due Oct 10</span>
-        <span class="display" style="font-size: 44px; line-height: 48px">$11,400</span>
-        <span class="cap">Summer drop · Omar opened it twice, last on Oct 6</span>
-        <p class="cap" style="opacity: .75; margin-top: 4px">A friendly reminder is drafted and ready.</p>
-        <div class="hstack g8 wrap" style="margin-top: auto; padding-top: 8px"><a class="btn btn-p" href="/Main">Send reminder</a><a class="btn btn-s" href="/Invoice">Open invoice</a></div>
+      <div class="card navy g12" style="padding: 20px">
+        <div class="hstack between"><span class="no">03</span><span class="chip c-late">12 days late</span></div>
+        <div class="stack g4"><span class="heading" style="font-size: 20px; line-height: 26px">Fernhill’s invoice is late</span><span class="cap">Invoice 0047 · Summer drop · due Oct 10</span></div>
+        <span class="display" style="font-size: 52px; line-height: 56px; margin: 8px 0">$11,400</span>
+        <span class="cap">Omar opened it twice, last on Oct 6. A friendly reminder is drafted and ready.</span>
+        <div class="hstack g8 wrap" style="margin-top: auto; padding-top: 4px"><a class="btn btn-p" href="/Main">Send reminder</a><a class="btn btn-s" href="/Invoice">Open invoice</a></div>
       </div>
     </section>
   </div>
