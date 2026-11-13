@@ -29,10 +29,11 @@
     .plogo{position:absolute;left:52px;bottom:-56px;width:112px;height:112px;border-radius:24px;background:#F8F8F6;box-shadow:var(--shadow);display:grid;place-items:center;z-index:2}
     .plogo svg{width:56px;height:56px}
     .pacts{display:flex;justify-content:flex-end;gap:12px;padding-top:4px;min-height:56px;align-items:flex-start;margin-bottom:-20px}
-    .pid{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+    .pid{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-top:4px}
+    .pid-l{display:flex;flex-direction:column;gap:6px;min-width:0}
     .pmeta{display:flex;gap:20px;flex-wrap:wrap;color:var(--ink-2);font-size:14px}
     .pmeta span{display:inline-flex;align-items:center;gap:6px}
-    .ppl{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+    .ppl{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-top:6px}
     .pavs{display:flex;align-items:center}
     .pav{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:500 13px/1 var(--sans);color:var(--ink);box-shadow:0 0 0 3px var(--paper);margin-left:-8px;position:relative}
     .pav:first-child{margin-left:0}
@@ -41,7 +42,7 @@
     .pplus{color:var(--ink-3);font-size:18px;margin:0 10px 0 12px}
     .pempty{width:40px;height:40px;border-radius:50%;border:1.3px dashed rgba(40,40,42,.3);margin-left:-6px;background:var(--paper);display:grid;place-items:center;color:var(--ink-3);text-decoration:none}
     .pempty:first-of-type{margin-left:0}
-    .ppl .who{display:flex;flex-direction:column;gap:2px}
+    .ppl .who{display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right}
     .ppl .who b{font-weight:500;font-size:14px}
     .ppl .key{display:flex;gap:12px;font-size:12.5px;color:var(--ink-2)}
     .ppl .key i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
@@ -52,13 +53,14 @@
   </div>
   <div class="pacts"><a class="btn btn-s" href="#roadmap">Roadmap</a><a class="btn btn-p" href="/Review">Upload version</a></div>
   <div class="pid">
-    <div class="hstack g12 wrap"><h1 class="title">Fernhill Outdoor · Trail Season 2026</h1><span class="chip">On track</span></div>
-    <p class="body muted" style="margin: 0">Seven-stage brand season for Fernhill Outdoor Co.</p>
-    <div class="pmeta" style="margin-top: 8px"><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="11" height="10" rx="2"></rect><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3"></path></svg>Mar 2 – Dec 11</span><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.8"></circle><path d="M9.8 6.1c-.4-.6-1-.9-1.8-.9-1 0-1.7.5-1.7 1.3 0 1.8 3.6.9 3.6 2.8 0 .8-.8 1.4-1.9 1.4-.8 0-1.5-.3-1.9-.9M8 4v1.2M8 10.8V12"></path></svg>$64,000 budget</span><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2-2a2.6 2.6 0 0 0-3.7-3.7l-.6.6"></path><path d="M9.2 6.8a2.6 2.6 0 0 0-3.7 0l-2 2a2.6 2.6 0 0 0 3.7 3.7l.6-.6"></path></svg>fernhill.co/trail</span></div>
+    <div class="pid-l">
+      <div class="hstack g12 wrap"><h1 class="title">Fernhill Outdoor · Trail Season 2026</h1><span class="chip">On track</span></div>
+      <p class="body muted" style="margin: 0">Seven-stage brand season for Fernhill Outdoor Co.</p>
+      <div class="pmeta" style="margin-top: 8px"><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="11" height="10" rx="2"></rect><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3"></path></svg>Mar 2 – Dec 11</span><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.8"></circle><path d="M9.8 6.1c-.4-.6-1-.9-1.8-.9-1 0-1.7.5-1.7 1.3 0 1.8 3.6.9 3.6 2.8 0 .8-.8 1.4-1.9 1.4-.8 0-1.5-.3-1.9-.9M8 4v1.2M8 10.8V12"></path></svg>$64,000 budget</span><span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 9.2a2.6 2.6 0 0 0 3.7 0l2-2a2.6 2.6 0 0 0-3.7-3.7l-.6.6"></path><path d="M9.2 6.8a2.6 2.6 0 0 0-3.7 0l-2 2a2.6 2.6 0 0 0 3.7 3.7l.6-.6"></path></svg>fernhill.co/trail</span></div>
+    </div>
     <div class="ppl">
       <div class="pavs"><span class="pav st" title="Mina Park · lead">MP</span><span class="pav st" title="Theo Lin · motion">TL</span><span class="pav st" title="Ana Sato · retouch">AS</span><span class="pav cl" title="Rosa Lindqvist · approver">RL</span><span class="pav cl" title="Jae Kim · reviewer">JK</span><span class="pav cl" title="Omar Haddad · finance">OH</span><span class="pplus">+</span><a class="pempty" href="/Invite" aria-label="Invite someone"></a><a class="pempty" href="/Invite" aria-label="Invite someone"></a></div>
       <div class="who"><b>6 people on this project</b><span class="key"><span><i style="background: #DAEF53"></i>3 Studio Park</span><span><i style="background: #B9D3FF"></i>3 Fernhill</span></span></div>
-      <a class="btn btn-s" href="/Invite" style="margin-left: auto">Invite</a>
     </div>
   </div>
   <div class="grid4">
