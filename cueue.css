@@ -24,7 +24,7 @@
   --aura-edge:linear-gradient(135deg,rgba(218,239,83,.75),rgba(254,254,254,.5),rgba(87,155,254,.6));
   /* texture: one line field everywhere, 1px every 24px */
   /* grain: fine noise laid over every gradient surface */
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.94' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --lines:repeating-linear-gradient(90deg,rgba(40,40,42,.06) 0 1px,transparent 1px 24px);
   --lines-dark:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 24px);
   /* the frame: what sits behind the app, the same on every studio and client screen */
