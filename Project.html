@@ -15,18 +15,20 @@
 <div class="app">
 <nav class="side" aria-label="Main"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAEF53"></stop><stop offset="1" stop-color="#579BFE"></stop></linearGradient></defs></svg><div class="hstack"><a class="brand" href="/Main" aria-label="Cueue, home"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle class="acc" cx="12" cy="12" r="3"></circle></svg>Today</a><a class="nav on" href="/Projects"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="acc" cx="8.5" cy="12" r="5"></circle><path d="M13.5 7a5 5 0 0 1 0 10"></path><path d="M17.5 7a5 5 0 0 1 0 10"></path></svg>Projects</a><a class="nav" href="/Clients"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="acc lens" d="M12 7.39A5.5 5.5 0 0 1 12 16.61A5.5 5.5 0 0 1 12 7.39Z"></path><circle cx="9" cy="12" r="5.5"></circle><circle cx="15" cy="12" r="5.5"></circle></svg>Clients</a><a class="nav" href="/Finances"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19.5h18" stroke-dasharray="2 2.5"></path><path d="M7 19.5v-5"></path><circle cx="7" cy="12.5" r="1.5"></circle><path d="M12 19.5v-8"></path><circle cx="12" cy="9.5" r="1.5"></circle><rect class="acc" x="16" y="4.5" width="2.6" height="15" rx="1.3"></rect></svg>Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
 <main class="main">
-  <nav class="crumb" aria-label="Breadcrumb"><a href="/Projects">Projects</a><span class="muted">›</span><span>Fernhill Outdoor · Trail Season 2026</span></nav>
   <style>
-    .phero{position:relative;margin-bottom:-4px}
-    .phero .cover{height:240px;border-radius:var(--r-card);overflow:hidden;position:relative}
+    .phero{position:relative;margin:-44px -52px -4px}
+    .phero .cover{height:360px;border-radius:var(--r-panel) var(--r-panel) 0 0;overflow:hidden;position:relative}
     .phero .cover img{width:100%;height:100%;object-fit:cover;display:block}
-    .phero .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,40,42,0) 40%,rgba(40,40,42,.38) 100%)}
-    .phero .tag{position:absolute;right:32px;top:50%;transform:translateY(-50%);z-index:1;color:#FEFEFE;text-align:left;display:flex;flex-direction:column;gap:6px}
+    .phero .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,40,42,.32) 0%,rgba(40,40,42,0) 26%),linear-gradient(90deg,rgba(40,40,42,0) 40%,rgba(40,40,42,.4) 100%)}
+    .ph-crumb{position:absolute;top:28px;left:52px;z-index:2;color:#FEFEFE;background:rgba(40,40,42,.28);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:6px 12px;border-radius:999px}
+    .ph-crumb a{color:rgba(254,254,254,.8)}
+    .ph-crumb span{color:#FEFEFE}
+    .phero .tag{position:absolute;right:52px;top:50%;transform:translateY(-50%);z-index:1;color:#FEFEFE;text-align:left;display:flex;flex-direction:column;gap:6px}
     .phero .tag b{font:400 15px/20px var(--sans);opacity:.9}
     .phero .tag span{font-family:var(--serif);font-weight:300;font-size:34px;line-height:38px;letter-spacing:-.01em}
-    .plogo{position:absolute;left:28px;bottom:-56px;width:112px;height:112px;border-radius:24px;background:#F8F8F6;box-shadow:0 0 0 5px var(--paper),var(--shadow);display:grid;place-items:center;z-index:2}
+    .plogo{position:absolute;left:52px;bottom:-56px;width:112px;height:112px;border-radius:24px;background:#F8F8F6;box-shadow:0 0 0 5px var(--paper),var(--shadow);display:grid;place-items:center;z-index:2}
     .plogo svg{width:56px;height:56px}
-    .pacts{display:flex;justify-content:flex-end;gap:12px;padding-top:12px;min-height:56px;align-items:flex-start;margin-bottom:-20px}
+    .pacts{display:flex;justify-content:flex-end;gap:12px;padding-top:4px;min-height:56px;align-items:flex-start;margin-bottom:-20px}
     .pid{display:flex;flex-direction:column;gap:6px;margin-top:4px}
     .pmeta{display:flex;gap:20px;flex-wrap:wrap;color:var(--ink-2);font-size:14px}
     .pmeta span{display:inline-flex;align-items:center;gap:6px}
@@ -45,7 +47,7 @@
     .ppl .key i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
   </style>
   <div class="phero">
-    <div class="cover"><img src="/img/fernhill2.jpg" alt="Trail Season 2026 cover"><div class="tag"><b>Fernhill Outdoor</b><span>Trail Season 2026</span></div></div>
+    <div class="cover"><nav class="crumb ph-crumb" aria-label="Breadcrumb"><a href="/Projects">Projects</a><span>›</span><span>Fernhill Outdoor · Trail Season 2026</span></nav><img src="/img/fernhill2.jpg" alt="Trail Season 2026 cover"><div class="tag"><b>Fernhill Outdoor</b><span>Trail Season 2026</span></div></div>
     <div class="plogo" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none"><path d="M10 46L28 12l18 34" stroke="#28282A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 46l9-17 9 17" stroke="#93A61C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
   </div>
   <div class="pacts"><a class="btn btn-s" href="/Roadmap">Roadmap</a><a class="btn btn-p" href="/Review">Upload version</a></div>
