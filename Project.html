@@ -30,12 +30,89 @@
     <div class="card"><span class="cap muted">Next due</span><span class="title">Oct 30</span><span class="cap muted">Fall drop · round 2 in review</span></div>
     <div class="card"><span class="cap muted">Profit so far</span><span class="title">$31,200</span><span class="cap muted">78% of what you billed</span></div>
   </div>
-  <section class="card g16">
-    <div class="hstack between wrap g8"><h2 class="sub">Timeline</h2><span class="cap muted">Milestone 5 of 7 · Fall drop due tomorrow · Oct 29 · today</span></div>
-    <div class="steps">
-      <div class="step done">Strategy</div><div class="step done">Concepts</div><div class="step done">Spring</div><div class="step done">Summer</div><div class="step now">Fall · now</div><div class="step">Wrap</div><div class="step">Holiday</div>
+  <style>
+    .tl{gap:16px;user-select:none}
+    .tl-bar-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .tl-ctl{display:flex;align-items:center;gap:6px}
+    .tl-read{display:flex;align-items:baseline;gap:10px;margin-right:10px}
+    .tl-date{font-family:var(--serif);font-size:26px;line-height:30px;font-weight:400;letter-spacing:-.01em;min-width:78px;text-align:right;font-variant-numeric:tabular-nums}
+    .tl-stage{font-weight:500;font-size:14px;min-width:96px}
+    .tl-chip{align-self:center}
+    .tl-btn{all:unset;box-sizing:border-box;height:36px;min-width:36px;padding:0 10px;border-radius:10px;display:grid;place-items:center;color:var(--ink);cursor:pointer;font:500 13px/16px var(--sans)}
+    .tl-btn:hover{background:rgba(40,40,42,.06)}
+    .tl-btn:focus-visible{outline:2px solid #579BFE;outline-offset:1px}
+    .tl-today{background:rgba(40,40,42,.06)}
+    .tl-body{display:grid;grid-template-columns:184px minmax(0,1fr);border-top:1px solid rgba(40,40,42,.08);margin:0 -24px -4px;}
+    .tl-labs{border-right:1px solid rgba(40,40,42,.08);padding-left:24px}
+    .tl-lab{height:48px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);position:relative}
+    .tl-lab.hd{height:40px}
+    .tl-lab .cv{color:var(--ink-3);flex:none}
+    .tl-lab.open .cv{transform:rotate(90deg)}
+    .tl-lab svg:not(.cv){flex:none;color:var(--ink-2)}
+    .tl-lab.now svg:not(.cv){color:#93A61C}
+    .tl-lab.now span{font-weight:500}
+    .tl-lab.next{color:var(--ink-2)}
+    .tl-lab.sub{height:36px;padding-left:44px;color:var(--ink-2);font-size:13px}
+    .tl-lab::before{content:"";position:absolute;left:-10px;top:14px;bottom:14px;width:3px;border-radius:2px}
+    .tl-lab.done::before{background:#BDBDB9}
+    .tl-lab.now::before{background:linear-gradient(180deg,#DAEF53,#579BFE)}
+    .tl-lab.next::before{border:1px dashed rgba(40,40,42,.3);width:1px}
+    .tl-lane{position:relative;padding-right:24px;overflow:hidden;cursor:ew-resize;touch-action:none}
+    .tl-ruler{position:relative;height:40px;border-bottom:1px solid rgba(40,40,42,.08)}
+    .tl-ruler .mo{position:absolute;top:12px;font-size:12px;color:var(--ink-2);padding-left:6px;border-left:1px solid rgba(40,40,42,.2);line-height:16px}
+    .tl-ruler .tk{position:absolute;bottom:0;width:1px;height:6px;background:rgba(40,40,42,.18)}
+    .tl-prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--grain),var(--aura-line);border-radius:2px}
+    .tl-now{position:absolute;bottom:-4px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#DAEF53;box-shadow:0 0 0 2px #F8F8F6,0 0 0 3px rgba(147,166,28,.6)}
+    .tl-rows{position:relative;background-image:repeating-linear-gradient(90deg,rgba(40,40,42,.05) 0 1px,transparent 1px 24px)}
+    .tl-row{position:relative;height:48px;border-bottom:1px solid rgba(40,40,42,.05)}
+    .tl-row.sub{height:36px;background:rgba(218,239,83,.08)}
+    .tl-bar{position:absolute;top:8px;bottom:8px;border-radius:10px;display:flex;align-items:center;gap:8px;padding:0 8px;overflow:hidden;white-space:nowrap;font-size:13px;transition:box-shadow .15s,transform .15s}
+    .tl-bar .n{font-weight:500;overflow:hidden;text-overflow:ellipsis}
+    .tl-bar .d{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:500;font-variant-numeric:tabular-nums}
+    .tl-bar.done{background:var(--lines),#DEDEDB;color:var(--ink)}
+    .tl-bar.done .d{color:var(--ink-2)}
+    .tl-bar.now{background:var(--aura);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(147,166,28,.45)}
+    .tl-bar.now .d{color:var(--ink-2)}
+    .tl-bar.next{background:transparent;border:1px dashed rgba(40,40,42,.28);color:var(--ink-2)}
+    .tl-bar.hit{box-shadow:0 0 0 1.5px #28282A;z-index:2}
+    .tl-bar.now.hit{box-shadow:0 0 0 1.5px #28282A}
+    .kline{position:absolute;top:50%;height:1px;background:rgba(40,40,42,.35)}
+    .kf{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;transform:rotate(45deg);background:#F8F8F6;border:1.3px solid var(--ink);border-radius:1.5px;box-sizing:border-box;transition:transform .15s}
+    .kf.on{background:var(--ink)}
+    .kf.money{border-color:#579BFE;background:#DCE8FC}
+    .kf.hit{transform:rotate(45deg) scale(1.35)}
+    .kcap{position:absolute;top:50%;transform:translateY(-50%);font-size:12px;color:var(--ink-2);white-space:nowrap}
+    .tl-past{position:absolute;left:0;top:40px;bottom:0;background:rgba(40,40,42,.025);pointer-events:none}
+    .tl-head{position:absolute;top:0;bottom:0;width:0;z-index:3;outline:none;cursor:grab}
+    .tl-head:active{cursor:grabbing}
+    .tl-flag{position:absolute;top:6px;left:0;transform:translateX(-50%);background:var(--ink);color:#F8F8F6;font:500 12px/16px var(--sans);padding:4px 8px;border-radius:7px;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .tl-flag::after{content:"";position:absolute;left:50%;bottom:-4px;margin-left:-4px;border:4px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+    .tl-line{position:absolute;top:30px;bottom:0;left:-.75px;width:1.5px;background:var(--ink)}
+    .tl-head:focus-visible .tl-flag{box-shadow:0 0 0 2px #F8F8F6,0 0 0 4px #579BFE}
+    .tl.drag .tl-head,.tl.drag .tl-past,.tl.drag .tl-prog{transition:none}
+    .tl-head,.tl-past,.tl-prog{transition:left .25s cubic-bezier(.2,.8,.2,1),width .25s cubic-bezier(.2,.8,.2,1)}
+    .tl-note{margin:4px 0 0;padding-top:14px;border-top:1px solid rgba(40,40,42,.08);color:var(--ink-2)}
+  </style>
+  <section class="card tl" data-start="2026-03-01" data-end="2026-12-15" data-today="2026-10-29">
+    <div class="tl-bar-top">
+      <div class="hstack g12"><h2 class="sub">Timeline</h2><span class="cap muted">Drag the marker to look back or ahead</span></div>
+      <div class="tl-ctl">
+        <span class="tl-read"><span class="tl-date">Oct 29</span><span class="tl-stage">Fall drop</span><span class="chip c-you tl-chip">Your move</span></span>
+        <button class="tl-btn" data-go="prev" aria-label="Previous stage"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v10M12 3.5L6.5 8 12 12.5Z"></path></svg></button>
+        <button class="tl-btn" data-go="next" aria-label="Next stage"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10M4 3.5L9.5 8 4 12.5Z"></path></svg></button>
+        <button class="tl-btn tl-today" data-go="today">Today</button>
+      </div>
     </div>
-    <p class="cap muted">Dark: approved · Lime: your move · Dashed: not started</p>
+    <div class="tl-body">
+      <div class="tl-labs"><div class="tl-lab hd"></div><div class="tl-lab done"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.2"></circle><path d="M5.4 8.2l1.8 1.8 3.4-3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Strategy</span></div><div class="tl-lab done"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.2"></circle><path d="M5.4 8.2l1.8 1.8 3.4-3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Concepts</span></div><div class="tl-lab done"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.2"></circle><path d="M5.4 8.2l1.8 1.8 3.4-3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Spring launch</span></div><div class="tl-lab done"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.2"></circle><path d="M5.4 8.2l1.8 1.8 3.4-3.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Summer drop</span></div><div class="tl-lab now open"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.2"></circle><circle cx="8" cy="8" r="2.4" fill="currentColor" stroke="none"></circle></svg><span>Fall drop</span></div><div class="tl-lab sub">Review rounds</div><div class="tl-lab sub">Invoice</div><div class="tl-lab next"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2.2"><circle cx="8" cy="8" r="6.2"></circle></svg><span>Wrap</span></div><div class="tl-lab next"><svg class="cv" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3l3 3-3 3"></path></svg><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2.2"><circle cx="8" cy="8" r="6.2"></circle></svg><span>Holiday</span></div></div>
+      <div class="tl-lane">
+        <div class="tl-ruler"><span class="mo" style="left: 0.0%">Mar</span><span class="mo" style="left: 10.727%">Apr</span><span class="mo" style="left: 21.107%">May</span><span class="mo" style="left: 31.834%">Jun</span><span class="mo" style="left: 42.215%">Jul</span><span class="mo" style="left: 52.941%">Aug</span><span class="mo" style="left: 63.668%">Sep</span><span class="mo" style="left: 74.048%">Oct</span><span class="mo" style="left: 84.775%">Nov</span><span class="mo" style="left: 95.156%">Dec</span><i class="tk" style="left: 4.844%"></i><i class="tk" style="left: 15.571%"></i><i class="tk" style="left: 25.952%"></i><i class="tk" style="left: 36.678%"></i><i class="tk" style="left: 47.059%"></i><i class="tk" style="left: 57.785%"></i><i class="tk" style="left: 68.512%"></i><i class="tk" style="left: 78.893%"></i><i class="tk" style="left: 89.619%"></i><i class="tk" style="left: 100.0%"></i><div class="tl-prog" style="width: 83.737%"></div><i class="tl-now" style="left: 83.737%" title="Today"></i></div>
+        <div class="tl-rows"><div class="tl-row"><div class="tl-bar done" data-s data-from="2026-03-02" data-to="2026-03-20" data-name="Strategy" title="Approved Mar 20" data-state="done" data-note="Approved by Rosa · Mar 20" style="left: 0.346%; width: 6.228%"><span class="d"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"></path></svg></span></div></div><div class="tl-row"><div class="tl-bar done" data-s data-from="2026-03-23" data-to="2026-04-17" data-name="Concepts" data-state="done" data-note="Route B picked · approved Apr 17" style="left: 7.612%; width: 8.651%"><span class="d"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"></path></svg>Apr 17</span></div></div><div class="tl-row"><div class="tl-bar done" data-s data-from="2026-04-20" data-to="2026-06-02" data-name="Spring launch" data-state="done" data-note="Approved Jun 2 · paid Jun 6" style="left: 17.301%; width: 14.879%"><span class="d"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"></path></svg>Jun 2</span></div></div><div class="tl-row"><div class="tl-bar done" data-s data-from="2026-06-08" data-to="2026-07-31" data-name="Summer drop" data-state="done" data-note="Approved Jul 31 · invoice 12 days late" style="left: 34.256%; width: 18.339%"><span class="d"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"></path></svg>Jul 31</span></div></div><div class="tl-row"><div class="tl-bar now" data-s data-from="2026-08-04" data-to="2026-10-30" data-name="Fall drop" data-state="now" data-note="Round 2 is with Rosa · due Oct 30" style="left: 53.979%; width: 30.104%"><span class="d">Due Oct 30</span></div></div><div class="tl-row sub"><div class="kline" style="left: 69.896%; width: 14.187%"></div><i class="kf on" data-k="2026-09-19" data-name="Round 1" style="left: 69.896%" title="Round 1 · Sep 19"></i><i class="kf on" data-k="2026-10-17" data-name="Round 2" style="left: 79.585%" title="Round 2 · Oct 17"></i><i class="kf " data-k="2026-10-30" data-name="Approval" style="left: 84.083%" title="Approval · Oct 30"></i></div><div class="tl-row sub"><i class="kf money" data-k="2026-10-30" data-name="Invoice sends" style="left: 84.083%" title="Invoice sends on approval"></i><span class="kcap" style="right: calc(100% - 84.083% + 12px)">$12,000 sends on approval</span></div><div class="tl-row"><div class="tl-bar next" data-s data-from="2026-11-02" data-to="2026-11-20" data-name="Wrap" data-state="next" data-note="Starts Nov 2" style="left: 85.121%; width: 6.228%"><span class="d">Nov 2</span></div></div><div class="tl-row"><div class="tl-bar next" data-s data-from="2026-11-23" data-to="2026-12-11" data-name="Holiday" data-state="next" data-note="Starts Nov 23 · ends Dec 11" style="left: 92.388%; width: 6.228%"><span class="d">Nov 23</span></div></div></div>
+        <div class="tl-past" style="width: 83.737%"></div>
+        <div class="tl-head" style="left: 83.737%" role="slider" tabindex="0" aria-label="Timeline marker" aria-valuetext="Oct 29, Fall drop"><span class="tl-flag">Oct 29</span><i class="tl-line"></i></div>
+      </div>
+    </div>
+    <p class="tl-note body"><span class="tl-note-t">Round 2 is with Rosa · due Oct 30</span></p>
   </section>
   <div class="split">
     <section class="wide card g16">
