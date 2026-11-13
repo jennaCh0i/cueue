@@ -33,19 +33,29 @@
     <section class="narrow card g16" style="padding: 28px">
       <h2 class="sub">Status tints</h2>
       <div class="stack g12">
-        <span class="chip c-you" style="align-self: flex-start">Your move · sage</span>
-        <span class="chip c-client" style="align-self: flex-start">Waiting on client · slate</span>
-        <span class="chip c-late" style="align-self: flex-start">Late · clay</span>
+        <span class="chip c-you" style="align-self: flex-start">Your move · lime</span>
+        <span class="chip c-client" style="align-self: flex-start">Waiting on client · blue</span>
+        <span class="chip c-late" style="align-self: flex-start">Late · brown</span>
         <span class="chip c-done" style="align-self: flex-start">Done · grey</span>
       </div>
       <p class="cap muted">Status stays flat so it reads at a glance. The aura is never a status.</p>
     </section>
   </div>
 
+  <section class="card g16" style="padding: 28px">
+    <div class="hstack between wrap g12"><h2 class="sub">Text</h2><span class="cap muted">Every text colour passes WCAG AA on every surface: card, panel, stone and the blue frame.</span></div>
+    <div class="grid3" style="gap: 16px">
+      <div class="stack g8"><span class="heading" style="color: var(--ink)">Ink · #26282B</span><span class="cap muted">Titles, body, numbers, buttons. 7:1 and up.</span></div>
+      <div class="stack g8"><span class="heading" style="color: var(--ink-2)">Ink 2 · #55585D</span><span class="cap muted">Supporting text: captions, meta, labels, tabs. 5:1 and up.</span></div>
+      <div class="stack g8"><span class="heading" style="color: var(--ink-3); font-family: var(--serif); font-weight: 300">Ink 3 · #7C7F84</span><span class="cap muted">Only big type (24px and up): the second line of a greeting, card numbers.</span></div>
+    </div>
+    <p class="cap muted">Never dim text with opacity. Use the next ink step instead.</p>
+  </section>
+
   <div class="grid3" style="gap: 24px">
     <section class="card g16" style="padding: 28px">
       <div class="card lime" style="height: 180px; border-radius: 16px; padding: 0"></div>
-      <div class="stack g4"><span class="sub">Aura</span><span class="body muted">Lime #DAEF53 and blue #579BFE washed over grey, with a white lift and 1px lines every 18px behind.</span></div>
+      <div class="stack g4"><span class="sub">Aura</span><span class="body muted">Lime #DAEF53 and blue #579BFE washed over grey, with a white lift and 1px lines every 24px behind.</span></div>
       <span class="cap muted">Your-move card, sign in, empty states</span>
     </section>
     <section class="card g16" style="padding: 28px">
@@ -87,7 +97,7 @@
         </div>
         <div class="card ink g8" style="min-height: 180px; justify-content: flex-end">
           <span class="heading" style="font-family: var(--serif); font-weight: 400">The next move is clear.</span>
-          <span class="cap" style="opacity: .7">On charcoal the aura glows from below.</span>
+          <span class="cap" style="color: rgba(247,248,248,.78)">On charcoal the aura glows from below.</span>
         </div>
       </div>
     </section>
