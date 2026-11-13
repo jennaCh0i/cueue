@@ -39,7 +39,7 @@
     'Pay $14,400 deposit': '/CProject',
     'Pay $11,400': '/CProjects',
     'Record approval': '/Project',
-    'Send to Rosa': '/Roadmap',
+    'Send to Rosa': '/Project#roadmap',
     'Save goal': '/Plan'
   };
 
