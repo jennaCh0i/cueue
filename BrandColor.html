@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/cueue.css">
 <script src="/proto.js" defer></script>
 <link rel="icon" href="/favicon.svg">
-<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}@view-transition{navigation:auto}.side{view-transition-name:side}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}.proto-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(38,40,43,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);view-transition-name:protobar}.proto-bar a{font:500 12px/16px var(--sans);color:rgba(247,248,248,.7);text-decoration:none;padding:7px 14px;border-radius:999px}.proto-bar a.on{background:rgba(247,248,248,.14);color:#F7F8F8}.proto-bar a:hover{color:#F7F8F8}.proto-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F7F8F8;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg)}.proto-toast.in{opacity:1;transform:translate(-50%,0)}.toggle{cursor:pointer}.main{padding-bottom:96px}</style>
+<style>body{margin:0;background:var(--paper);overflow-x:auto}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}@view-transition{navigation:auto}.side{view-transition-name:side}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}.proto-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(40,40,42,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);view-transition-name:protobar}.proto-bar a{font:500 12px/16px var(--sans);color:rgba(248,248,246,.7);text-decoration:none;padding:7px 14px;border-radius:999px}.proto-bar a.on{background:rgba(248,248,246,.14);color:#F8F8F6}.proto-bar a:hover{color:#F8F8F6}.proto-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F8F8F6;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg)}.proto-toast.in{opacity:1;transform:translate(-50%,0)}.toggle{cursor:pointer}.main{padding-bottom:96px}</style>
 </head>
 <body>
 
@@ -23,11 +23,11 @@
     <section class="wide card g16" style="padding: 28px">
       <h2 class="sub">Neutrals</h2>
       <div class="grid5" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
-        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #ECEEEE; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Paper</span><span class="cap muted">#ECEEEE · page</span></div>
-        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #E3E6E6"></div><span class="label">Cream</span><span class="cap muted">#E3E6E6 · panel</span></div>
-        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #F7F8F8; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Card</span><span class="cap muted">#F7F8F8 · never pure white</span></div>
-        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #D5D9DA"></div><span class="label">Stone</span><span class="cap muted">#D5D9DA · emphasis</span></div>
-        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #26282B"></div><span class="label">Ink</span><span class="cap muted">#26282B · text, primary</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #EEEEEC; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Paper</span><span class="cap muted">#EEEEEC · page</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #E6E6E3"></div><span class="label">Cream</span><span class="cap muted">#E6E6E3 · panel</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #F8F8F6; box-shadow: inset 0 0 0 1px var(--line)"></div><span class="label">Card</span><span class="cap muted">#F8F8F6 · never pure white</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #D9D9D6"></div><span class="label">Stone</span><span class="cap muted">#D9D9D6 · emphasis</span></div>
+        <div class="stack g8"><div style="height: 88px; border-radius: 16px; background: #28282A"></div><span class="label">Ink</span><span class="cap muted">#28282A · text, primary</span></div>
       </div>
     </section>
     <section class="narrow card g16" style="padding: 28px">
@@ -45,9 +45,9 @@
   <section class="card g16" style="padding: 28px">
     <div class="hstack between wrap g12"><h2 class="sub">Text</h2><span class="cap muted">Every text colour passes WCAG AA on every surface: card, panel, stone and the blue frame.</span></div>
     <div class="grid3" style="gap: 16px">
-      <div class="stack g8"><span class="heading" style="color: var(--ink)">Ink · #26282B</span><span class="cap muted">Titles, body, numbers, buttons. 7:1 and up.</span></div>
-      <div class="stack g8"><span class="heading" style="color: var(--ink-2)">Ink 2 · #55585D</span><span class="cap muted">Supporting text: captions, meta, labels, tabs. 5:1 and up.</span></div>
-      <div class="stack g8"><span class="heading" style="color: var(--ink-3); font-family: var(--serif); font-weight: 300">Ink 3 · #7C7F84</span><span class="cap muted">Only big type (24px and up): the second line of a greeting, card numbers.</span></div>
+      <div class="stack g8"><span class="heading" style="color: var(--ink)">Ink · #28282A</span><span class="cap muted">Titles, body, numbers, buttons. 7:1 and up.</span></div>
+      <div class="stack g8"><span class="heading" style="color: var(--ink-2)">Ink 2 · #57575A</span><span class="cap muted">Supporting text: captions, meta, labels, tabs. 5:1 and up.</span></div>
+      <div class="stack g8"><span class="heading" style="color: var(--ink-3); font-family: var(--serif); font-weight: 300">Ink 3 · #7E7F82</span><span class="cap muted">Only big type (24px and up): the second line of a greeting, card numbers.</span></div>
     </div>
     <p class="cap muted">Never dim text with opacity. Use the next ink step instead.</p>
   </section>
@@ -81,7 +81,7 @@
       <h2 class="sub">In use</h2>
       <div class="grid2">
         <div class="card lime g8">
-          <span class="chip c-you" style="align-self: flex-start; background: rgba(247,248,248,.7)">Your move</span>
+          <span class="chip c-you" style="align-self: flex-start; background: rgba(248,248,246,.7)">Your move</span>
           <span class="sub">Upload round 3 by Oct 24</span>
           <span class="cap">Fall drop · hero film and retail</span>
         </div>
@@ -97,7 +97,7 @@
         </div>
         <div class="card ink g8" style="min-height: 180px; justify-content: flex-end">
           <span class="heading" style="font-family: var(--serif); font-weight: 400">The next move is clear.</span>
-          <span class="cap" style="color: rgba(247,248,248,.78)">On charcoal the aura glows from below.</span>
+          <span class="cap" style="color: rgba(248,248,246,.78)">On charcoal the aura glows from below.</span>
         </div>
       </div>
     </section>
