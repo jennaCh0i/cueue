@@ -63,7 +63,7 @@ b{font-weight:600}
 @media (max-width:620px){.grid4,.grid3,.grid2{grid-template-columns:minmax(0,1fr)}}
 
 /* app shell */
-.app{display:flex;flex-wrap:wrap;align-items:flex-start;min-height:100vh;background:var(--paper)}
+.app{display:flex;flex-wrap:wrap;align-items:flex-start;min-height:100vh;background:repeating-linear-gradient(90deg,rgba(38,40,43,.045) 0 1px,transparent 1px 36px),radial-gradient(120% 80% at 0% 100%,rgba(87,155,254,.38) 0%,rgba(87,155,254,0) 60%),linear-gradient(180deg,#E3E8EE 0%,#C9D9F3 100%);background-attachment:fixed}
 .side{flex:1 1 200px;max-width:232px;padding:28px 18px;display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;height:100dvh;overflow-y:auto}
 @media (max-width:760px){.side{max-width:none;position:static;height:auto}}
 .main{flex:999 1 560px;min-width:0;min-height:calc(100vh - 20px);margin:10px 10px 10px 0;background:linear-gradient(180deg,#E8EBEB 0%,#E1E5E5 100%);border-radius:var(--r-panel);padding:44px 52px 56px;display:flex;flex-direction:column;gap:32px}
@@ -77,7 +77,7 @@ b{font-weight:600}
 .brand .sub{font-weight:600;font-size:18px;letter-spacing:-.01em}
 .bell{margin-left:auto;position:relative;width:38px;height:38px;border-radius:999px;background:var(--white);display:grid;place-items:center;text-decoration:none;color:var(--ink)}
 .badge{position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;border-radius:9px;background:var(--ink);color:var(--white);font-size:10px;font-weight:600;line-height:17px;text-align:center;padding:0 4px}
-.nav{display:flex;align-items:center;gap:12px;padding:9px 14px;font-weight:400;font-size:15px;line-height:20px;color:var(--n64);text-decoration:none;min-height:40px;border-radius:0}
+.nav{display:flex;align-items:center;gap:12px;padding:9px 14px;font-weight:400;font-size:15px;line-height:20px;color:rgba(38,40,43,.66);text-decoration:none;min-height:40px;border-radius:0}
 .nav:hover{color:var(--ink)}
 .nav.on{color:var(--ink);box-shadow:inset 1.5px 0 0 var(--ink)}
 .nav .ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
