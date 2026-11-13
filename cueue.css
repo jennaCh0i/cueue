@@ -18,15 +18,17 @@
   --stone:#D9D9D6;           /* the one emphasis card per screen */
   /* gradient: the aura, brand palette only. Lime → blue, washed over grey, always behind ink text, always with the line texture */
   --g-lime:#DAEF53; --g-blue:#579BFE; --g-cream:#F3EFE9; --g-white:#FEFEFE;
-  --aura:radial-gradient(110% 95% at 0% 0%,rgba(218,239,83,.42) 0%,rgba(218,239,83,0) 58%),radial-gradient(95% 90% at 100% 100%,rgba(87,155,254,.30) 0%,rgba(87,155,254,0) 62%),radial-gradient(70% 70% at 85% 0%,rgba(254,254,254,.7) 0%,rgba(254,254,254,0) 60%),#ECECE9;
+  --aura:var(--grain),radial-gradient(110% 95% at 0% 0%,rgba(218,239,83,.42) 0%,rgba(218,239,83,0) 58%),radial-gradient(95% 90% at 100% 100%,rgba(87,155,254,.30) 0%,rgba(87,155,254,0) 62%),radial-gradient(70% 70% at 85% 0%,rgba(254,254,254,.7) 0%,rgba(254,254,254,0) 60%),#ECECE9;
   --aura-line:linear-gradient(90deg,#DAEF53 0%,#9EC6A8 45%,#579BFE 100%);
-  --aura-soft:linear-gradient(100deg,rgba(218,239,83,.28) 0%,rgba(254,254,254,.6) 50%,rgba(87,155,254,.20) 100%),#F5F5F3;
+  --aura-soft:var(--grain),linear-gradient(100deg,rgba(218,239,83,.28) 0%,rgba(254,254,254,.6) 50%,rgba(87,155,254,.20) 100%),#F5F5F3;
   --aura-edge:linear-gradient(135deg,rgba(218,239,83,.75),rgba(254,254,254,.5),rgba(87,155,254,.6));
   /* texture: one line field everywhere, 1px every 24px */
+  /* grain: fine noise laid over every gradient surface */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --lines:repeating-linear-gradient(90deg,rgba(40,40,42,.06) 0 1px,transparent 1px 24px);
   --lines-dark:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 24px);
   /* the frame: what sits behind the app, the same on every studio and client screen */
-  --frame:var(--lines),radial-gradient(120% 80% at 0% 100%,rgba(87,155,254,.38) 0%,rgba(87,155,254,0) 60%),linear-gradient(180deg,#E7E9EC 0%,#C9D9F3 100%);
+  --frame:var(--grain),var(--lines),radial-gradient(120% 80% at 0% 100%,rgba(87,155,254,.38) 0%,rgba(87,155,254,0) 60%),linear-gradient(180deg,#E7E9EC 0%,#C9D9F3 100%);
   --charcoal:linear-gradient(160deg,#3A3B3D 0%,#28282A 60%,#222224 100%);
   --navy-grad:var(--charcoal);
   /* depth: barely there */
@@ -160,7 +162,7 @@ b{font-weight:600}
 
 /* progress and milestones */
 .bar{height:4px;border-radius:2px;background:var(--n12);overflow:hidden}
-.bar > i{display:block;height:100%;background:var(--aura-line);border-radius:2px}
+.bar > i{display:block;height:100%;background:var(--grain),var(--aura-line);border-radius:2px}
 .steps{display:flex;gap:6px}
 .step{flex:1 1 0;height:44px;border-radius:var(--r-field);display:grid;place-items:center;font-weight:400;font-size:13px;background:transparent;color:var(--ink-2);border:1px dashed rgba(40,40,42,.22)}
 .step.done{background:#47484A;color:#F3F3F0;border-color:transparent}
@@ -200,7 +202,7 @@ textarea.input{resize:vertical;min-height:96px}
 .lines-v{background-image:var(--lines);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
 .lines-v.on-dark{background-image:var(--lines-dark)}
 .art{display:block;max-width:100%;height:auto}
-.orb{border-radius:50%;background:radial-gradient(60% 60% at 30% 30%,#DAEF53 0%,rgba(218,239,83,0) 62%),radial-gradient(75% 75% at 72% 70%,#579BFE 0%,rgba(87,155,254,0) 66%),radial-gradient(60% 60% at 60% 25%,#FEFEFE 0%,rgba(254,254,254,0) 60%),#F3EFE9;opacity:.85}
+.orb{border-radius:50%;background:var(--grain),radial-gradient(60% 60% at 30% 30%,#DAEF53 0%,rgba(218,239,83,0) 62%),radial-gradient(75% 75% at 72% 70%,#579BFE 0%,rgba(87,155,254,0) 66%),radial-gradient(60% 60% at 60% 25%,#FEFEFE 0%,rgba(254,254,254,0) 60%),#F3EFE9;opacity:.85}
 .ai{background:var(--aura-line);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
 
 /* phone (client side) */

@@ -29,15 +29,15 @@
     .flow .col{flex:1;display:flex;flex-direction:column;gap:8px;height:100%;justify-content:flex-end}
     .flow .bar2{position:relative;border-radius:18px;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:10px}
     .flow .bar2::after{content:"";position:absolute;inset:0;background-image:var(--lines);pointer-events:none}
-    .flow .in{height:100%;background:linear-gradient(180deg,#B9D3FF 0%,#579BFE 100%)}
+    .flow .in{height:100%;background:var(--grain),linear-gradient(180deg,#B9D3FF 0%,#579BFE 100%)}
     .flow .out{height:61%;background:linear-gradient(180deg,#E6E6E3 0%,#D9D9D6 100%)}
     .pill{position:relative;z-index:1;background:rgba(248,248,246,.85);border-radius:999px;padding:3px 10px;font:500 12.5px/16px var(--sans)}
     .owe{display:flex;flex-direction:column;gap:8px}
     .owe .track{position:relative;height:40px;border-radius:14px;background:rgba(40,40,42,.04);overflow:hidden}
     .owe .track::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(40,40,42,.06) 0 1px,transparent 1px 9px)}
     .owe .fill{position:absolute;inset:0 auto 0 0;border-radius:14px}
-    .owe .fill.late{background:linear-gradient(90deg,#EFDCD0,#E3BFAE)}
-    .owe .fill.ok{background:linear-gradient(90deg,#DCE8FC,#9CC2FF)}
+    .owe .fill.late{background:var(--grain),linear-gradient(90deg,#EFDCD0,#E3BFAE)}
+    .owe .fill.ok{background:var(--grain),linear-gradient(90deg,#DCE8FC,#9CC2FF)}
     .axis{display:flex;justify-content:space-between;padding:0 24px 0 28px;color:var(--ink-2);font-size:13px}
   </style>
   <div class="fin">
