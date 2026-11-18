@@ -176,6 +176,18 @@
       if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
       if (e.key === 'Home') { set(T); e.preventDefault(); }
     });
+    var labs = [].slice.call(tl.querySelectorAll('.tl-lab:not(.hd)')), lrows = [].slice.call(tl.querySelectorAll('.tl-row'));
+    var nMs = labs.filter(function (l) { return !l.classList.contains('sub'); }).length;
+    labs.forEach(function (l, i) {
+      if (l.classList.contains('done') || l.classList.contains('next')) { l.classList.add('fold'); if (lrows[i]) lrows[i].classList.add('fold'); }
+    });
+    var fb = tl.querySelector('.tl-fold'), ft = tl.querySelector('.tl-fold-t');
+    function fold(c) {
+      tl.classList.toggle('compact', c);
+      if (fb) { fb.setAttribute('aria-expanded', c ? 'false' : 'true'); ft.textContent = c ? 'Show all ' + nMs + ' milestones' : 'Show current only'; }
+    }
+    if (fb) fb.addEventListener('click', function () { fold(!tl.classList.contains('compact')); });
+    fold(tl.classList.contains('compact'));
     set(T);
   });
 })();
