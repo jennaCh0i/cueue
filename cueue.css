@@ -23,13 +23,13 @@
      1. what needs you now (the your-move card, the current step), 2. progress (bars, goals), 3. anything the AI made (✦, suggestions).
      Backgrounds, frames, headers and empty space stay flat. */
   --g-lime:#DAEF53; --g-blue:#579BFE; --g-cream:#F3EFE9; --g-white:#FEFEFE;
-  --aura:var(--grain),radial-gradient(120% 110% at 100% 0%,rgba(87,155,254,.42) 0%,rgba(87,155,254,0) 62%),radial-gradient(75% 70% at 0% 100%,rgba(218,239,83,.30) 0%,rgba(218,239,83,0) 58%),radial-gradient(70% 70% at 15% 0%,rgba(254,254,254,.75) 0%,rgba(254,254,254,0) 60%),#F1F4FA;
-  --aura-line:linear-gradient(90deg,#C5E36A 0%,#86B6FD 32%,#579BFE 100%);
-  --aura-soft:var(--grain),linear-gradient(100deg,rgba(218,239,83,.18) 0%,rgba(254,254,254,.55) 35%,rgba(87,155,254,.26) 100%),#F5F7FB;
-  --aura-edge:linear-gradient(135deg,rgba(218,239,83,.65),rgba(134,182,253,.6) 40%,rgba(87,155,254,.85));
+  --aura:var(--grain),radial-gradient(90% 120% at 100% 0%,rgba(87,155,254,.22) 0%,rgba(87,155,254,.08) 45%,rgba(87,155,254,0) 75%),radial-gradient(60% 70% at 0% 100%,rgba(218,239,83,.10) 0%,rgba(218,239,83,0) 60%),linear-gradient(180deg,#FBFCFE 0%,#F3F7FD 100%);
+  --aura-line:linear-gradient(90deg,#BCD6FE 0%,#86B6FD 45%,#579BFE 100%);
+  --aura-soft:var(--grain),radial-gradient(120% 140% at 100% 0%,rgba(87,155,254,.16) 0%,rgba(87,155,254,0) 70%),linear-gradient(180deg,#FCFDFE 0%,#F5F8FD 100%);
+  --aura-edge:linear-gradient(135deg,rgba(87,155,254,.18),rgba(87,155,254,.45) 60%,rgba(87,155,254,.7));
   /* texture: one line field everywhere, 1px every 24px */
   /* grain: fine noise laid over every gradient surface */
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.94' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.94' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .2 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --lines:repeating-linear-gradient(90deg,rgba(40,40,42,.06) 0 1px,transparent 1px 24px);
   --lines-dark:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 24px);
   /* the frame: what sits behind the app, the same on every studio and client screen */
@@ -81,7 +81,7 @@ b{font-weight:600}
 .app{display:flex;flex-wrap:wrap;align-items:flex-start;min-height:100vh;background:var(--frame);background-attachment:fixed}
 .side{flex:1 1 200px;max-width:232px;padding:28px 18px;display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;height:100dvh;overflow-y:auto}
 @media (max-width:760px){.side{max-width:none;position:static;height:auto}}
-.main{flex:999 1 560px;min-width:0;min-height:calc(100vh - 20px);margin:10px 10px 10px 0;background:var(--panel);box-shadow:0 0 0 1px rgba(40,40,42,.05),0 1px 2px rgba(40,40,42,.03);border-radius:var(--r-panel);padding:44px 52px 56px;display:flex;flex-direction:column;gap:32px}
+.main{flex:999 1 560px;min-width:0;min-height:calc(100vh - 20px);margin:10px 10px 10px 0;background:radial-gradient(70% 420px at 72% 0%,rgba(87,155,254,.07) 0%,rgba(87,155,254,0) 100%),var(--panel);box-shadow:0 0 0 1px rgba(40,40,42,.05),0 1px 2px rgba(40,40,42,.03);border-radius:var(--r-panel);padding:44px 52px 56px;display:flex;flex-direction:column;gap:32px}
 @media (max-width:760px){.main{margin:0 10px 10px;padding:24px 20px}}
 .split{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
 .split > .wide{flex:999 1 520px;min-width:0}
@@ -107,7 +107,7 @@ b{font-weight:600}
 /* surfaces */
 .card{position:relative;background:var(--white);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column;gap:8px;min-width:0;box-shadow:var(--shadow)}
 .card.lime{background:var(--aura);box-shadow:none;border:1px solid transparent;background-origin:border-box;overflow:hidden}
-.card.lime::after,.card.blue::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background-image:var(--lines);-webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 70%);mask-image:linear-gradient(200deg,#000 0%,transparent 70%)}
+.card.lime::after,.card.blue::after{display:none;content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background-image:var(--lines);-webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 70%);mask-image:linear-gradient(200deg,#000 0%,transparent 70%)}
 .card.lime > *,.card.blue > *{position:relative;z-index:1}
 .card.lime::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:var(--aura-edge);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .card.blue{background:var(--aura-soft);box-shadow:none;overflow:hidden}
