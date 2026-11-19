@@ -127,6 +127,37 @@
     .gfull.hl .ev:not(.on){opacity:.28}
     .tnow{position:absolute;left:0;right:0;height:0;border-top:2px solid var(--accent);z-index:4}
     .tnow b{position:absolute;left:-6px;top:-5.5px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+    /* week, in the activity style */
+    .wh{position:relative;height:56px;border-bottom:1px solid rgba(40,40,42,.07);background:var(--white)}
+    .wh .gin{height:100%}
+    .wl{position:absolute;top:0;height:100%;display:flex;align-items:center;justify-content:center;font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+    .wl.we{color:var(--ink-3)}
+    .wl.now{color:var(--ink);font-weight:600}
+    .wnow{position:absolute;bottom:-11px;transform:translateX(-50%);background:var(--accent);color:var(--ink);font:600 11.5px/16px var(--sans);padding:3px 8px;border-radius:7px;z-index:5;font-variant-numeric:tabular-nums}
+    .wbody{position:relative;padding:28px 0 16px;min-height:420px}
+    .wg{position:absolute;top:0;bottom:0;border-left:1px solid rgba(40,40,42,.07)}
+    .wg.dash{border-left:1px dashed rgba(40,40,42,.09)}
+    .wwe{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(40,40,42,.03) 0 1px,transparent 1px 7px)}
+    .wnowl{position:absolute;top:-12px;bottom:0;width:2px;margin-left:-1px;background:var(--accent);z-index:4;pointer-events:none}
+    .wnowl::after{content:"";position:absolute;bottom:-4px;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .wlane{height:76px}
+    .wb{position:absolute;top:6px;height:60px;border-radius:16px;display:flex;align-items:center;gap:12px;padding:0 10px 0 16px;box-sizing:border-box;color:var(--ink);text-decoration:none;white-space:nowrap;background:color-mix(in srgb,var(--c) 58%,#FEFEFE);transition:box-shadow .15s,opacity .2s}
+    .wb .done{position:absolute;left:0;top:0;bottom:0;border-radius:16px;background:var(--c)}
+    .wb:hover{box-shadow:0 0 0 1.5px var(--ink);z-index:3}
+    .wb .tx{position:relative;display:flex;flex-direction:column;min-width:0}
+    .wb .tx b{font-weight:500;font-size:14px;line-height:19px;overflow:hidden;text-overflow:ellipsis}
+    .wb .tx span{font-size:12px;line-height:16px;color:rgba(40,40,42,.62);overflow:hidden;text-overflow:ellipsis}
+    .wb.out .tx{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%)}
+    .wav{position:relative;margin-left:auto;display:flex;flex:none}
+    .wav i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:500 10.5px/1 var(--sans);font-style:normal;color:var(--ink);box-shadow:0 0 0 2px #FEFEFE;margin-left:-5px;letter-spacing:-.02em}
+    .wav i:first-child{margin-left:0}
+    .wav i.more{background:var(--ink);color:#FEFEFE}
+    .wb .ms{position:absolute;bottom:-4.5px;width:9px;height:9px;margin-left:-4.5px;transform:rotate(45deg);background:#FEFEFE;border:1.3px solid var(--ink);border-radius:1.5px;box-sizing:border-box;z-index:2}
+    .wlane .gs{top:11px}
+    .gfull.hl .wb:not(.on){opacity:.28}
+    .wfoot2{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0 6px;border-top:1px solid rgba(40,40,42,.07);font-size:13px;color:var(--ink-2)}
+    .cap-bar{flex:1;max-width:360px;height:6px;border-radius:3px;background:rgba(40,40,42,.08);overflow:hidden}
+    .cap-bar i{display:block;height:100%;background:var(--grain),var(--aura-line);border-radius:3px}
     .gtoast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F8F8F6;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg);pointer-events:none}
     .gtoast.in{opacity:1;transform:translate(-50%,0)}
   </style>
@@ -313,34 +344,75 @@
       return '<div class="gtr"><div class="gh"><div class="gin">' + H + flag + '</div></div><div class="gin gbody">' + ticks + '<div class="lanes">' + body + '</div>' + line + '</div></div>';
     }
 
-    // ---------- week ----------
+    // ---------- week: one bar per project, solid = hours done, light = hours left ----------
+    var PEOPLE = { Fernhill: ['RL', 'JK', 3], Vinea: ['EM', '', 1], Pulse: ['DK', 'SA', 2], Tapline: ['OB', '', 0], Halcyon: ['PR', '', 1], Northline: ['DH', '', 0], Juniper: ['AL', '', 0] };
     function week(W0) {
-      var H0 = 8, H1 = 18, ph = 56, cols = '', head = '<div class="dh" style="border-left:0"></div>', ad = '<div class="adl">All day</div>';
-      var t = function (v) { var hh = Math.floor(v), mm = Math.round((v - hh) * 60); return (hh > 12 ? hh - 12 : hh) + (mm ? ':' + (mm < 10 ? '0' : '') + mm : '') + (hh >= 12 ? 'pm' : 'am'); };
+      var GP = 36, W = (box.clientWidth || 1200) - GP * 2, cw = W / 7, H0 = 8, H1 = 18;
+      var X = function (d, h) { return (d - W0) * cw + Math.max(0, Math.min(1, (h - H0) / (H1 - H0))) * cw; };
+      var hm = function (v) { var hh = Math.floor(v), mm = Math.round((v - hh) * 60); return (hh > 12 ? hh - 12 : hh) + ':' + (mm < 10 ? '0' : '') + mm; };
+      var head = '', grid = '';
       for (var i = 0; i < 7; i++) {
-        var d = W0 + i, w = dt(d).getUTCDay(), we = w === 0 || w === 6;
-        head += '<div class="dh' + (d === T ? ' now' : '') + '">' + DW[w] + ' <b>' + dt(d).getUTCDate() + '</b></div>';
-        var pills = '';
-        P.forEach(function (p) { p[8].forEach(function (k) { if (day(k[0]) === d) pills += '<span class="pill' + (k[2] === 'money' ? ' money' : '') + '" style="background:' + C[p[1]][0] + '" title="' + esc(C[p[1]][2] + ' · ' + k[1]) + '">' + esc(k[1]) + '</span>'; }); });
-        ad += '<div class="ad">' + pills + '</div>';
-        var evs = '';
-        EV.forEach(function (e) {
-          if (day(e[0]) !== d) return;
-          var top = (e[1] - H0) * ph + 2, h = (e[2] - e[1]) * ph - 4, c = C[e[3]];
-          evs += '<div class="ev' + (e[5] === 'call' ? ' call' : '') + (h < 50 ? ' sh' : '') + '" data-p="' + (evProj[e[3]] || '') + '" style="top:' + top + 'px;height:' + h + 'px;background:' + c[0] + (e[5] === 'call' ? ';border-left:3px solid ' + c[1] : '') + '"><b>' + esc(e[4]) + '</b>' +
-            (h < 50 ? '' : '<span>' + t(e[1]) + ' – ' + t(e[2]) + (h > 60 ? ' · ' + esc(c[2]) : '') + '</span>') + (e[5] === 'call' && d === T && h >= 70 ? '<span class="jn">Join call</span>' : '') + '</div>';
-        });
-        WS.forEach(function (s) {
-          if (day(s[1]) !== d) return;
-          var on = st.added[s[0]], top = (s[2] - H0) * ph + 2, h = (s[3] - s[2]) * ph - 4;
-          evs += '<div class="ev sug' + (on ? ' added' : '') + '" data-s="' + s[0] + '" style="--tint:' + C[s[4]][0] + ';top:' + top + 'px;height:' + h + 'px"><b>' + (on ? '' : '<span class="ai">✦</span> ') + esc(s[5]) + '</b><span>' + (on ? t(s[2]) + ' – ' + t(s[3]) : esc(s[6])) + '</span><button data-a="' + (on ? 'undo' : 'add') + '">' + (on ? 'Undo' : 'Add') + '</button></div>';
-        });
-        var nowl = d === T ? '<div class="tnow" style="top:' + (NOWT - H0) * ph + 'px"><b></b></div>' : '';
-        cols += '<div class="col' + (we ? ' we' : '') + '" style="height:' + (H1 - H0) * ph + 'px">' + evs + nowl + '</div>';
+        var d = W0 + i, w = dt(d).getUTCDay(), we = w === 0 || w === 6, x = i * cw;
+        head += '<span class="wl' + (d === T ? ' now' : '') + (we ? ' we' : '') + '" style="left:' + x + 'px;width:' + cw + 'px">' + DW[w] + ' ' + dt(d).getUTCDate() + '</span>';
+        grid += '<i class="wg" style="left:' + x + 'px"></i><i class="wg dash" style="left:' + (x + cw / 2) + 'px"></i>';
+        if (we) grid += '<i class="wwe" style="left:' + x + 'px;width:' + cw + 'px"></i>';
       }
-      var hl = '<div>';
-      for (var h = H0; h < H1; h++) hl += '<div class="hr"><span>' + (h > 12 ? h - 12 : h) + (h >= 12 ? ' pm' : ' am') + '</span></div>';
-      return '<div class="wk">' + head + ad + hl + '</div>' + cols + '</div>';
+      // gather this week's sessions by project
+      var by = {}, list = [];
+      EV.forEach(function (e) {
+        var d = day(e[0]); if (d < W0 || d > W0 + 6 || e[3] === 'Studio') return;
+        var k = evProj[e[3]]; (by[k] = by[k] || { c: e[3], s: [] }).s.push(e);
+      });
+      var nowAt = T + NOWT / 24;
+      Object.keys(by).forEach(function (k) {
+        var g = by[k], p = P.filter(function (q) { return q[0] === k; })[0], a = 1e9, b = -1e9, tot = 0, done = 0;
+        g.s.forEach(function (e) {
+          var d = day(e[0]), x0 = X(d, e[1]), x1 = X(d, e[2]), hrs = e[2] - e[1];
+          a = Math.min(a, x0); b = Math.max(b, x1); tot += hrs;
+          var s0 = d + e[1] / 24, s1 = d + e[2] / 24;
+          done += nowAt >= s1 ? hrs : nowAt > s0 ? (nowAt - s0) * 24 : 0;
+        });
+        var due = [];
+        p[8].forEach(function (m) { var md = day(m[0]); if (md >= W0 && md <= W0 + 6 && m[2] !== 'money') due.push(m); });
+        due.forEach(function (m) { b = Math.max(b, X(day(m[0]), 12)); });
+        var wpx = b - a, sub0 = g.s.length + ' sessions · ' + Math.round(tot * 10) / 10 + 'h' + (due.length ? ' · ' + due[0][1] + ' Fri' : '');
+        var tw = Math.max(7.6 * p[2].length, 6.4 * sub0.length) + 32, out = wpx < tw, avs = wpx >= tw + 96;
+        list.push({ k: 'p', p: p, c: g.c, x0: a, x1: b, minw: out ? wpx + 20 + tw : 0, tot: tot, done: done, n: g.s.length, due: due, out: out, avs: avs });
+      });
+      WS.forEach(function (s) {
+        var d = day(s[1]); if (d < W0 || d > W0 + 6) return;
+        var sx = X(d, s[2]), x0 = Math.min(sx, W - 300);
+        list.push({ k: 's', s: s, x0: x0, x1: x0 + 300, minw: 300 });
+      });
+      list.sort(function (a, b) { return a.x0 - b.x0; });
+      var n = pack(list), rows = [];
+      for (var r = 0; r < n; r++) rows.push('');
+      list.forEach(function (it) {
+        if (it.k === 's') {
+          var s = it.s, on = st.added[s[0]];
+          rows[it.lane] += '<div class="gs' + (on ? ' added' : '') + '" data-s="' + s[0] + '" style="--tint:' + C[s[4]][0] + ';left:' + it.x0 + 'px">' + (on ? '' : '<span class="sp">✦</span>') +
+            '<span class="tx"><b>' + esc(s[5]) + '</b><span>' + (on ? 'Added · ' + DW[dt(day(s[1])).getUTCDay()] + ' ' + hm(s[2]) + '–' + hm(s[3]) : esc(s[6])) + '</span></span>' +
+            '<button data-a="' + (on ? 'undo' : 'add') + '">' + (on ? 'Undo' : 'Add') + '</button></div>';
+          return;
+        }
+        var p = it.p, c = C[it.c], wpx = it.x1 - it.x0, f = it.tot ? it.done / it.tot : 0, pp = PEOPLE[it.c] || ['', '', 0];
+        var sub = it.n + (it.n > 1 ? ' sessions' : ' session') + ' · ' + Math.round(it.tot * 10) / 10 + 'h' + (it.due.length ? ' · ' + it.due[0][1] + ' ' + DW[dt(day(it.due[0][0])).getUTCDay()] : '');
+        var av = '<span class="wav">' + (pp[0] ? '<i style="background:' + c[0] + '">' + pp[0] + '</i>' : '') + (pp[1] ? '<i style="background:#E4EEFF">' + pp[1] + '</i>' : '') + (pp[2] ? '<i class="more">+' + pp[2] + '</i>' : '') + '</span>';
+        var ms = '';
+        it.due.forEach(function (m) { ms += '<i class="ms" style="left:' + (X(day(m[0]), 12) - it.x0) + 'px" title="' + esc(m[1] + ' · ' + fmt(day(m[0]))) + '"></i>'; });
+        var tag = p[9] ? 'a' : 'div', href = p[9] ? ' href="' + p[9] + '"' : '';
+        rows[it.lane] += '<' + tag + ' class="wb' + (it.out ? ' out' : '') + '" data-p="' + p[0] + '"' + href + ' style="left:' + it.x0 + 'px;width:' + Math.max(wpx, 14) + 'px;--c:' + c[0] + '" title="' + esc(c[2] + ' · ' + p[2] + ' · ' + Math.round(it.done * 10) / 10 + 'h of ' + Math.round(it.tot * 10) / 10 + 'h done') + '">' +
+          '<i class="done" style="width:' + (f * 100) + '%"></i>' +
+          '<span class="tx"><b>' + esc(p[2]) + '</b><span>' + esc(sub) + '</span></span>' + (it.avs ? av : '') + ms + '</' + tag + '>';
+      });
+      var body = rows.map(function (r) { return '<div class="lane wlane">' + r + '</div>'; }).join('') || '<div class="gempty">No sessions planned this week yet.</div>';
+      var nowL = T >= W0 && T <= W0 + 6 ? X(T, NOWT) : -1;
+      var nowH = nowL < 0 ? '' : '<span class="wnow" style="left:' + nowL + 'px">' + hm(NOWT) + '</span>';
+      var nowB = nowL < 0 ? '' : '<i class="wnowl" style="left:' + nowL + 'px"></i>';
+      var hrsAll = list.reduce(function (s, it) { return s + (it.tot || 0); }, 0);
+      return '<div class="wk2"><div class="wh"><div class="gin">' + head + nowH + '</div></div>' +
+        '<div class="gin wbody">' + grid + body + nowB + '</div>' +
+        '<div class="gin wfoot2"><span>' + Math.round(hrsAll * 10) / 10 + 'h booked of your 40h week</span><span class="cap-bar"><i style="width:' + Math.min(100, hrsAll / 40 * 100) + '%"></i></span><span>' + Math.max(0, Math.round(40 - hrsAll)) + 'h open</span></div></div>';
     }
 
     function render() {
