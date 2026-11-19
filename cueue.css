@@ -6,6 +6,8 @@
   --line:rgba(40,40,42,.08);
   /* status tints, desaturated: sage = your move, slate = client, clay = late */
   --lime:#DAEF53; --blue:#579BFE; --brown:#3F2018;
+  /* main colour: Cueue blue. Primary actions, where you are, today. Ink text sits on it (5.3:1); white text on it would fail contrast. */
+  --accent:#579BFE; --accent-hover:#6CA8FE; --accent-tint:#E4EEFF; --accent-ink:#1D5BC9;
   /* text: three steps, all AA on every surface. ink for content, ink-2 for supporting text, ink-3 only for big decorative numerals */
   --ink-2:#57575A; --ink-3:#7E7F82;
   /* status tints, from the brand palette: lime = your move, blue = client, brown = late */
@@ -21,10 +23,10 @@
      1. what needs you now (the your-move card, the current step), 2. progress (bars, goals), 3. anything the AI made (✦, suggestions).
      Backgrounds, frames, headers and empty space stay flat. */
   --g-lime:#DAEF53; --g-blue:#579BFE; --g-cream:#F3EFE9; --g-white:#FEFEFE;
-  --aura:var(--grain),radial-gradient(110% 95% at 0% 0%,rgba(218,239,83,.42) 0%,rgba(218,239,83,0) 58%),radial-gradient(95% 90% at 100% 100%,rgba(87,155,254,.30) 0%,rgba(87,155,254,0) 62%),radial-gradient(70% 70% at 85% 0%,rgba(254,254,254,.7) 0%,rgba(254,254,254,0) 60%),#ECECE9;
-  --aura-line:linear-gradient(90deg,#DAEF53 0%,#9EC6A8 45%,#579BFE 100%);
-  --aura-soft:var(--grain),linear-gradient(100deg,rgba(218,239,83,.28) 0%,rgba(254,254,254,.6) 50%,rgba(87,155,254,.20) 100%),#F5F5F3;
-  --aura-edge:linear-gradient(135deg,rgba(218,239,83,.75),rgba(254,254,254,.5),rgba(87,155,254,.6));
+  --aura:var(--grain),radial-gradient(120% 110% at 100% 0%,rgba(87,155,254,.42) 0%,rgba(87,155,254,0) 62%),radial-gradient(75% 70% at 0% 100%,rgba(218,239,83,.30) 0%,rgba(218,239,83,0) 58%),radial-gradient(70% 70% at 15% 0%,rgba(254,254,254,.75) 0%,rgba(254,254,254,0) 60%),#F1F4FA;
+  --aura-line:linear-gradient(90deg,#C5E36A 0%,#86B6FD 32%,#579BFE 100%);
+  --aura-soft:var(--grain),linear-gradient(100deg,rgba(218,239,83,.18) 0%,rgba(254,254,254,.55) 35%,rgba(87,155,254,.26) 100%),#F5F7FB;
+  --aura-edge:linear-gradient(135deg,rgba(218,239,83,.65),rgba(134,182,253,.6) 40%,rgba(87,155,254,.85));
   /* texture: one line field everywhere, 1px every 24px */
   /* grain: fine noise laid over every gradient surface */
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.94' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -92,11 +94,11 @@ b{font-weight:600}
 .badge{position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;border-radius:9px;background:var(--ink);color:var(--white);font-size:10px;font-weight:600;line-height:17px;text-align:center;padding:0 4px}
 .nav{display:flex;align-items:center;gap:12px;padding:9px 14px;font-weight:400;font-size:15px;line-height:20px;color:var(--ink-2);text-decoration:none;min-height:40px;border-radius:0}
 .nav:hover{color:var(--ink)}
-.nav.on{color:var(--ink);box-shadow:inset 1.5px 0 0 var(--ink)}
+.nav.on{color:var(--ink);box-shadow:inset 2px 0 0 var(--accent)}
 .nav .ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
 .nav .ic .acc{fill:rgba(40,40,42,.07)}
 .nav .ic .lens{stroke:none}
-.nav.on .ic .acc{fill:url(#navg)}
+.nav.on .ic .acc{fill:var(--accent)}
 .acct{margin-top:auto;display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:var(--white);text-decoration:none}
 .avatar{width:34px;height:34px;border-radius:50%;background:var(--stone);color:var(--ink);display:grid;place-items:center;font-weight:500;font-size:12px;flex:none}
 .avatar.blue{background:var(--slate-tint)}
@@ -125,8 +127,9 @@ b{font-weight:600}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;min-height:40px;border-radius:999px;font:500 13px/18px var(--sans);text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
-.btn-p{background:var(--ink);color:#F3F3F0}
-.btn-p:hover{background:#3A3B3D}
+.btn-p{background:var(--accent);color:var(--ink)}
+.btn-p:hover{background:var(--accent-hover)}
+.btn-p:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .btn-s{background:var(--white);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 .btn-s:hover{background:#F7F7F5}
 .btn-g{background:var(--aura-soft);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(87,155,254,.28)}

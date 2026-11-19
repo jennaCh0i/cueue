@@ -51,7 +51,7 @@
     .tlab.yr{color:var(--ink);font-weight:500}
     .tlab.d{padding-left:0;text-align:center;top:10px;line-height:14px;font-size:11px}
     .tlab.d b{display:block;font-weight:500;color:var(--ink);font-size:12.5px;line-height:18px}
-    .tlab.d.now b{background:var(--ink);color:#F8F8F6;border-radius:6px;margin:0 4px}
+    .tlab.d.now b{background:var(--accent);color:var(--ink);border-radius:6px;margin:0 4px}
     .wkend{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(40,40,42,.03) 0 1px,transparent 1px 7px)}
     .lanes{position:relative}
     .lane{position:relative;height:68px}
@@ -82,8 +82,8 @@
     .gs .tx b{font-weight:500;font-size:13px;line-height:17px;overflow:hidden;text-overflow:ellipsis}
     .gs .tx span{font-size:11.5px;line-height:15px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis}
     .gs .sp{font-size:15px;line-height:1;background:var(--aura-line);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .gs button,.ev.sug button{all:unset;box-sizing:border-box;margin-left:auto;height:32px;padding:0 14px;border-radius:999px;font:500 12px/16px var(--sans);cursor:pointer;background:var(--ink);color:#FEFEFE;flex:none;position:relative}
-    .gs button:hover,.ev.sug button:hover{background:#3A3B3D}
+    .gs button,.ev.sug button{all:unset;box-sizing:border-box;margin-left:auto;height:32px;padding:0 14px;border-radius:999px;font:500 12px/16px var(--sans);cursor:pointer;background:var(--accent);color:var(--ink);flex:none;position:relative}
+    .gs button:hover,.ev.sug button:hover{background:var(--accent-hover)}
     .gs button:focus-visible,.ev.sug button:focus-visible{outline:2px solid #579BFE;outline-offset:2px}
     .gs.added{width:auto;background:var(--tint);box-shadow:none}
     .gs.added::before,.ev.sug.added::before{display:none}
@@ -93,15 +93,15 @@
     .gs.added .span{display:none}
     .gfull.hl .gs{opacity:.28}
     .nowl{position:absolute;top:0;bottom:0;width:0;z-index:4;pointer-events:none}
-    .nowl i{position:absolute;top:0;bottom:0;left:-.75px;width:1.5px;background:var(--ink)}
-    .nowl b{position:absolute;top:30px;left:0;transform:translateX(-50%);background:var(--ink);color:#F8F8F6;font:500 11.5px/16px var(--sans);padding:3px 8px;border-radius:7px;white-space:nowrap}
+    .nowl i{position:absolute;top:0;bottom:0;left:-1px;width:2px;background:var(--accent)}
+    .nowl b{position:absolute;top:30px;left:0;transform:translateX(-50%);background:var(--accent);color:var(--ink);font:500 11.5px/16px var(--sans);padding:3px 8px;border-radius:7px;white-space:nowrap}
     .gempty{padding:48px 20px;text-align:center;color:var(--ink-2)}
     /* week */
     .wk{display:grid;grid-template-columns:64px repeat(7,minmax(0,1fr));position:relative}
     .wk .dh{height:44px;display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:1px solid rgba(40,40,42,.08);border-left:1px solid rgba(40,40,42,.06);font-size:12.5px;color:var(--ink-2);background:var(--white)}
     .wk .dh b{font-weight:500;color:var(--ink)}
-    .wk .dh.now{background:var(--ink);color:rgba(248,248,246,.75)}
-    .wk .dh.now b{color:#F8F8F6}
+    .wk .dh.now{background:var(--accent);color:var(--ink)}
+    .wk .dh.now b{color:var(--ink)}
     .wk .ad{min-height:40px;border-bottom:1px solid rgba(40,40,42,.08);border-left:1px solid rgba(40,40,42,.06);padding:6px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box}
     .wk .adl{display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:11px;color:var(--ink-3);border-bottom:1px solid rgba(40,40,42,.08)}
     .pill{font-size:11.5px;line-height:15px;font-weight:500;padding:4px 8px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
@@ -125,8 +125,8 @@
     .ev.sug button{margin:auto 0 0;height:26px;padding:0 12px;font-size:11px;align-self:flex-start}
     .ev.sug.added{background:var(--tint)}
     .gfull.hl .ev:not(.on){opacity:.28}
-    .tnow{position:absolute;left:0;right:0;height:0;border-top:1.5px solid var(--ink);z-index:4}
-    .tnow b{position:absolute;left:-6px;top:-5px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+    .tnow{position:absolute;left:0;right:0;height:0;border-top:2px solid var(--accent);z-index:4}
+    .tnow b{position:absolute;left:-6px;top:-5.5px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
     .gtoast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F8F8F6;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg);pointer-events:none}
     .gtoast.in{opacity:1;transform:translate(-50%,0)}
   </style>
