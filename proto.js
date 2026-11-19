@@ -190,4 +190,58 @@
     fold(tl.classList.contains('compact'));
     set(T);
   });
+
+  // Project roadmap: one board with a time strip. Drag the marker; cards live at that date light up.
+  document.querySelectorAll('.rm').forEach(function (rm) {
+    var sec = rm.closest('#roadmap') || document;
+    var inn = rm.querySelector('.rm-in'), lane = rm.querySelector('.rm-lane');
+    var head = rm.querySelector('.rm-head'), flag = rm.querySelector('.rm-flag'), past = rm.querySelector('.rm-past');
+    var rDate = rm.querySelector('.rm-date'), rStage = rm.querySelector('.rm-stage'), chip = rm.querySelector('.rm-chip');
+    var S = day(rm.dataset.start), E = day(rm.dataset.end), T = day(rm.dataset.today);
+    var CH = { done: ['c-done', 'Approved'], now: ['c-you', 'Your move'], wait: ['c-client', 'Waiting on Rosa'], next: ['', 'Up next'], prop: ['', 'Proposed'] };
+    var segs = [].slice.call(rm.querySelectorAll('.rm-seg')).map(function (el) {
+      return { el: el, id: el.dataset.id, a: day(el.dataset.from), b: day(el.dataset.to), name: el.dataset.name, st: el.dataset.st,
+        lane: parseInt(el.style.top) || 0, cards: [].slice.call(sec.querySelectorAll('.k[data-id="' + el.dataset.id + '"]')) };
+    });
+    var stops = [T];
+    segs.forEach(function (s) { if (s.a >= S && s.a <= E) stops.push(s.a); if (s.b >= S && s.b <= E) stops.push(s.b); });
+    stops = stops.filter(function (v, i, a) { return a.indexOf(v) === i; }).sort(function (x, y) { return x - y; });
+    var cur = T, dragging = false;
+    function pctOf(d) { return (Math.max(S, Math.min(E, d)) - S) / (E - S) * 100; }
+    function mark(list) {
+      segs.forEach(function (s) { var on = list.indexOf(s) > -1; s.el.classList.toggle('hit', on); s.cards.forEach(function (c) { c.classList.toggle('hit', on); }); });
+    }
+    function set(d) {
+      cur = Math.round(Math.max(S, Math.min(E, d)));
+      var p = pctOf(cur) + '%';
+      head.style.left = p; past.style.width = p;
+      var t = fmt(cur); rDate.textContent = t; flag.textContent = cur === T ? 'Today' : t;
+      var live = segs.filter(function (s) { return cur >= s.a && cur <= s.b; });
+      live.sort(function (x, y) { return x.lane - y.lane; });
+      var main = live[0];
+      if (main) { rStage.textContent = main.name; var c = CH[main.st]; chip.className = 'chip rm-chip ' + c[0]; chip.textContent = cur > T && main.st === 'now' ? 'Ahead' : c[1]; chip.style.display = ''; }
+      else { rStage.textContent = 'Between stages'; chip.style.display = 'none'; }
+      mark(live);
+      sec.classList.toggle('scrub', cur !== T);
+      head.setAttribute('aria-valuetext', t + (main ? ', ' + main.name : ''));
+    }
+    function at(x) { var r = inn.getBoundingClientRect(); return S + (x - r.left) / r.width * (E - S); }
+    function nearest(d, w) { var b = null; stops.forEach(function (s) { if (Math.abs(s - d) <= w && (b === null || Math.abs(s - d) < Math.abs(b - d))) b = s; }); return b === null ? d : b; }
+    lane.addEventListener('pointerdown', function (e) { dragging = true; rm.classList.add('drag'); lane.setPointerCapture(e.pointerId); set(nearest(at(e.clientX), 3)); });
+    lane.addEventListener('pointermove', function (e) { if (dragging) set(nearest(at(e.clientX), 3)); });
+    function end() { if (!dragging) return; dragging = false; rm.classList.remove('drag'); set(nearest(cur, 1e9)); }
+    lane.addEventListener('pointerup', end); lane.addEventListener('pointercancel', end);
+    function step(dir) { var n = dir > 0 ? stops.filter(function (s) { return s > cur; })[0] : stops.filter(function (s) { return s < cur; }).pop(); if (n !== undefined) set(n); }
+    rm.querySelectorAll('[data-go]').forEach(function (b) { b.addEventListener('click', function () { var g = b.dataset.go; if (g === 'today') set(T); else step(g === 'next' ? 1 : -1); }); });
+    head.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'Home') { set(T); e.preventDefault(); }
+    });
+    // hover a card or bar: show its span
+    segs.forEach(function (s) {
+      var on = function () { if (!dragging) { s.el.classList.add('hov'); s.cards.forEach(function (c) { c.classList.add('hov'); }); } };
+      var off = function () { s.el.classList.remove('hov'); s.cards.forEach(function (c) { c.classList.remove('hov'); }); if (!dragging) set(cur); };
+      s.cards.concat([s.el]).forEach(function (n) { n.addEventListener('mouseenter', on); n.addEventListener('mouseleave', off); });
+    });
+    set(T);
+  });
 })();
