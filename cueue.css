@@ -270,3 +270,12 @@ html .gs button:hover,html .ev.sug button:hover{background:#3A3B3D}
 html .gs.added{background:#ECECE9}
 html .pav,html .pav.st,html .pav.cl{background:#EBEBE8!important}
 html .colhead{box-shadow:none!important}
+
+/* Texture on the gradient: grain everywhere the blue gradient is, plus fine vertical lines on gradient surfaces. Neutral surfaces stay smooth. */
+:root{
+  --grain-aura:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.94' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .5 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --lines-aura:repeating-linear-gradient(90deg,rgba(87,155,254,.13) 0 1px,transparent 1px 24px);
+  --aura:var(--grain-aura),var(--lines-aura),linear-gradient(180deg,#F2F6FE 0%,#DDE8FC 100%);
+  --aura-soft:var(--grain-aura),var(--lines-aura),linear-gradient(180deg,#F7F9FE 0%,#E8EFFD 100%);
+  --aura-line:var(--grain-aura),linear-gradient(90deg,#BFD6FE 0%,#579BFE 100%);
+}
