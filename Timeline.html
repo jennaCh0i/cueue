@@ -6,6 +6,7 @@
 <title>Cueue · Roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;1,400&family=Mate:ital@0;1&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/cueue.css">
+<link rel="stylesheet" href="/cueue-v2.css">
 <script src="/proto.js" defer></script>
 <link rel="icon" href="/favicon.svg">
 <style>body{margin:0;}.phone{border-radius:40px;overflow:hidden;box-shadow:var(--shadow-lg)}@view-transition{navigation:auto}.side{view-transition-name:side}::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}.proto-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(40,40,42,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);view-transition-name:protobar}.proto-bar a{font:500 12px/16px var(--sans);color:rgba(248,248,246,.7);text-decoration:none;padding:7px 14px;border-radius:999px}.proto-bar a.on{background:rgba(248,248,246,.14);color:#F8F8F6}.proto-bar a:hover{color:#F8F8F6}.proto-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F8F8F6;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg)}.proto-toast.in{opacity:1;transform:translate(-50%,0)}.toggle{cursor:pointer}.main{padding-bottom:96px}</style>
@@ -13,7 +14,7 @@
 <body>
 
 <div class="app">
-<nav class="side" aria-label="Main"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="navg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAEF53"></stop><stop offset="1" stop-color="#579BFE"></stop></linearGradient></defs></svg><div class="hstack"><a class="brand" href="/Main" aria-label="Cueue, home"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a></div><a class="nav" href="/Main"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle class="acc" cx="12" cy="12" r="3"></circle></svg>Today</a><a class="nav" href="/Projects"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="acc" cx="8.5" cy="12" r="5"></circle><path d="M13.5 7a5 5 0 0 1 0 10"></path><path d="M17.5 7a5 5 0 0 1 0 10"></path></svg>Projects</a><a class="nav on" href="/Timeline"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h8"></path><rect class="acc" x="8" y="10.25" width="12" height="3.5" rx="1.75"></rect><path d="M6 17.5h7"></path><path d="M16 3.5v17" stroke-dasharray="2 2.5"></path></svg>Roadmap</a><a class="nav" href="/Clients"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="acc lens" d="M12 7.39A5.5 5.5 0 0 1 12 16.61A5.5 5.5 0 0 1 12 7.39Z"></path><circle cx="9" cy="12" r="5.5"></circle><circle cx="15" cy="12" r="5.5"></circle></svg>Clients</a><a class="nav" href="/Finances"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19.5h18" stroke-dasharray="2 2.5"></path><path d="M7 19.5v-5"></path><circle cx="7" cy="12.5" r="1.5"></circle><path d="M12 19.5v-8"></path><circle cx="12" cy="9.5" r="1.5"></circle><rect class="acc" x="16" y="4.5" width="2.6" height="15" rx="1.3"></rect></svg>Finances</a><a class="acct" href="/Settings"><span class="avatar">MP</span><span class="stack"><span class="label">Mina Park</span><span class="cap muted">Studio Park · Pro</span></span></a></nav>
+<nav class="side" aria-label="Main"><div class="side-top"><a class="brand" href="/Main" aria-label="Cueue, home"><svg width="20" height="22" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg></a><a class="bell" href="/Approvals" aria-label="Notifications, 3 new"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a><button class="side-toggle" type="button" aria-label="Collapse sidebar" aria-expanded="true" title="Collapse sidebar (⌘\)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3.5"></rect><path d="M8 9v6"></path></svg></button></div><a class="nav" href="/Main" aria-label="Today"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3.5"></rect><path d="M4 9.5h16"></path><path d="M8.5 3v3.5M15.5 3v3.5"></path><circle class="acc" cx="12" cy="14.5" r="1.6" stroke="none"></circle></svg><span class="nav-label">Today</span></a><a class="nav on" href="/Timeline" aria-label="Roadmap"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 7h9"></path><path d="M8.5 12h11"></path><path d="M6.5 17h8"></path></svg><span class="nav-label">Roadmap</span></a><a class="nav" href="/Projects" aria-label="Projects"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 8a2.5 2.5 0 0 1 2.5-2.5h3.6l2 2H18a2.5 2.5 0 0 1 2.5 2.5v7.5A2.5 2.5 0 0 1 18 20H6a2.5 2.5 0 0 1-2.5-2.5z"></path></svg><span class="nav-label">Projects</span></a><a class="nav" href="/Clients" aria-label="Clients"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.2-3.3 3.8-5 7-5s5.8 1.7 7 5"></path></svg><span class="nav-label">Clients</span></a><a class="nav" href="/Finances" aria-label="Finances"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 19.5v-6"></path><path d="M12 19.5v-14"></path><path d="M17.5 19.5v-9"></path></svg><span class="nav-label">Finances</span></a><a class="acct" href="/Settings" title="Settings"><span class="acct-orb" aria-hidden="true"></span><span class="stack acct-txt"><span class="acct-name">Mina Park</span><span class="acct-sub"><b class="acct-plan">Pro</b></span></span></a></nav>
 <main class="main">
   <style>
     .gr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
@@ -160,6 +161,42 @@
     .cap-bar i{display:block;height:100%;background:var(--grain),var(--aura-line);border-radius:3px}
     .gtoast{position:fixed;left:50%;top:20px;transform:translate(-50%,-12px);opacity:0;z-index:70;transition:all .2s ease;background:var(--ink);color:#F8F8F6;font:500 13px/18px var(--sans);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow-lg);pointer-events:none}
     .gtoast.in{opacity:1;transform:translate(-50%,0)}
+    /* Roadmap, simplified (Year and Month): one row per project, small white cards, shaded columns. */
+    .rt{position:relative;padding-bottom:24px}
+    .rt-head{position:relative;height:48px;background:var(--white)}
+    .rt-head .gin{height:100%}
+    .rt-col{position:absolute;top:0;height:100%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-2)}
+    .rt-col b{font-weight:400;min-width:28px;height:26px;padding:0 6px;display:grid;place-items:center;border-radius:7px;box-sizing:border-box}
+    .rt-col.yr b{color:var(--ink);font-weight:500}
+    .rt-col.now b{background:var(--ink);color:#FEFEFE}
+    .rt-body{position:relative;padding:14px 0 8px;min-height:420px}
+    .rt-shade{position:absolute;top:0;bottom:0;background:rgba(40,40,42,.025)}
+    .rt-now{position:absolute;top:0;bottom:0;width:1px;margin-left:-.5px;background:var(--ink);z-index:3;pointer-events:none}
+    .rt-now::before{content:"";position:absolute;top:-3px;left:-3px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+    .rt-row{position:relative;height:50px}
+    .rc{position:absolute;top:6px;height:38px;border-radius:12px;background:var(--white);box-shadow:0 1px 2px rgba(40,40,42,.05),0 4px 14px -8px rgba(40,40,42,.14);
+      display:flex;align-items:center;gap:10px;padding:0 14px 0 8px;box-sizing:border-box;white-space:nowrap;font-size:13px;color:var(--ink);cursor:default;z-index:2;transition:box-shadow .15s,opacity .2s}
+    .rc[role=button]{cursor:pointer}
+    .rc[role=button]:hover{box-shadow:var(--shadow-hover)}
+    .rc-ph{width:22px;height:22px;border-radius:50%;overflow:hidden;flex:none;display:grid;place-items:center;background:#ECECE9;font-size:10px;font-weight:500;color:var(--ink-2)}
+    .rc-ph img{width:100%;height:100%;object-fit:cover}
+    .rc-ph.ai{background:transparent;font-size:14px}
+    .rc-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;min-width:0}
+    .rc-pill{flex:none;font-size:11.5px;line-height:16px;padding:2px 8px;border-radius:999px;background:rgba(40,40,42,.05);color:var(--ink-2)}
+    .rc-pct{flex:none;margin-left:auto;font-size:12.5px;color:var(--ink-2);padding-left:6px}
+    .rc-bar{flex:none;width:44px;height:4px;border-radius:2px;background:rgba(40,40,42,.08);overflow:hidden}
+    .rc-bar i{display:block;height:100%;border-radius:2px;background:var(--aura-line)}
+    .rc.wait{background:#F6F6F4;box-shadow:none}
+    .rc.proposed{background:var(--fill);box-shadow:none;color:var(--ink-2)}
+    .rc.archived{background:transparent;box-shadow:none;color:var(--ink-3)}
+    .rc.archived .rc-ph{opacity:.6}
+    .rc.sug{background:var(--aura);box-shadow:none}
+    .rc.sug.added{background:var(--white);box-shadow:0 1px 2px rgba(40,40,42,.05),0 4px 14px -8px rgba(40,40,42,.14)}
+    .rc-add{all:unset;margin-left:auto;flex:none;height:26px;padding:0 12px;border-radius:999px;background:var(--ink);color:#FEFEFE;font:500 12px/26px var(--sans);cursor:pointer}
+    .rc.sug.added .rc-add{background:rgba(40,40,42,.06);color:var(--ink)}
+    .gfull.hl .rc:not(.on){opacity:.3}
+    
+    a.rc{text-decoration:none}
   </style>
 
   <div class="gr-head">
@@ -171,11 +208,10 @@
         <button class="gn" data-n="1" aria-label="Next"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5L10.5 8 6 12.5"></path></svg></button>
         <button class="gn" data-n="0" style="background:rgba(40,40,42,.06);margin-left:6px">Today</button>
       </div>
-      <div class="seg" id="gview" role="tablist"><a href="#" data-v="year" class="on">Year</a><a href="#" data-v="month">Month</a><a href="#" data-v="week">Week</a></div>
+      <div class="seg" id="gview" role="tablist"><a href="#" data-v="year">Year</a><a href="#" data-v="month" class="on">Month</a><a href="#" data-v="week">Week</a></div>
     </div>
   </div>
 
-  <div class="pch" id="gchips" aria-label="Projects"></div>
 
   <div class="gfull" id="gbox"></div>
   <div class="gtoast" id="gtoast"></div>
@@ -243,28 +279,10 @@
     function money(v) { return v >= 1000 ? '$' + (Math.round(v / 100) / 10).toString().replace(/\.0$/, '') + 'k' : '$' + Math.round(v); }
     function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
     var T = day(TODAY);
-    var st = { view: 'year', added: {}, year: 2026, mY: 2026, mM: 9, wk: T - ((dt(T).getUTCDay() + 6) % 7) };
+    var st = { view: 'month', added: {}, year: 2026, mY: 2026, mM: 9, wk: T - ((dt(T).getUTCDay() + 6) % 7) };
     var box = document.getElementById('gbox'), per = document.getElementById('gper');
 
-    // ---------- project chips (names and pictures, not filters) ----------
-    var order = P.slice().sort(function (a, b) { var r = { active: 0, wait: 1, proposed: 2, archived: 3 }; return r[a[6]] - r[b[6]] || day(a[4]) - day(b[4]); });
-    var ch = '', last = 'active';
-    order.forEach(function (p) {
-      var c = C[p[1]], kind = { active: 'act', wait: 'wait', proposed: 'prop', archived: 'arch' }[p[6]];
-      if (p[6] !== 'active' && last === 'active') ch += '<i class="pch-sep"></i>';
-      last = p[6];
-      var im = IMG[p[0]] && p[6] === 'active' ? '<img src="' + IMG[p[0]] + '" alt="">' : esc(p[1].slice(0, 2));
-      ch += '<div class="pc ' + kind + '" data-p="' + p[0] + '" style="--dot:' + c[1] + '" title="' + esc(c[2] + ' · ' + p[2]) + '"><span class="im">' + im + '</span><b>' + esc(p[3]) + '</b><span>' + esc(p[1]) + '</span></div>';
-    });
-    var chips = document.getElementById('gchips');
-    chips.innerHTML = ch;
-    chips.addEventListener('mouseover', function (e) { var c = e.target.closest('.pc'); if (c) hl(c.dataset.p); });
-    chips.addEventListener('mouseleave', function () { hl(null); });
-    function hl(id) {
-      box.classList.toggle('hl', !!id);
-      [].forEach.call(box.querySelectorAll('[data-p]'), function (n) { n.classList.toggle('on', n.dataset.p === id); });
-    }
-
+    function hl() {}
     // lane packing keeps the calendar short
     function pack(list) {
       var lanes = [];
@@ -276,74 +294,57 @@
       return lanes.length;
     }
 
-    // ---------- year / month ----------
+    // ---------- year / month: one row per project, small white cards (same as the desktop app) ----------
     function timeline(S0, E0, mode) {
-      var GP = 36, W = (box.clientWidth || 1200) - GP * 2, span = E0 - S0, X = function (d) { return (d - S0) / span * W; }, pct = function (d) { return (d - S0) / span * 100; };
-      var H = '', ticks = '';
+      var GP = 36, W = (box.clientWidth || 1200) - GP * 2, span = E0 - S0, X = function (d) { return (d - S0) / span * W; };
+      var cols = [];
       if (mode === 'year') {
         var x = dt(S0), y = x.getUTCFullYear(), m = x.getUTCMonth();
         while (Date.UTC(y, m, 1) / 864e5 < E0) {
-          var d0 = Date.UTC(y, m, 1) / 864e5, yr = m === 0;
-          ticks += '<i class="tick' + (yr ? ' yr' : '') + '" style="left:' + pct(d0) + '%"></i>';
-          H += '<span class="tlab' + (yr ? ' yr' : '') + '" style="left:' + pct(d0) + '%">' + MO[m] + (yr ? ' ' + y : '') + '</span>';
+          var d0 = Date.UTC(y, m, 1) / 864e5, d1 = Math.min(Date.UTC(y, m + 1, 1) / 864e5, E0);
+          cols.push({ d0: d0, d1: d1, label: m === 0 ? MO[m] + ' ' + y : MO[m], yr: m === 0, now: T >= d0 && T < d1 });
           m++; if (m > 11) { m = 0; y++; }
         }
       } else {
-        for (var d = S0; d < E0; d++) {
-          var w = dt(d).getUTCDay();
-          ticks += '<i class="tick" style="left:' + pct(d) + '%"></i>';
-          if (w === 6) ticks += '<i class="wkend" style="left:' + pct(d) + '%;width:' + (200 / span) + '%"></i>';
-          H += '<span class="tlab d' + (d === T ? ' now' : '') + '" style="left:' + pct(d) + '%;width:' + (100 / span) + '%">' + DW[w][0] + '<b>' + dt(d).getUTCDate() + '</b></span>';
-        }
+        for (var d = S0; d < E0; d++) cols.push({ d0: d, d1: d + 1, label: ('0' + dt(d).getUTCDate()).slice(-2), now: d === T });
       }
-      var list = [];
+      var head = '', shade = '';
+      cols.forEach(function (c, i) {
+        head += '<span class="rt-col' + (c.now ? ' now' : '') + (c.yr ? ' yr' : '') + '" style="left:' + X(c.d0) + 'px;width:' + (X(c.d1) - X(c.d0)) + 'px"><b>' + c.label + '</b></span>';
+        if (i % 2) shade += '<i class="rt-shade" style="left:' + X(c.d0) + 'px;width:' + (X(c.d1) - X(c.d0)) + 'px"></i>';
+      });
+      var cw = function (t, extra) { return 7.2 * t.length + extra; }, rows = [];
       P.forEach(function (p) {
         var a = day(p[4]), e = day(p[5]) + 1; if (e <= S0 || a >= E0) return;
-        var l = Math.max(a, S0), r = Math.min(e, E0), wpx = X(r) - X(l);
-        var pad = p[6] === 'active' && IMG[p[0]] ? 60 : 28, need = 7.4 * Math.max(p[2].length, 20) + pad, needS = 7.4 * Math.max(p[3].length, 15) + pad;
-        var short = wpx < need && wpx >= needS, out = wpx < needS;
-        list.push({ k: 'p', p: p, a: a, e: e, x0: X(l), x1: X(r), minw: out ? wpx + 18 + 7.4 * Math.max(p[2].length, 24) : 0, need: short ? needS : need, short: short });
+        var w = Math.min(W, Math.max(X(Math.min(e, E0)) - X(Math.max(a, S0)), cw(p[2], p[6] === 'active' ? 210 : 120)));
+        rows.push({ k: 'p', p: p, a: a, left: Math.min(Math.max(0, X(a)), W - w), w: w });
       });
       S.forEach(function (s) {
-        var a = day(s[3]), e = day(s[4]) + 1; if (e <= S0 || a >= E0) return;
-        var l = Math.max(a, S0), r = Math.min(e, E0), sx = X(l), x1 = X(r), x0 = sx;
-        if (x0 + 300 > W) x0 = W - 300;
-        list.push({ k: 's', s: s, a: a, e: e, x0: x0, x1: Math.max(x1, x0 + 300), minw: 300, sx: sx, sw: Math.max(4, x1 - sx) });
+        var a = day(s[3]); if (a >= E0) return;
+        var w = Math.min(W, cw(s[2], 190));
+        rows.push({ k: 's', s: s, a: a, left: Math.min(Math.max(0, X(Math.max(a, S0))), W - w), w: w });
       });
-      list.sort(function (a, b) { return a.x0 - b.x0; });
-      var n = pack(list), rows = [];
-      for (var i = 0; i < n; i++) rows.push('');
-      list.forEach(function (it) {
-        if (it.k === 'p') {
-          var p = it.p, c = C[p[1]], cls = { archived: ' arch', proposed: ' prop', wait: ' wait' }[p[6]] || '';
-          var wpx = it.x1 - it.x0, out = it.minw > 0, ph = p[6] === 'active' && IMG[p[0]] && wpx >= 50;
-          if (it.a < S0) cls += ' cl-l'; if (it.e > E0) cls += ' cl-r';
-          if (out) cls += ' out'; if (!ph) cls += ' noph';
-          var next = p[8].filter(function (k) { return day(k[0]) >= Math.max(T, S0) && day(k[0]) < E0 && k[2] !== 'money'; })[0];
-          var sub = mode === 'month' && next ? 'Next · ' + next[1] + ' ' + fmt(day(next[0])) : c[2] + (p[6] === 'archived' ? ' · Archived' : p[6] === 'proposed' ? ' · Proposed' : p[6] === 'wait' ? ' · Waiting' : ' · ' + mon(it.a) + ' – ' + mon(it.e - 1));
-          if (it.short) sub = p[1] + ' · ' + mon(it.a) + ' – ' + mon(it.e - 1);
-          var ms = '';
-          p[8].forEach(function (k) { var kd = day(k[0]); if (kd < Math.max(S0, T) || kd >= E0) return; ms += '<i class="ms ' + k[2] + '" style="left:' + (X(kd + .5) - it.x0) + 'px" title="' + esc(k[1] + ' · ' + fmt(kd)) + '"></i>'; });
-          var tag = p[9] ? 'a' : 'div', href = p[9] ? ' href="' + p[9] + '"' : '';
-          rows[it.lane] += '<' + tag + ' class="gb' + cls + '" data-p="' + p[0] + '"' + href + ' style="left:' + it.x0 + 'px;width:' + Math.max(wpx, 12) + 'px;background:' + c[0] + '" title="' + esc(c[2] + ' · ' + p[2] + ' · ' + fmt(it.a) + ' – ' + fmt(it.e - 1)) + '">' +
-            (ph ? '<span class="ph"><img src="' + IMG[p[0]] + '" alt=""></span>' : '') +
-            '<span class="tx"><b>' + esc(it.short ? p[3] : p[2]) + '</b><span>' + esc(sub) + '</span></span>' +
-            (!out && wpx > it.need + 56 ? '<span class="bd">' + money(p[7]) + '</span>' : '') + ms + '</' + tag + '>';
-        } else {
-          var s = it.s, on = st.added[s[0]];
-          rows[it.lane] += '<div class="gs' + (on ? ' added' : '') + '" data-s="' + s[0] + '" style="--tint:' + C[s[1]][0] + ';left:' + it.x0 + 'px">' +
-            (on ? '' : '<span class="sp">✦</span>') + '<span class="tx"><b>' + esc(s[2]) + '</b><span>' + (on ? 'Added · ' + fmt(it.a) + (it.e - it.a > 1 ? ' – ' + fmt(it.e - 1) : '') : '+' + money(s[5]) + ' · ' + esc(s[6])) + '</span></span>' +
-            '<button data-a="' + (on ? 'undo' : 'add') + '">' + (on ? 'Undo' : 'Add') + '</button>' +
-            '<i class="span" style="left:' + (it.sx - it.x0) + 'px;width:' + it.sw + 'px"></i></div>';
+      rows.sort(function (q, r) { return q.a - r.a; });
+      var body = rows.map(function (r) {
+        if (r.k === 's') {
+          var s = r.s, on = st.added[s[0]];
+          return '<div class="rt-row"><div class="rc sug' + (on ? ' added' : '') + '" data-s="' + s[0] + '" style="left:' + r.left + 'px;width:' + r.w + 'px">' +
+            '<span class="rc-ph ai">✦</span><b class="rc-name">' + esc(s[2]) + '</b><span class="rc-pill">+' + money(s[5]) + '</span>' +
+            '<button class="rc-add" data-a="' + (on ? 'undo' : 'add') + '">' + (on ? 'Undo' : 'Add') + '</button></div></div>';
         }
-      });
-      var body = rows.map(function (r) { return '<div class="lane">' + r + '</div>'; }).join('') || '<div class="gempty">Nothing scheduled here.</div>';
-      var inr = T >= S0 && T < E0;
-      var flag = inr && mode === 'year' ? '<div class="nowl" style="left:' + pct(T + .5) + '%"><b>Today</b></div>' : '';
-      var line = inr ? '<div class="nowl" style="left:' + pct(T + .5) + '%"><i></i></div>' : '';
-      return '<div class="gtr"><div class="gh"><div class="gin">' + H + flag + '</div></div><div class="gin gbody">' + ticks + '<div class="lanes">' + body + '</div>' + line + '</div></div>';
+        var p = r.p, kind = p[6], left = p[8].filter(function (k) { return k[2] !== 'money' && day(k[0]) >= T; }).length;
+        var pct = Math.round(Math.max(0, Math.min(1, (T - day(p[4])) / Math.max(1, day(p[5]) - day(p[4])))) * 100);
+        var ph = kind === 'active' && IMG[p[0]] ? '<img src="' + IMG[p[0]] + '" alt="">' : esc(p[1].slice(0, 2));
+        var tail = kind === 'active'
+          ? (left ? '<span class="rc-pill">' + left + ' left</span>' : '<span class="rc-pill">All done</span>') + '<span class="rc-pct">' + pct + '%</span><span class="rc-bar"><i style="width:' + pct + '%"></i></span>'
+          : '<span class="rc-pill">' + { wait: 'Waiting', proposed: 'Proposed', archived: 'Done' }[kind] + '</span>';
+        var tag = p[9] ? 'a' : 'div', href = p[9] ? ' href="' + p[9] + '"' : '';
+        return '<div class="rt-row"><' + tag + href + ' class="rc ' + ({ active: 'active', wait: 'wait', proposed: 'proposed', archived: 'archived' }[kind]) + '" data-p="' + p[0] + '" style="left:' + r.left + 'px;width:' + r.w + 'px" title="' +
+          esc(C[p[1]][2] + ' · ' + p[2] + ' · ' + fmt(day(p[4])) + ' – ' + fmt(day(p[5]))) + '"><span class="rc-ph">' + ph + '</span><b class="rc-name">' + esc(p[2]) + '</b>' + tail + '</' + tag + '></div>';
+      }).join('') || '<div class="gempty">Nothing scheduled here.</div>';
+      var inr = T >= S0 && T < E0, now = inr ? '<i class="rt-now" style="left:' + X(T + .5) + 'px"></i>' : '';
+      return '<div class="rt"><div class="rt-head"><div class="gin">' + head + '</div></div><div class="gin rt-body">' + shade + now + body + '</div></div>';
     }
-
     // ---------- week: one bar per project, solid = hours done, light = hours left ----------
     var PEOPLE = { Fernhill: ['RL', 'JK', 3], Vinea: ['EM', '', 1], Pulse: ['DK', 'SA', 2], Tapline: ['OB', '', 0], Halcyon: ['PR', '', 1], Northline: ['DH', '', 0], Juniper: ['AL', '', 0] };
     function week(W0) {

@@ -1,0 +1,521 @@
+/* Cueue v2 look, shared with the desktop app (soft shadows, smooth corners, warm greys, sidebar, Today collage). */
+/* Today: ambient gradient (blue to warm grey) with grain and faint lines, and frosted white cards. */
+html .main:has(.today){
+  position:relative;isolation:isolate;overflow:hidden;
+  background:
+    var(--grain-aura),
+    radial-gradient(60% 55% at 12% 92%,rgba(222,208,195,.85) 0%,rgba(222,208,195,0) 100%),
+    radial-gradient(55% 50% at 88% 4%,rgba(196,216,250,.85) 0%,rgba(196,216,250,0) 100%),
+    radial-gradient(40% 35% at 70% 70%,rgba(234,226,218,.7) 0%,rgba(234,226,218,0) 100%),
+    linear-gradient(180deg,#E9EFF8 0%,#EEEDEC 52%,#E8E2DC 100%);
+  box-shadow:none;
+}
+/* Lines: soft vertical rules that fade out toward the bottom. */
+html .main:has(.today)::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(87,155,254,.09) 0 1px,transparent 1px 24px);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 55%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 55%,transparent 100%);
+}
+
+/* Cards: white, frosted, no tint and no outline. */
+html .today .card,
+html .today .card.lime,
+html .today .card.navy{
+  background:rgba(255,255,255,.72);
+  -webkit-backdrop-filter:blur(18px) saturate(1.1);
+          backdrop-filter:blur(18px) saturate(1.1);
+  border:0;
+  box-shadow:0 1px 2px rgba(40,40,42,.03),0 18px 40px -24px rgba(60,58,70,.28);
+}
+html .today .tquote{background:rgba(40,40,42,.04)}
+html .today .trow,html .today .card .stack[style*="border-top"]{border-color:rgba(40,40,42,.06)!important}
+html .today .chip{background:rgba(40,40,42,.05)}
+html .today .btn-s{background:rgba(255,255,255,.9)}
+
+/* Soft pass: barely-there shadows on every card, and iOS-style continuous corners everywhere. */
+
+:root{
+  --shadow-sm:0 1px 1px rgba(40,40,42,.025);
+  --shadow:0 1px 2px rgba(40,40,42,.035);
+  --shadow-hover:0 1px 3px rgba(40,40,42,.05);
+  --shadow-lg:0 2px 6px rgba(40,40,42,.05);
+  --soft:0 1px 2px rgba(40,40,42,.035);
+}
+
+/* Every card-like surface, in every tab. */
+html .main,
+html .card,html .card.ink,html .card.lime,html .card.navy,
+html .today .card,html .today .card.lime,html .today .card.navy,
+html .w,html .plogo,html .move-confirm,
+html .rc,html .rc.sug.added,
+html .board .k,html .board .k.lime,
+html .nav.on,html .btn-s{box-shadow:var(--soft)}
+html .toast{box-shadow:var(--shadow-lg)}
+
+html .card:hover,html .pcard:hover,html .pcover:hover,html .gb:hover,html .wb:hover,html .ev:hover,
+html .rc[role=button]:hover,html .btn-s:hover,
+html #roadmap.scrub .k.hit,html #roadmap .k.hov{box-shadow:var(--shadow-hover)}
+
+/* iOS continuous corners (~70% smoothing): a superellipse curve, with radii nudged up
+   so the corner reads as soft as Figma's smoothed corner. */
+:root{--r-card:24px;--r-field:14px;--r-panel:30px}
+html *,html *::before,html *::after{corner-shape:superellipse(1.7)}
+
+/* Keep true circles round. */
+html .spin,html .bell,html .bell *,html .avatar,html .orb,html .back,html .pav,html .pempty,html .rc-ph,html .wav i,html .rb-dot,
+html .chip::before,html .toggle::after,html .rt-now::before,html .wnowl::after,
+html .colhead > span:first-child::before,html .card.navy::before,html .card.ink::before,
+html [style*="50%"]{corner-shape:round}
+
+/* Chips sitting on photos: solid frosted white so they stay readable. */
+html .pcover .photo .chip{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--ink)}
+
+/* Sidebar nav: no pill. The current place gets a thin bar on the sidebar's left edge and darker text. */
+html .side .nav{position:relative;background:none!important;box-shadow:none!important;border-radius:var(--r-field);
+  min-height:36px;padding:7px 14px;gap:12px;color:var(--ink-3);transition:color .15s}
+html .side .nav .ic{opacity:.75}
+html .side .nav:hover{color:var(--ink-2)}
+html .side .nav.on{color:var(--ink)}
+html .side .nav.on .ic{opacity:1}
+html .side .nav.on::before{content:"";position:absolute;left:-18px;top:50%;width:2.5px;height:22px;margin-top:-11px;border-radius:0 2px 2px 0;background:var(--ink-2);corner-shape:round}
+html .side .nav + .nav{margin-top:2px}
+html .side > button:last-child,html .side .acct,html .side .account{border-radius:var(--r-card)}
+
+/* Account: no card. A soft gradient orb, bold name, and the plan as a small grey pill. */
+html .side .acct{background:rgba(255,255,255,.7);box-shadow:none;padding:12px 14px;gap:12px;border-radius:var(--r-card)}
+html .side .acct:hover{background:var(--white)}
+html .acct-orb{width:40px;height:40px;flex:none;border-radius:50%;corner-shape:round;
+  background:radial-gradient(60% 60% at 62% 34%,#BFD6FE 0%,rgba(156,194,254,0) 100%),
+             radial-gradient(70% 70% at 30% 78%,#D9CFC4 0%,rgba(217,207,196,0) 100%),
+             linear-gradient(160deg,#DCE8FC 0%,#E9E4DE 100%);
+  box-shadow:0 0 0 2px #FEFEFE,0 1px 3px rgba(40,40,42,.08);filter:saturate(1.05)}
+html .acct-txt{gap:1px;min-width:0}
+html .acct-name{font-size:14px;line-height:18px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html .acct-sub{display:flex;align-items:center;gap:6px;font-size:12.5px;line-height:18px;color:var(--ink-3);white-space:nowrap}
+html .acct-sub i{font-style:normal;font-size:9px;opacity:.8}
+html .acct-plan{font-weight:500;font-size:11px;line-height:16px;padding:1px 8px;border-radius:999px;background:#8E8E93;color:#FEFEFE}
+html .side .acct{padding:10px 12px;gap:10px}
+html .acct-orb{width:34px;height:34px}
+html .acct-txt{flex:1 1 auto;overflow:hidden}
+html .acct-sub{gap:5px;min-width:0}
+html .acct-studio{overflow:hidden;text-overflow:ellipsis;min-width:0}
+html .acct-plan,html .acct-sub i{flex:none}
+html .side .acct{padding:10px 10px;gap:9px}
+html .acct-sub{gap:4px;font-size:12px}
+html .acct-plan{font-size:10.5px;line-height:15px;padding:1px 6px}
+html .side{flex-basis:226px;min-width:226px}
+
+/* Narrow sidebar: logo and bell share one centred row; profile shows name and plan only. */
+html .side{flex:0 0 184px;min-width:184px;max-width:184px}
+html .side-top{display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 10px;margin-bottom:24px}
+html .side-top .brand{padding:0;height:34px}
+html .side-top .bell{margin-left:0;width:34px;height:34px}
+
+/* Texture: a fine blue dot grid replaces the grain and the vertical lines everywhere.
+   (Kept under the old token names so every gradient surface picks it up.) */
+:root{
+  --dots:radial-gradient(circle at 1.5px 1.5px,rgba(87,155,254,.34) 0 .75px,transparent 1.15px) 0 0/3px 3px;
+  --grain-aura:var(--dots);
+  --lines-aura:linear-gradient(transparent,transparent);
+  --grain:linear-gradient(transparent,transparent);
+}
+/* Today: dot grid over the ambient gradient, with soft white rays fanning from the top left. */
+html .main:has(.today){
+  background:
+    radial-gradient(circle at 1.5px 1.5px,rgba(87,155,254,.22) 0 .75px,transparent 1.15px) 0 0/3px 3px,
+    radial-gradient(60% 55% at 12% 92%,rgba(222,208,195,.85) 0%,rgba(222,208,195,0) 100%),
+    radial-gradient(55% 50% at 88% 4%,rgba(196,216,250,.85) 0%,rgba(196,216,250,0) 100%),
+    radial-gradient(40% 35% at 70% 70%,rgba(234,226,218,.7) 0%,rgba(234,226,218,0) 100%),
+    linear-gradient(180deg,#E9EFF8 0%,#EEEDEC 52%,#E8E2DC 100%);
+}
+html .main:has(.today)::before{
+  background:
+    repeating-conic-gradient(from 98deg at 10% -16%,transparent 0deg 11deg,rgba(255,255,255,.9) 11deg 11.22deg);
+  -webkit-mask-image:radial-gradient(120% 95% at 8% 0%,#000 0%,rgba(0,0,0,.5) 50%,transparent 85%);
+          mask-image:radial-gradient(120% 95% at 8% 0%,#000 0%,rgba(0,0,0,.5) 50%,transparent 85%);
+}
+
+/* Texture v2: bigger, diagonal (45°) printed dots plus a paper grain, like a Ben-Day tint. */
+:root{
+  --ink-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .16 0 0 0 0 .17 0 0 0 .42 -.16'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --dots:
+    radial-gradient(circle at 3px 3px,rgba(87,155,254,.30) 0 1.25px,rgba(87,155,254,0) 1.9px) 0 0/6px 6px,
+    radial-gradient(circle at 3px 3px,rgba(87,155,254,.30) 0 1.25px,rgba(87,155,254,0) 1.9px) 3px 3px/6px 6px;
+  --grain-aura:var(--ink-grain),var(--dots);
+}
+html .main:has(.today){
+  background:
+    var(--ink-grain),
+    radial-gradient(circle at 3px 3px,rgba(87,155,254,.16) 0 1.3px,rgba(87,155,254,0) 2px) 0 0/6px 6px,
+    radial-gradient(circle at 3px 3px,rgba(87,155,254,.16) 0 1.3px,rgba(87,155,254,0) 2px) 3px 3px/6px 6px,
+    radial-gradient(60% 55% at 12% 92%,rgba(222,208,195,.85) 0%,rgba(222,208,195,0) 100%),
+    radial-gradient(55% 50% at 88% 4%,rgba(196,216,250,.85) 0%,rgba(196,216,250,0) 100%),
+    radial-gradient(40% 35% at 70% 70%,rgba(234,226,218,.7) 0%,rgba(234,226,218,0) 100%),
+    linear-gradient(180deg,#E9EFF8 0%,#EEEDEC 52%,#E8E2DC 100%);
+}
+
+/* No rays, no lines: dots and paper grain only. */
+html .main:has(.today)::before{content:none}
+
+/* Texture v3: the grain lives only inside the halftone dots (inky dots, clean paper between them). */
+:root{--grain-aura:var(--dots)}
+html .main:has(.today){
+  background:
+    radial-gradient(60% 55% at 12% 92%,rgba(222,208,195,.85) 0%,rgba(222,208,195,0) 100%),
+    radial-gradient(55% 50% at 88% 4%,rgba(196,216,250,.85) 0%,rgba(196,216,250,0) 100%),
+    radial-gradient(40% 35% at 70% 70%,rgba(234,226,218,.7) 0%,rgba(234,226,218,0) 100%),
+    linear-gradient(180deg,#E9EFF8 0%,#EEEDEC 52%,#E8E2DC 100%);
+}
+html .main:has(.today)::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:var(--ink-grain),var(--ink-grain),linear-gradient(rgba(87,155,254,.26),rgba(87,155,254,.26));
+  -webkit-mask:
+    radial-gradient(circle at 3px 3px,#000 0 1.4px,transparent 2.1px) 0 0/6px 6px,
+    radial-gradient(circle at 3px 3px,#000 0 1.4px,transparent 2.1px) 3px 3px/6px 6px;
+          mask:
+    radial-gradient(circle at 3px 3px,#000 0 1.4px,transparent 2.1px) 0 0/6px 6px,
+    radial-gradient(circle at 3px 3px,#000 0 1.4px,transparent 2.1px) 3px 3px/6px 6px;
+}
+
+/* Texture v4: a real, organic halftone image (dots grow toward the top right, ragged ink edges). */
+html .main:has(.today)::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url(./textures/today-halftone.webp) right top/cover no-repeat;
+  -webkit-mask:none;mask:none;opacity:.34;
+}
+html .main:has(.today){
+  background:
+    radial-gradient(60% 55% at 12% 92%,rgba(222,208,195,.8) 0%,rgba(222,208,195,0) 100%),
+    linear-gradient(180deg,#EEF1F6 0%,#EFEEEC 55%,#E9E4DE 100%);
+}
+/* Quieter halftone: lighter overall, and it clears away behind the headline and cards. */
+html .main:has(.today)::before{
+  opacity:.22;
+  -webkit-mask:radial-gradient(70% 55% at 38% 42%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.45) 45%,#000 85%);
+          mask:radial-gradient(70% 55% at 38% 42%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.45) 45%,#000 85%);
+}
+/* Warm grey nudged ~20% cooler. */
+html .main:has(.today){
+  background:
+    radial-gradient(60% 55% at 12% 92%,rgba(218,208,199,.8) 0%,rgba(218,208,199,0) 100%),
+    linear-gradient(180deg,#EEF1F6 0%,#EEEEED 55%,#E7E4E1 100%);
+}
+
+/* ---- Collapsible sidebar ---- */
+html .side{transition:flex-basis .22s ease,min-width .22s ease,max-width .22s ease,padding .22s ease}
+html .side-top{gap:4px;justify-content:flex-start}
+html .side-top .bell{margin-left:auto}
+html .side-toggle{all:unset;box-sizing:border-box;width:30px;height:30px;display:grid;place-items:center;border-radius:9px;color:var(--ink-3);cursor:pointer;-webkit-app-region:no-drag;transition:color .15s,background .15s}
+html .side-toggle:hover{color:var(--ink);background:rgba(40,40,42,.05)}
+html .side-toggle:focus-visible{outline:2px solid var(--blue-ink,#579BFE);outline-offset:2px}
+
+html .side.mini{flex-basis:80px;min-width:80px;max-width:80px;padding-left:16px;padding-right:16px}
+html .side.mini .side-top{flex-direction:column;align-items:center;gap:10px;padding:0;margin-bottom:18px}
+html .side.mini .side-top .bell{margin-left:0}
+html .side.mini .nav{justify-content:center;padding:7px 0}
+html .side.mini .nav-label{display:none}
+html .side.mini .nav.on::before{left:-16px}
+html .side.mini .acct{justify-content:center;padding:8px 0}
+html .side.mini .acct-txt{display:none}
+html .side .nav-label,html .side .acct-txt{white-space:nowrap}
+
+/* ---- Whites: soft, slightly grey and see-through, never pure solid white ---- */
+:root{--frost:rgba(250,250,248,.74)}
+html body .today .card,html body .today .card.lime,html body .today .card.navy{
+  background:var(--frost);-webkit-backdrop-filter:blur(14px) saturate(1.05);backdrop-filter:blur(14px) saturate(1.05)}
+html .side .acct{background:rgba(250,250,248,.62)}
+html .side .acct:hover{background:rgba(250,250,248,.9)}
+html .side .bell{background:rgba(250,250,248,.7)}
+html body .today .btn-s{background:rgba(250,250,248,.85)}
+
+/* Toggle lives in the title bar, right next to the window buttons, in both states. */
+html .side-toggle{position:fixed;top:9px;left:84px;z-index:20}
+/* Collapsed: the panel starts below the title bar so the toggle has room. */
+html .side.mini + .main{margin-top:44px;min-height:calc(100vh - 54px)}
+html .side.mini .side-top{margin-top:-8px}
+/* Whites: semi-transparent, but mostly solid (~88%). */
+:root{--frost:rgba(251,251,250,.88)}
+html .side .acct{background:rgba(251,251,250,.82)}
+html .side .bell{background:rgba(251,251,250,.85)}
+html body .today .btn-s{background:rgba(251,251,250,.92)}
+
+/* ---- Warmer greys: every neutral nudged a little toward warm (less blue, a touch more red/yellow) ---- */
+:root{
+  --ink:#2A2927; --navy:#2A2927;
+  --ink-2:#5A5855; --ink-3:#827F7A;
+  --paper:#F3F2EE; --cream:#F1EFEA; --panel:#FBFAF7;
+  --stone:#EAE7E2; --c:#E5E2DC; --fill:#F4F2EE;
+  --frost:rgba(252,251,247,.88);
+}
+html body .main:has(.today){
+  background:radial-gradient(circle at 1.5px 1.5px,rgba(60,50,40,.07) 0 .7px,transparent 1.1px) 0 0/4px 4px,#F0EEEA;
+}
+html .side .acct{background:rgba(252,251,247,.82)}
+html .side .bell{background:rgba(252,251,247,.85)}
+html body .today .btn-s{background:rgba(252,251,247,.92)}
+html .rc-ph,html .gb,html .wb{background-color:#EDEAE5}
+html .chip,html .rc-pill,html .today .tquote{background:rgba(60,48,36,.05)}
+.cl-coarse{background:
+  radial-gradient(circle at 3px 3px,rgba(60,50,40,.22) 0 1.7px,transparent 2.3px) 0 0/6px 6px,
+  radial-gradient(circle at 3px 3px,rgba(60,50,40,.22) 0 1.7px,transparent 2.3px) 3px 3px/6px 6px,#E7E3DD}
+
+/* Simple line icons: one weight, round ends; the active one is ink, the rest soft grey. */
+html .nav .ic{stroke-width:1.6}
+html .nav .ic .acc{fill:currentColor}
+
+/* Today, Base44-style: a quiet neutral paper with a very fine dot texture,
+   framed by a few blue blocks and halftone swatches cropped at the corners.
+   Blue is the one colour; it shows up as solid shapes, not as a wash. */
+
+:root{
+  --blue:#579BFE;          /* brand blue: solid blocks */
+  --blue-ink:#579BFE;      /* deeper blue: buttons and marks (white text reads on it) */
+  --blue-pale:#D7E5FD;
+}
+
+/* Paper: flat neutral with a fine printed dot, no gradient, no large halftone. */
+html .main:has(.today){
+  background:
+    radial-gradient(circle at 1.5px 1.5px,rgba(40,40,42,.07) 0 .7px,transparent 1.1px) 0 0/4px 4px,
+    #EFEFEE;
+}
+html .main:has(.today)::before{content:none}
+html .today{position:static}
+
+/* Cards: solid white, like Base44's prompt box. */
+html .today .card,html .today .card.lime,html .today .card.navy{
+  background:#FEFEFE;-webkit-backdrop-filter:none;backdrop-filter:none;
+}
+
+/* Blue forward: the main action is solid blue everywhere. */
+html .btn-p{background:var(--blue-ink);color:#FEFEFE}
+html .btn-p:hover{background:#2862CF}
+html .btn-p:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px}
+html .side .brand{color:var(--blue-ink)}
+
+/* ---- Collage ---- */
+.collage{position:absolute;inset:0;pointer-events:none;z-index:0}
+.today > :not(.collage){position:relative;z-index:1}
+.cl{position:absolute;display:block;corner-shape:square;border-radius:0}
+.cl svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* top left: pale periwinkle fine halftone */
+.cl-fine{left:0;top:0;width:200px;height:150px;
+  background:radial-gradient(circle at 1.5px 1.5px,rgba(87,155,254,.42) 0 .8px,transparent 1.2px) 0 0/3px 3px,#DCE6FD}
+
+/* top right: solid blue block with a grid and a deeper wave */
+.cl-grid{right:0;top:0;width:150px;height:150px;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 1px,transparent 1px 50px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.28) 0 1px,transparent 1px 50px),
+    var(--blue)}
+.cl-grid path{fill:var(--blue-ink);opacity:.9}
+/* a strip of organic halftone beside it */
+.cl-tone{right:150px;top:0;width:180px;height:52px;
+  background:url(./textures/today-halftone.webp) right top/1440px auto,#E3ECFD}
+
+/* bottom left: solid blue bar chart over a coarse grey halftone strip */
+.cl-bars{left:0;bottom:64px;width:120px;height:150px;background:var(--blue)}
+.cl-bars rect{fill:#A9CBFE}
+.cl-coarse{left:0;bottom:0;width:250px;height:64px;
+  background:
+    radial-gradient(circle at 3px 3px,rgba(40,40,42,.22) 0 1.7px,transparent 2.3px) 0 0/6px 6px,
+    radial-gradient(circle at 3px 3px,rgba(40,40,42,.22) 0 1.7px,transparent 2.3px) 3px 3px/6px 6px,
+    #E4E4E2}
+
+/* bottom right: a tall organic halftone print with a solid blue mark overlapping it */
+.cl-print{right:0;bottom:0;width:190px;height:270px;
+  background:url(./textures/today-halftone.webp) 72% 18%/1100px auto,#E9F0FD}
+.cl-mark{right:148px;bottom:44px;width:84px;height:84px;background:var(--blue-ink);color:#FEFEFE}
+.cl-mark svg{inset:24px 26px;width:32px;height:36px}
+
+@media (max-width:1100px){.cl-tone,.cl-coarse{display:none}}
+
+/* Green: a second, quieter accent. A line screen whose weight steps up like layered terrain. */
+:root{--green:#8DBE6A}
+.cl-coarse{width:120px}
+.cl-green{left:120px;bottom:0;width:160px;height:220px;background:url(./textures/green-lines.webp) center/cover,#F6F9F2}
+
+/* Swatches: greyscale until clicked, then they bloom into colour. */
+.collage{pointer-events:none}
+.cl{pointer-events:auto;cursor:pointer;filter:grayscale(1) contrast(.92) brightness(1.04);transition:filter .5s ease}
+.cl:hover{filter:grayscale(.75) contrast(.95) brightness(1.02)}
+.cl.on{filter:none}
+.cl{border:0;padding:0;margin:0;font:inherit;-webkit-appearance:none;appearance:none}
+.cl:focus-visible{outline:2px solid var(--blue-ink);outline-offset:-2px}
+
+/* ---- Final palette: blue + green in colour, every grey is Pantone White Sand (13-0002) ---- */
+:root{
+  --sand:#DCD8D4;       /* White Sand */
+  --sand-2:#C9C4BF;     /* a shade deeper */
+  --sand-3:#B4AEA8;     /* deepest, for marks */
+}
+.cl,.cl:hover,.cl.on{filter:none;cursor:default}
+.cl{pointer-events:none}
+
+/* Paper dots in White Sand. */
+html body .main:has(.today){
+  background:radial-gradient(circle at 1.5px 1.5px,var(--sand-2) 0 .7px,transparent 1.1px) 0 0/4px 4px,#F2F0ED;
+}
+/* Grid block: sand, white grid, deeper sand wave. */
+.cl-grid{background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,transparent 1px 50px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.55) 0 1px,transparent 1px 50px),var(--sand)}
+.cl-grid path{fill:var(--sand-2);opacity:1}
+/* Coarse halftone strip: sand dots. */
+.cl-coarse{background:
+  radial-gradient(circle at 3px 3px,var(--sand-2) 0 1.7px,transparent 2.3px) 0 0/6px 6px,
+  radial-gradient(circle at 3px 3px,var(--sand-2) 0 1.7px,transparent 2.3px) 3px 3px/6px 6px,#EAE7E3}
+/* Logo tile: deepest sand with white dots. */
+.cl-mark{background:var(--sand-3);color:#FEFEFE}
+html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgba(180,174,168,.32) 0 .7px,transparent 1.1px) 0 0/4px 4px,#F2F0ED}
+
+/* ---- Gradients, seen through the halftone ----
+   Palette A (sunset field): peach → sand → olive → slate teal.
+   Palette B (horizon):      sky blue → pearl → lavender grey → navy. */
+:root{
+  --grad-field:linear-gradient(180deg,#E8B98C 0%,#E2CDB4 26%,#D6D0C2 40%,#9EA06E 62%,#76824E 76%,#45606A 100%);
+  --grad-sky:linear-gradient(180deg,#7EA3D8 0%,#BFD6FE 34%,#EDE7E6 62%,#C9C3C8 74%,#8D8EA2 88%,#3F4C78 100%);
+}
+
+/* Bottom right: the organic halftone, inked with the field gradient. */
+.cl-print{background:var(--grad-field);
+  -webkit-mask:url(./textures/today-halftone.webp) 72% 18%/1100px auto;
+          mask:url(./textures/today-halftone.webp) 72% 18%/1100px auto}
+
+/* Top right strip: the same halftone, inked with the sky gradient (sideways). */
+.cl-tone{background:linear-gradient(90deg,#7EA3D8 0%,#C9C3C8 55%,#3F4C78 100%);
+  -webkit-mask:url(./textures/today-halftone.webp) right top/1440px auto;
+          mask:url(./textures/today-halftone.webp) right top/1440px auto}
+
+/* Top left: a small horizon, sky over a soft arc, with fine print dots and a little grain. */
+.cl-fine{background:
+  radial-gradient(circle at 1.5px 1.5px,rgba(255,255,255,.35) 0 .7px,transparent 1.1px) 0 0/3px 3px,
+  radial-gradient(140% 60% at 30% 118%,#3F4C78 0%,#8D8EA2 38%,#D9D3D6 62%,rgba(237,231,230,0) 64%),
+  linear-gradient(180deg,#7EA3D8 0%,#BFD6FE 45%,#EDE7E6 100%)}
+
+/* ---- Softer blue: dusty sky and ink navy from the horizon palette, instead of screen-bright blue ---- */
+:root{
+  --blue:#579BFE;          /* dusty sky: solid blocks */
+  --blue-ink:#579BFE;      /* ink navy: buttons, logo, focus */
+  --blue-pale:#DCE8FC;
+  --accent:#579BFE; --accent-hover:#6CA8FE; --accent-tint:#E4EEFF; --accent-ink:#579BFE;
+  --g-blue:#579BFE; --dot-client:#579BFE; --slate-tint:#DCE8FC;
+  --aura-line:linear-gradient(90deg,#BFD6FE 0%,#579BFE 100%);
+}
+html .btn-p{background:var(--blue-ink)}
+html .btn-p:hover{background:#344B7D}
+.cl-bars rect{fill:#B9CAE6}
+
+/* ---- Greydient palette (Nurebairo → indigo → Kinariro) ----
+   crow's-feather black · night navy · indigo blue · sage grey · warm stone · dough */
+:root{
+  --gd-crow:#0B0E12; --gd-night:#232A47; --gd-indigo:#4C5D96; --gd-sage:#A3A8A4; --gd-stone:#CFCAC2; --gd-dough:#FBFAF5;
+  --greydient:linear-gradient(180deg,var(--gd-crow) 0%,#151A2A 18%,var(--gd-night) 32%,var(--gd-indigo) 52%,var(--gd-sage) 68%,var(--gd-stone) 82%,var(--gd-dough) 100%);
+
+  /* the blue, from the indigo band */
+  --blue:#579BFE; --blue-ink:#579BFE; --blue-pale:#DCE8FC;
+  --accent:#579BFE; --accent-hover:#6CA8FE; --accent-tint:#E4EEFF; --accent-ink:#579BFE;
+  --g-blue:#579BFE; --dot-client:#579BFE; --slate-tint:#DCE8FC;
+  --aura-line:linear-gradient(90deg,#BFD6FE 0%,#4C5D96 100%);
+}
+html .btn-p{background:var(--blue-ink)}
+html .btn-p:hover{background:#3A4677}
+.cl-bars{background:var(--blue)}
+.cl-bars rect{fill:#AFB8D4}
+
+/* Top left: the greydient itself, as a little night-to-dough sky with grain. */
+.cl-fine{background:var(--ink-grain),var(--greydient)}
+
+/* Top right strip: halftone inked indigo → sage → stone, sideways. */
+.cl-tone{background:linear-gradient(90deg,var(--gd-night) 0%,var(--gd-indigo) 35%,var(--gd-sage) 70%,var(--gd-stone) 100%)}
+
+/* Bottom right: halftone inked with the greydient, flipped so it darkens toward the bottom edge. */
+.cl-print{background:linear-gradient(0deg,var(--gd-crow) 0%,var(--gd-night) 16%,var(--gd-indigo) 38%,var(--gd-sage) 62%,var(--gd-stone) 82%,var(--gd-dough) 100%)}
+
+/* Paper: Kinariro (dough) with sand dots. */
+html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgba(180,174,168,.32) 0 .7px,transparent 1.1px) 0 0/4px 4px,#F4F2EC}
+
+/* ==== Palette (final): cobalt · pale green · light grey · white ====
+   Flat, confident print colours. No gradients on the swatches. */
+:root{
+  --cobalt:#579BFE; --cobalt-2:#6CA8FE; --cobalt-pale:#DCE8FC;
+  --leaf:#CBDFA8;   --leaf-2:#B6D08C;
+  --mist:#C3C2C0;   --mist-2:#D9D8D6; --mist-3:#A9A8A6;
+  --blue:var(--cobalt); --blue-ink:var(--cobalt); --blue-pale:var(--cobalt-pale);
+  --accent:var(--cobalt); --accent-hover:var(--cobalt-2); --accent-ink:var(--cobalt);
+  --sand:var(--mist-2); --sand-2:var(--mist); --sand-3:var(--mist-3);
+  --aura-line:linear-gradient(90deg,#BFD6FE 0%,#579BFE 100%);
+}
+html .btn-p{background:var(--cobalt)}
+html .btn-p:hover{background:#18337A}
+html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgba(169,168,166,.3) 0 .7px,transparent 1.1px) 0 0/4px 4px,#F6F6F4}
+
+/* top left: pale green with fine white print dots */
+.cl-fine{background:radial-gradient(circle at 1.5px 1.5px,rgba(255,255,255,.55) 0 .75px,transparent 1.15px) 0 0/3px 3px,var(--leaf)}
+/* top right: cobalt block, white grid, pale green wave */
+.cl-grid{background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 1px,transparent 1px 50px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.25) 0 1px,transparent 1px 50px),var(--cobalt)}
+.cl-grid path{fill:var(--leaf);opacity:1}
+/* strip beside it: cobalt halftone */
+.cl-tone{background:var(--cobalt)}
+/* bottom left: white tile with cobalt bars (like the reference), over light grey dots */
+.cl-bars{background:#FEFEFE}
+.cl-bars rect{fill:var(--cobalt)}
+.cl-coarse{background:
+  radial-gradient(circle at 3px 3px,var(--mist) 0 1.7px,transparent 2.3px) 0 0/6px 6px,
+  radial-gradient(circle at 3px 3px,var(--mist) 0 1.7px,transparent 2.3px) 3px 3px/6px 6px,#EDEDEB}
+/* green line screen */
+.cl-green{background:url(./textures/green-lines-leaf.webp) center/cover,#FEFEFE}
+/* bottom right: cobalt halftone print, light grey mark */
+.cl-print{background:var(--cobalt)}
+.cl-mark{background:var(--mist);color:#FEFEFE}
+
+/* ==== Back to the bright blue + green collage ==== */
+:root{
+  --blue:#579BFE; --blue-ink:#2F6FE6; --blue-pale:#D7E5FD;
+  --accent:#579BFE; --accent-hover:#6CA8FE; --accent-ink:#2F6FE6;
+  --aura-line:linear-gradient(90deg,#BFD6FE 0%,#579BFE 100%);
+}
+html .btn-p{background:var(--blue-ink)}
+html .btn-p:hover{background:#2862CF}
+html .side .brand{color:var(--blue-ink)}
+html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgba(40,40,42,.07) 0 .7px,transparent 1.1px) 0 0/4px 4px,#EFEFEE}
+
+.cl-fine{background:radial-gradient(circle at 1.5px 1.5px,rgba(87,155,254,.42) 0 .8px,transparent 1.2px) 0 0/3px 3px,#DCE6FD}
+.cl-grid{background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 1px,transparent 1px 50px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.28) 0 1px,transparent 1px 50px),var(--blue)}
+.cl-grid path{fill:var(--blue-ink);opacity:.9}
+.cl-tone{background:var(--blue)}
+.cl-bars{background:var(--blue)}
+.cl-bars rect{fill:#A9CBFE}
+.cl-coarse{background:
+  radial-gradient(circle at 3px 3px,rgba(40,40,42,.22) 0 1.7px,transparent 2.3px) 0 0/6px 6px,
+  radial-gradient(circle at 3px 3px,rgba(40,40,42,.22) 0 1.7px,transparent 2.3px) 3px 3px/6px 6px,#E4E4E2}
+.cl-green{background:url(./textures/green-lines.webp) center/cover,#F6F9F2}
+.cl-print{background:var(--blue)}
+.cl-mark{background:var(--blue-ink);color:#FEFEFE}
+
+/* ---- More green: the second accent, used for "good / done / your move" and in the collage ---- */
+:root{--green:#7DB356;--green-2:#9CCB78;--green-pale:#E6F1DA;--dot-you:#6FA84A;--sage-tint:#E6F1DA}
+/* Status: "Your move" and done/paid read green. */
+html .c-you{background:var(--green-pale);color:#3F6B24}
+html .c-you::before{background:var(--dot-you)}
+html .c-done::before{background:var(--green)}
+/* Progress: completed share of bars in green. */
+html .rc-bar i,html .ps-bar i,html .rm-mini i{background:linear-gradient(90deg,#B9DB9C 0%,var(--green) 100%)}
+/* Collage: green wave in the blue grid, one green bar, green dots in the top-left swatch. */
+.cl-grid path{fill:var(--green-2);opacity:1}
+.cl-bars rect:nth-child(2){fill:var(--green-2)}
+.cl-fine{background:
+  radial-gradient(circle at 1.5px 1.5px,rgba(125,179,86,.5) 0 .8px,transparent 1.2px) 0 0/3px 3px,#E6F1DA}
+html body .chip.c-you{background:var(--green-pale);color:#3F6B24}
+
+/* ---- Web-only: no macOS window buttons here, so the toggle sits in the sidebar's top row ---- */
+html .side-toggle{position:static;margin-left:2px}
+html .side.mini + .main{margin-top:10px;min-height:calc(100vh - 20px)}
+html .side.mini .side-top{margin-top:0}
+html .side .nav{text-decoration:none}

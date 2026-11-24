@@ -245,3 +245,23 @@
     set(T);
   });
 })();
+
+// Collapsible sidebar (same as the desktop app): icons only when collapsed, remembered, ⌘\ toggles.
+(function () {
+  function apply(mini) {
+    var side = document.querySelector('.side'), btn = document.querySelector('.side-toggle');
+    if (!side) return;
+    side.classList.toggle('mini', mini);
+    if (btn) { btn.setAttribute('aria-expanded', String(!mini)); btn.setAttribute('aria-label', mini ? 'Expand sidebar' : 'Collapse sidebar'); }
+    [].forEach.call(side.querySelectorAll('.nav'), function (n) { if (mini) n.title = n.getAttribute('aria-label') || ''; else n.removeAttribute('title'); });
+  }
+  function get() { try { return localStorage.getItem('cueue.sidebar') === 'mini'; } catch (e) { return false; } }
+  function set(v) { try { localStorage.setItem('cueue.sidebar', v ? 'mini' : 'full'); } catch (e) { /* storage unavailable */ } apply(v); }
+  function init() {
+    apply(get());
+    var btn = document.querySelector('.side-toggle');
+    if (btn) btn.addEventListener('click', function () { set(!document.querySelector('.side').classList.contains('mini')); });
+    document.addEventListener('keydown', function (e) { if ((e.metaKey || e.ctrlKey) && e.key === '\\') { e.preventDefault(); set(!get()); } });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
