@@ -297,12 +297,15 @@ html .colhead{box-shadow:none!important}
 
 /* Numbers in Zilla Slab: every digit, $ and % uses the slab serif, words stay in SF Pro.
    Done with a font that only covers those characters, put first in the SF Pro stack. */
-@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-300-normal.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
+@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-400-normal.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
 @font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
-@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
-@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
-@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
+@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-400-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
+@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-400-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
+@font-face{font-family:"Cueue Num";src:url(fonts/zilla-slab-latin-400-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0024-0025,U+0030-0039;size-adjust:108%}
 :root{--sans:"Cueue Num",-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","SF Pro",system-ui,"Helvetica Neue",Arial,sans-serif}
 body{font-family:var(--sans)}
 html body{font-variant-numeric:lining-nums}
 html body *{font-variant-numeric:lining-nums tabular-nums}
+
+/* Zilla Slab is only ever Regular (400): titles, display numbers and digits alike. */
+html{font-synthesis-weight:none}
