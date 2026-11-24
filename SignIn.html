@@ -12,31 +12,20 @@
 </head>
 <body>
 
-<div class="app" style="padding: 10px; gap: 10px">
-  <section class="stack g32" style="flex: 1 1 420px; padding: 56px; justify-content: center; max-width: 560px">
-    <div class="hstack g12"><svg width="30" height="34" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span class="heading">Cueue</span></div>
-    <div class="stack g12"><h1 class="title">Sign in to your studio.</h1><p class="body muted">One place for the plan, the work and the money.</p></div>
-    <form class="stack g16">
-      <label class="field"><span>Email</span><input class="input" type="email" value="mina@studiopark.co"></label>
-      <label class="field"><span>Password</span><input class="input" type="password" value="password12"></label>
-      <a class="btn btn-p btn-full" href="/Main">Sign in</a>
-      <a class="btn btn-s btn-full" href="/Main">Create a studio account</a>
-    </form>
-    <p class="cap muted">Clients do not sign in here. They arrive on an invite link.</p>
-  </section>
-  <section class="card ink" style="flex: 999 1 560px; min-height: 700px; padding: 56px; justify-content: space-between; border-radius: 24px">
-    <div class="lines-v on-dark" style="position: absolute; inset: 0 0 40% 0" aria-hidden="true"></div>
-    <span class="eyebrow" style="color: rgba(255,255,255,.7)">Fernhill Outdoor · Trail Season 2026</span>
-    <svg class="art" viewBox="0 0 280 200" width="420" style="align-self: center" aria-hidden="true">
-      <defs><clipPath id="s1c"><circle cx="112" cy="100" r="62"></circle></clipPath><linearGradient id="s1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DAEF53" stop-opacity="0.5"></stop><stop offset="0.45" stop-color="#579BFE" stop-opacity="0.38"></stop><stop offset="0.8" stop-color="#579BFE" stop-opacity="0.28"></stop><stop offset="1" stop-color="#F3EFE9" stop-opacity="0.15"></stop></linearGradient></defs>
-      <circle cx="168" cy="100" r="62" fill="url(#s1g)" clip-path="url(#s1c)"></circle>
-      <g fill="none" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1" stroke-linecap="round"><circle cx="112" cy="100" r="62"></circle><circle cx="168" cy="100" r="62"></circle><path d="M140 20 V180" stroke-dasharray="4 4"></path></g>
-    </svg>
-    <div class="stack g16">
-      <h2 class="display" style="max-width: 520px">The next move is clear.</h2>
-      <div class="hstack g12" style="background: rgba(255,255,255,.08); border-radius: 14px; padding: 14px 16px; align-self: flex-start"><span class="chip c-you">Approved</span><span class="body">Round 2 approved by Rosa · 4:12 pm</span></div>
-    </div>
-  </section>
+<div class="signin-page" style="min-height:100vh;display:grid;place-items:center;background:var(--paper);padding:40px">
+  <div class="bframe" style="width:520px;max-width:100%">
+    <section class="card" style="padding:44px 44px 36px;gap:28px">
+      <div class="hstack g12"><svg width="30" height="34" viewBox="0 0 105 117" aria-hidden="true"><g fill="currentColor"><circle cx="41" cy="18" r="18"></circle><circle cx="87" cy="18" r="18"></circle><circle cx="18" cy="59" r="18"></circle><circle cx="41" cy="99" r="18"></circle><circle cx="87" cy="99" r="18"></circle></g></svg><span style="font-weight:500;font-size:18px">Cueue</span></div>
+      <div class="stack g8"><h1 class="title" style="font-family:var(--serif);font-weight:400">Sign in to your studio</h1><p class="body muted">One place for the plan, the work and the money.</p></div>
+      <form class="stack g16">
+        <label class="field"><span>Email</span><input class="input" type="email" value="mina@studiopark.co"></label>
+        <label class="field"><span>Password</span><input class="input" type="password" value="password12"></label>
+        <a class="btn btn-p btn-full" href="/Main">Sign in</a>
+        <a class="btn btn-s btn-full" href="/Main">Create a studio account</a>
+      </form>
+      <p class="cap muted">Clients do not sign in here. They arrive on an invite link.</p>
+    </section>
+  </div>
 </div>
 
 <nav class="proto-bar" aria-label="Prototype"><a href="/" class="on">Studio app</a><a href="/CSignIn">Client app</a><a href="/screens">All screens</a></nav>
