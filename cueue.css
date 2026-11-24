@@ -216,3 +216,57 @@ textarea.input{resize:vertical;min-height:96px}
 .ptop{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 8px}
 .pbody{padding:12px 20px 32px;display:flex;flex-direction:column;gap:20px}
 .pbar{margin-top:auto;position:sticky;bottom:0;padding:16px 20px 28px;background:rgba(230,230,227,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:8px;box-shadow:0 -1px 0 var(--line)}
+
+/* Refine pass (Nov 24): no outlines, calmer colour, the soft blue gradient. Same file as the desktop app's refine.css.
+   1. No borders or hairline outlines on cards, buttons, inputs, chips or bars. Surfaces separate by fill and soft shadow.
+   2. The only outline left is a light dashed one, for empty states.
+   3. Colour is rare: neutral buttons and chips, colour only in a status dot, the blue gradient for what needs you, and progress. */
+:root{
+  --shadow:0 1px 2px rgba(40,40,42,.04),0 8px 22px -12px rgba(40,40,42,.12);
+  --shadow-hover:0 2px 6px rgba(40,40,42,.06),0 16px 32px -14px rgba(40,40,42,.20);
+  --aura:linear-gradient(180deg,#F2F6FE 0%,#DDE8FC 100%);
+  --aura-soft:linear-gradient(180deg,#F7F9FE 0%,#E8EFFD 100%);
+  --aura-line:linear-gradient(90deg,#BFD6FE 0%,#579BFE 100%);
+  --fill:#F3F3F1;
+  --empty-line:rgba(40,40,42,.16);
+}
+html .main{background:var(--panel);box-shadow:0 1px 2px rgba(40,40,42,.03)}
+html .nav.on{box-shadow:0 1px 2px rgba(40,40,42,.05);background:var(--white)}
+html .nav.on .ic .acc{fill:var(--ink)}
+html .btn-p{background:var(--ink);color:#FEFEFE}
+html .btn-p:hover{background:#3A3B3D}
+html .btn-p:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html .btn-s{box-shadow:0 1px 2px rgba(40,40,42,.06),0 2px 8px -4px rgba(40,40,42,.12)}
+html .btn-s:hover{background:var(--white);box-shadow:var(--shadow-hover)}
+html .btn-g{background:var(--aura);box-shadow:none}
+html .input{border-color:transparent;background:var(--fill)}
+html .input:focus{border-color:transparent;background:var(--white);box-shadow:0 0 0 3px rgba(87,155,254,.22)}
+html .pick.on{box-shadow:none;background:var(--accent-tint)}
+html .chip{background:rgba(40,40,42,.05);color:var(--ink)}
+html .c-you,html .c-client,html .c-done{background:rgba(40,40,42,.05)}
+html .c-done{color:var(--ink-2)}
+html .c-late{background:rgba(63,32,24,.06);color:var(--brown)}
+html .avatar,html .avatar.blue{background:#EBEBE8}
+html .card.lime{background:var(--aura);border:0;box-shadow:0 1px 2px rgba(40,40,42,.03),0 10px 24px -14px rgba(87,155,254,.35)}
+html .card.lime::before,html .card.lime::after,html .card.blue::after{display:none}
+html .k.lime{background:var(--aura)}
+html .gs::before,html .ev.sug::before{display:none}
+html .gs,html .ev.sug{background:var(--aura)}
+html .step.now{border:0;background:var(--aura)}
+html .k.dash,html .gb.prop,html .rm-seg.prop,html .rm-seg.next{border:0;background:var(--fill)!important}
+html .gb.wait,html .pc.wait .im{box-shadow:none}
+html .pc.prop .im{border:0;background:var(--fill)}
+html .card.dash,html .step:not(.done):not(.now){border:1px dashed var(--empty-line);background:transparent;box-shadow:none}
+html .pcard:hover,html .gb:hover,html .wb:hover,html .ev:hover{box-shadow:var(--shadow-hover)}
+html #roadmap.scrub .k.hit,html #roadmap .k.hov{box-shadow:var(--shadow-hover)}
+html #roadmap.scrub .rm-seg.hit,html .rm-seg.hov{box-shadow:none;filter:brightness(.94)}
+html .gb:not(.prop):not(.arch){background:#ECECE9!important}
+html .gb.wait{background:#F3F3F1!important}
+html .wb{background:#ECECE9!important}
+html .wb .done{background:#DCDCD8!important}
+html .pc.act .im{box-shadow:0 1px 2px rgba(40,40,42,.08)}
+html .gs button,html .ev.sug button{background:var(--ink);color:#FEFEFE}
+html .gs button:hover,html .ev.sug button:hover{background:#3A3B3D}
+html .gs.added{background:#ECECE9}
+html .pav,html .pav.st,html .pav.cl{background:#EBEBE8!important}
+html .colhead{box-shadow:none!important}
