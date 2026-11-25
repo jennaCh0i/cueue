@@ -292,7 +292,7 @@ html .today .card,html .today .card.lime,html .today .card.navy{
 html .btn-p{background:var(--blue-ink);color:#FEFEFE}
 html .btn-p:hover{background:#2862CF}
 html .btn-p:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px}
-html .side .brand{color:var(--blue-ink)}
+html .side .brand{color:var(--ink)}
 
 /* ---- Collage ---- */
 .collage{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -481,7 +481,7 @@ html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgb
 }
 html .btn-p{background:var(--blue-ink)}
 html .btn-p:hover{background:#2862CF}
-html .side .brand{color:var(--blue-ink)}
+html .side .brand{color:var(--ink)}
 html body .main:has(.today){background:radial-gradient(circle at 1.5px 1.5px,rgba(40,40,42,.07) 0 .7px,transparent 1.1px) 0 0/4px 4px,#EFEFEE}
 
 .cl-fine{background:radial-gradient(circle at 1.5px 1.5px,rgba(87,155,254,.42) 0 .8px,transparent 1.2px) 0 0/3px 3px,#DCE6FD}
@@ -519,3 +519,7 @@ html .side-toggle{position:static;margin-left:2px}
 html .side.mini + .main{margin-top:10px;min-height:calc(100vh - 20px)}
 html .side.mini .side-top{margin-top:0}
 html .side .nav{text-decoration:none}
+
+/* Logo: black, 10% smaller */
+html body .side .brand{color:#1C1C1E}
+html body .side .brand svg{width:18px;height:19.8px}
