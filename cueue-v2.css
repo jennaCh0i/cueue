@@ -523,3 +523,6 @@ html .side .nav{text-decoration:none}
 /* Logo: black, 10% smaller */
 html body .side .brand{color:#1C1C1E}
 html body .side .brand svg{width:18px;height:19.8px}
+
+/* Green line-screen: lines only, no background behind them */
+.cl-green{background:url(./textures/green-lines-clear.webp) center/cover}
